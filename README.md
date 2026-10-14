@@ -1,6 +1,6 @@
-# Yilmaz · F-Tax Website V2
+# Yilmaz · F-Tax Website V3
 
-Zehn individuell aufgebaute Seiten für F-Tax Steuerberatung GmbH in Leonding. Statisches HTML ohne Framework oder Paketabhängigkeiten.
+Zehn individuell aufgebaute Seiten für F-Tax Steuerberatung GmbH in Leonding. V3 bringt eine neue Gestaltung mit Weiß, tiefem Blau, warmem Orange, moderner serifenloser Typografie und neuen Seitenkompositionen. Statisches HTML ohne Framework oder Paketabhängigkeiten.
 
 ## Entwickeln und prüfen
 

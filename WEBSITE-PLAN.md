@@ -1,17 +1,17 @@
-# Yilmaz – F-Tax Website V2
+# Yilmaz – F-Tax Website V3
 
 Stand: 14.10.2026. Projekt: Yilmaz. Unternehmen: F-Tax Steuerberatung GmbH, Leonding. Repository: https://github.com/simsek6981/Yilmaz
 
 ## Ausgangslage und Ergebnis
 
-V1 war eine Einseiten-Website mit Sprunglinks und kurzen Leistungsbeschreibungen. V2 bietet zehn eigenständige Seiten mit vertieften Inhalten und individuellen Kompositionen. Navigation, Footer, Buttons und Typografie bilden den gemeinsamen Rahmen.
+V3 bietet zehn eigenständige Seiten mit vertieften Inhalten und einer vollständig neuen visuellen Gestaltung. Die Startseite, Navigation, Wortmarke, Farbwelt, Typografie, Leistungsbereiche, Seiteneinstiege und der Footer sind überarbeitet. Der bereits geprüfte statische Build und die Seitenstruktur bleiben die technische Grundlage.
 
 ## Seiten und individuelle Gestaltung
 
 | Seite | Inhalt | Aufbau |
 | --- | --- | --- |
-| Home | Zwei Sparten, vier steuerliche Themen, Zusammenarbeit vorbereiten | Typografischer Einstieg, Belegmotiv, Schwerpunktflächen, Leistungsverzeichnis |
-| Steuerberatung | Steuerarten, Erklärungen, Finanzamt, Rechtsformwahl und Umgründungen | Paragraphen-Akzent, vier Themenfelder, Vorbereitung, FAQ |
+| Home | Zwei Sparten, vier steuerliche Themen, Zusammenarbeit vorbereiten | Große serifenlose Überschrift, kontrastreiche Kartenillustration, Leistungsband, neue Schwerpunktflächen |
+| Steuerberatung | Steuerarten, Erklärungen, Finanzamt, Rechtsformwahl und Umgründungen | Steuerarten-Übersicht, vier Themenfelder, Vorbereitung, FAQ |
 | Buchhaltung | Finanzbuchhaltung, Einnahmen-Ausgaben-Rechnung | Belegübersicht, zwei Leistungsblöcke, Übergabeablauf, digitales Belegwesen |
 | Lohnverrechnung | Löhne/Gehälter, Meldungen, grenzüberschreitende Beschäftigung | Monatlicher Zyklus, Leistungsschwerpunkte, vertikaler Ablauf, FAQ |
 | Bilanzierung | Jahresabschlüsse und Bilanzen | Zentrierter Einstieg, redaktioneller Aufbau, dunkle Leistungsfläche |
@@ -23,7 +23,7 @@ V1 war eine Einseiten-Website mit Sprunglinks und kurzen Leistungsbeschreibungen
 
 ## Gestaltung und Inhalte
 
-Heller warmer Grundton, dunkles Grün, Salbeitöne und ruhige Serifentypografie. Die Gestaltung baut auf der bisherigen F-Tax-Grundlage auf. Wortmarke und grafische Motive bleiben vorläufig.
+Weiß, tiefes Blau und warme orangefarbene Akzente. Moderne serifenlose Schrift, prägnante Überschriften, abgerundete Flächen und klare Kontraste. Individuelle Grafiken für die Leistungsthemen. Die Startseite führt zuerst zu den beiden Sparten und anschließend zu den einzelnen Leistungen. Wortmarke und grafische Motive sind Entwürfe und stellen keine vorhandene Software oder reale Kundendaten dar.
 
 Die bereitgestellten Bilder konnten trotz erneuter Übernahmeprüfung nicht lokal übertragen werden. Es wurden keine Personenbilder erfunden.
 
