@@ -1,43 +1,54 @@
-# Yilmaz – Website-Grundlage für F-Tax
+# Yilmaz – F-Tax Website V2
 
-Stand: 14.10.2026. Projektname: Yilmaz. Öffentlicher Firmenname: F-Tax Steuerberatung GmbH.
+Stand: 14.10.2026. Projekt: Yilmaz. Unternehmen: F-Tax Steuerberatung GmbH, Leonding. Repository: https://github.com/simsek6981/Yilmaz
 
-## Ziel und Gestaltung
+## Ausgangslage und Ergebnis
 
-Eine ruhige, seriöse Website stellt die zwei Leistungssparten vor: Steuerberatung sowie Unterstützung bei Prozessoptimierung und Digitalisierung. Heller Hintergrund, gedecktes Grün, großzügige Abstände und gut lesbare Schrift. Eine vorläufige F-Tax-Wortmarke wird später durch das bestätigte Logo ersetzt.
+V1 war eine Einseiten-Website mit Sprunglinks und kurzen Leistungsbeschreibungen. V2 bietet zehn eigenständige Seiten mit vertieften Inhalten und individuellen Kompositionen. Navigation, Footer, Buttons und Typografie bilden den gemeinsamen Rahmen.
 
-## Aufbau
+## Seiten und individuelle Gestaltung
 
-| Bereich | Inhalt der Grundlage | Nächste Ergänzung |
+| Seite | Inhalt | Aufbau |
 | --- | --- | --- |
-| Home | Hauptbotschaft, Leistungsübersicht, Sprunglinks | Bestätigtes Logo und Bildmaterial |
-| Steuerberatung | Buchhaltung, Lohnverrechnung, Bilanzierung, Steuerberatung | Bei Bedarf eigene Unterseite und vertiefende Texte |
-| Prozessoptimierung | Abläufe, Schnittstellen, Automatisierung, digitales Belegwesen | Konkrete bestätigte Praxisbeispiele |
-| Über mich | Eigener Bereich, sichtbar als Platzhalter gekennzeichnet | Name, Qualifikation, Werdegang, Porträt |
-| Kontakt | Firmenname und Leonding | Vollständige Adresse, bestätigte geschäftliche Telefonnummer und E-Mail |
-| Fußbereich | UID, Firmenbuchnummer, Firmenbuchgericht | Vollständiges geprüftes Impressum und Datenschutzerklärung |
+| Home | Zwei Sparten, vier steuerliche Themen, Zusammenarbeit vorbereiten | Typografischer Einstieg, Belegmotiv, Schwerpunktflächen, Leistungsverzeichnis |
+| Steuerberatung | Steuerarten, Erklärungen, Finanzamt, Rechtsformwahl und Umgründungen | Paragraphen-Akzent, vier Themenfelder, Vorbereitung, FAQ |
+| Buchhaltung | Finanzbuchhaltung, Einnahmen-Ausgaben-Rechnung | Belegübersicht, zwei Leistungsblöcke, Übergabeablauf, digitales Belegwesen |
+| Lohnverrechnung | Löhne/Gehälter, Meldungen, grenzüberschreitende Beschäftigung | Monatlicher Zyklus, Leistungsschwerpunkte, vertikaler Ablauf, FAQ |
+| Bilanzierung | Jahresabschlüsse und Bilanzen | Zentrierter Einstieg, redaktioneller Aufbau, dunkle Leistungsfläche |
+| Prozessoptimierung | Abläufe, Schnittstellen, Automatisierung, digitales Belegwesen | Dunkler Einstieg, Systemübersicht, vier Ansatzpunkte, Belegbeispiel |
+| Über mich | Bestätigte Firmendaten, persönliche Vorstellung offen | Porträtplatzhalter, Zusammenhang beider Sparten, Unternehmensdaten |
+| Kontakt | Anliegen vorbereiten, Kontaktdaten offen | Standortfläche ohne externen Kartendienst, Vorbereitung, Leistungswege |
+| Impressum | Bekannte Firmenangaben, fehlende Angaben | Eigene Informationsseite, ausdrücklich unvollständiger Entwurf |
+| Datenschutz | Aktueller Funktionsumfang und Hostingfragen | Eigene Informationsseite, vollständige Erklärung noch erforderlich |
 
-## Aktuelle Umsetzung
+## Gestaltung und Inhalte
 
-Eine responsive Einseiten-Website mit den vier gewünschten Navigationspunkten. Smartphone-Menü, interne Navigation und modale Entwürfe für Impressum und Datenschutz sind enthalten. Alle acht Leistungsgruppen basieren auf den gelieferten Angaben. Keine erfundenen Bewertungen, Referenzen, Abschlüsse oder Personendaten. Die WhatsApp-Absendernummer wurde nicht als Geschäftskontakt übernommen, weil diese Verwendung noch nicht bestätigt ist.
+Heller warmer Grundton, dunkles Grün, Salbeitöne und ruhige Serifentypografie. Die Gestaltung baut auf der bisherigen F-Tax-Grundlage auf. Wortmarke und grafische Motive bleiben vorläufig.
 
-Die vier gelieferten JPEG-Dateien konnten in dieser Sitzung nicht visuell geprüft bzw. lokal übernommen werden. Sie sind daher noch nicht eingebaut und können die finale Gestaltung ändern. Das aktuelle grafische Motiv und die Wortmarke sind vorläufig.
+Die bereitgestellten Bilder konnten trotz erneuter Übernahmeprüfung nicht lokal übertragen werden. Es wurden keine Personenbilder erfunden.
 
-Suchmaschinenindexierung bleibt für den Entwurf deaktiviert. Der Quellcode liegt im vom Nutzer bereitgestellten öffentlichen GitHub-Repository. Die Website ist durch den Code-Upload noch nicht veröffentlicht. Kein Backend und keine Datenbank erforderlich. Kein Formular, Tracking oder externe Schriftdateien.
+Alle Leistungen stammen aus den gelieferten Angaben. Keine erfundenen Qualifikationen, Mitarbeiter, Bewertungen oder Zertifizierungen. Arbeitsabläufe sind als mögliche Struktur oder schematische Beispiele gekennzeichnet. Die Nennung von BMD, Microsoft Dynamics, ABAS, Excel und Microsoft 365 bezeichnet keine Herstellerpartnerschaft.
 
-## Reihenfolge der weiteren Arbeit
+## Technik und Qualitätskontrolle
 
-1. Bilder und Logo prüfen, finale Farben und Schrift festlegen.
-2. Angaben für „Über mich“ und die Geschäftskontakte ergänzen.
-3. Texte und Darstellung gemeinsam abstimmen; bei Bedarf die Bereiche in Unterseiten aufteilen.
-4. Impressum und Datenschutz anhand des endgültigen Betriebs ergänzen und prüfen.
-5. Desktop- und Smartphone-Darstellung im Browser prüfen.
-6. Domain, öffentliche Freigabe und SEO für die endgültige Adresse einrichten.
+Quellen, individuelle Seiten, gemeinsames Layout und Assets liegen getrennt unter src/. build.py erzeugt statisches HTML in dist/. Keine externen Pakete, Datenbanken oder Frameworks erforderlich. Die alten doppelten Style-/Script-Ausgaben sind entfernt.
 
-## Repository und Hosting
+Umgesetzt: individuelle Titel und Beschreibungen, semantisches HTML, eine H1 pro Seite, relative Pfade, Breadcrumbs, eigene 404-Seite, Sitemap-/robots-Erzeugung, Canonicals und Organisationsdaten bei konfigurierter endgültiger Basisadresse, Tastatur-Fokuszustände, ohne JavaScript sichtbare Navigation, native FAQs und reduzierte Bewegung.
 
-Das vom Nutzer angelegte Repository `simsek6981/Yilmaz` wurde am 14.10.2026 bereitgestellt: https://github.com/simsek6981/Yilmaz. Es ist öffentlich und enthielt vor dem Website-Upload die initiale README-Datei. Die Website-Grundlage, dieser Plan und die Hinweise zum Einsatz von Skills werden dort abgelegt; die README wird um die Projektdokumentation ergänzt.
+Geprüft werden Build, lokale Links und Sprungziele aller elf HTML-Dateien einschließlich 404, Metadaten, Assets, Sitemap und JavaScript-Syntax. Automatische Prüfungen laufen bei Push und Pull Request. Die Browserumgebung konnte nicht starten; visuelle Desktop-/Mobilkontrolle, interaktive Menütests und Core-Web-Vitals-Messungen sind noch offen.
 
-Die Dateien im Ordner `dist/` sind die unmittelbar ausführbare Website. GitHub Actions kann diesen Ordner veröffentlichen. Eine vorbereitete Actions-Datei ist enthalten; sie wird manuell gestartet und setzt eine aktivierte GitHub-Pages-Konfiguration mit „GitHub Actions“ als Quelle voraus. Die erwartete Adresse nach erfolgreicher Veröffentlichung lautet https://simsek6981.github.io/Yilmaz/; sie ist durch den Code-Upload allein noch nicht aktiv.
+## Zugriff und Veröffentlichung
 
-Ein privates Sites-Projekt wurde angelegt, aber der Quellcode konnte in dieser Sitzung nicht synchronisiert und bereitgestellt werden. Es gibt daher noch keine funktionierende Online-Vorschau. Eine eigenständig im Browser zu öffnende Datei `Yilmaz-Vorschau.html` wird separat mitgeliefert. Die Datei `.openai/hosting.json` gehört zum vorbereiteten Sites-Projekt und ist für GitHub Pages nicht erforderlich.
+Die private Vorschau bleibt die Vorgabe. Standard-Builds deaktivieren Indexierung; noindex und robots.txt ersetzen keinen Zugriffsschutz. Ein öffentliches Pages-Deployment wird bei dieser Überarbeitung nicht gestartet.
+
+Der öffentliche Pages-Workflow ist manuell und zusätzlich durch public_release abgesichert. Nach einer später ausdrücklich gewünschten öffentlichen Freigabe erzeugt der Build mit bestätigter Basisadresse Canonicals, strukturierte Daten und Sitemap. Die Seiten funktionieren unter /Yilmaz/ und unterstützen eine spätere eigene Domain.
+
+Das bestehende private Sites-Projekt bleibt erhalten. Seine Bereitstellung ist wegen der verweigerten lokalen Hostingverbindung noch blockiert. Es gibt keinen bestätigten privaten Online-Link.
+
+## Nächste Ergänzungen
+
+1. Tatsächliches Logo, Bilder und Porträt prüfen und einbauen.
+2. Bestätigten Ansprechpartner, Werdegang, Qualifikationen und Geschäftskontakte ergänzen.
+3. Impressum und Datenschutz anhand des endgültigen Betriebs vervollständigen.
+4. Desktop, Tablet und Smartphone im Browser prüfen; Menü und FAQ mit Tastatur bedienen.
+5. Private Bereitstellung bei funktionierender Hostingverbindung abschließen. Öffentliche Freigabe erst nach ausdrücklicher Änderung der Vorgabe.

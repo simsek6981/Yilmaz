@@ -1,26 +1,53 @@
-# Yilmaz · F-Tax
+# Yilmaz · F-Tax Website V2
 
-Erste Website-Grundlage für F-Tax Steuerberatung GmbH, Leonding.
+Zehn individuell aufgebaute Seiten für F-Tax Steuerberatung GmbH in Leonding. Statisches HTML ohne Framework oder Paketabhängigkeiten.
 
-## Dateien
+## Entwickeln und prüfen
 
-- `dist/index.html`: Inhalte und Struktur
-- `dist/styles.css`: Desktop- und Smartphone-Layout
-- `dist/script.js`: Menü, Navigation und Dialoge
-- `WEBSITE-PLAN.md`: Gestaltung, Stand und nächste Schritte
+Voraussetzungen: Python 3.10+; Node.js für die JavaScript-Syntaxprüfung.
 
-## Lokal ansehen
+```sh
+python build.py
+python verify.py
+node --check src/assets/script.js
+python -m http.server 4173 --directory dist --bind 127.0.0.1
+```
 
-Aus dem Projektordner: `python -m http.server 4173 --directory dist --bind 127.0.0.1`
+Vorschau: http://127.0.0.1:4173 . Alternativ HTML-Dateien direkt öffnen.
 
-Dann `http://127.0.0.1:4173` öffnen. Alternativ `dist/index.html` direkt im Browser öffnen.
+## Projektstruktur
 
-## GitHub Pages
+| Pfad | Zweck |
+| --- | --- |
+| src/pages/ | Individuelle Inhalte und Seitenlayouts |
+| src/templates/layout.html | Gemeinsame Navigation, Footer und Metadaten |
+| src/content/site.json | Firmendaten und Seitenmetadaten |
+| src/assets/ | Styles, JavaScript und Favicon |
+| build.py | Statische Ausgabe, Canonicals, Sitemap und robots.txt |
+| verify.py | Alle Seitenlinks, Assets, Sprungziele und Metadaten prüfen |
+| dist/ | Generierte Website; Änderungen aus src/ übernehmen |
+| .github/workflows/validate.yml | Qualitätsprüfung bei Push und Pull Request |
+| .github/workflows/pages.yml | Manuell gestartete öffentliche Freigabe |
 
-Repository: https://github.com/simsek6981/Yilmaz
+## Zugriff und Veröffentlichung
 
-Unter Settings → Pages die Quelle „GitHub Actions“ wählen. Anschließend den vorbereiteten Workflow „Deploy website to GitHub Pages“ manuell ausführen. Er veröffentlicht nur `dist/`. Die Website wird durch das Hochladen des Codes noch nicht automatisch veröffentlicht.
+Die gewünschte private Vorschau bleibt bestehen. Standard-Builds haben `noindex, nofollow`, eine sperrende robots.txt und eine leere gültige Sitemap. Das ist kein Zugriffsschutz: Eine private Online-Vorschau braucht zusätzlich Hostingzugriffsschutz.
 
-## Status
+Der Pages-Workflow startet nur manuell und nur mit aktiviertem `public_release`. Er wird bei dieser Überarbeitung nicht gestartet. Das GitHub-Repository ist öffentlich: https://github.com/simsek6981/Yilmaz .
 
-Entwurf mit offenen Angaben für Porträt, Lebenslauf, Geschäftsanschrift, Telefonnummer und E-Mail. Impressum und Datenschutz sind als unvollständige Entwürfe markiert. Vor einer öffentlichen Freigabe ergänzen. Die beiliegenden Referenzbilder sind noch nicht integriert. `noindex, nofollow` vor öffentlicher Freigabe bewusst entfernen und die endgültige Domain für Canonical-/SEO-Angaben verwenden.
+Für eine später ausdrücklich genehmigte öffentliche Freigabe:
+
+```sh
+python build.py --public --base-url https://simsek6981.github.io/Yilmaz/
+python verify.py
+```
+
+Unter Settings → Pages „GitHub Actions“ als Quelle wählen. Im Workflow die endgültige HTTPS-Basisadresse angeben. Bei einer eigenen Domain entsprechend ändern. Canonicals und Sitemap werden aus dieser Adresse erzeugt. Relative Assets und Seitenlinks funktionieren unter /Yilmaz/.
+
+## Bestätigte Fakten und offene Angaben
+
+F-Tax Steuerberatung GmbH; Leonding; ATU82256979; FN 655274p; Landesgericht Linz. Die angebotenen Leistungen stammen aus den gelieferten Angaben. Abläufe sind als mögliche Zusammenarbeit oder schematische Beispiele bezeichnet.
+
+Noch offen: Logo/Bilder, Porträt, Name und Werdegang, vollständige Geschäftsadresse, Geschäftstelefon, E-Mail und vollständige rechtliche Angaben. Keine erfundenen Bewertungen, keine vorgetäuschte Nachrichtenübermittlung und kein Dokumenten-Upload.
+
+Build, alle lokalen Seitenverweise und JavaScript-Syntax werden geprüft. Visuelle Browserprüfung, interaktive Menütests und Core-Web-Vitals-Messung sind wegen der nicht startenden Browserumgebung noch offen. Private Veröffentlichung ist weiterhin durch die lokale Hostingverbindung blockiert.
