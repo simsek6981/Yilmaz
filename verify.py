@@ -65,6 +65,12 @@ def verify():
     if len(titles) != len(set(titles)): errors.append('Duplicate page titles')
     if len(descriptions) != len(set(descriptions)): errors.append('Duplicate descriptions')
     ET.parse(DIST/'sitemap.xml')
+    disabled = [page['file'] for page in json.loads((ROOT/'src/content/site.json').read_text(encoding='utf-8'))['pages'] if not page.get('enabled',True)]
+    for filename in disabled:
+        if (DIST/filename).exists(): errors.append(f'Disabled page still served: {filename}')
+        for name, doc in docs.items():
+            if any(urlsplit(link).path == filename for link in doc.links): errors.append(f'{name}: link to disabled page: {filename}')
+    if any(filename in (DIST/'sitemap.xml').read_text(encoding='utf-8') for filename in disabled): errors.append('Disabled page in sitemap')
     if errors: raise SystemExit('\n'.join(errors))
     print(f'PASS: {len(pages)} pages; unique titles/descriptions; all local links, anchors and assets; H1, main and viewport; valid sitemap.')
 

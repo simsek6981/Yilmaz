@@ -22,9 +22,25 @@ def build(base_url='', public=False):
     # Remove only obsolete outputs from V1; never recurse into another directory.
     for name in ('styles.css', 'script.js'):
         (DIST / name).unlink(missing_ok=True)
+    # Disabled pages are retained as source but never served or indexed.
+    pages = [page for page in data['pages'] if page.get('enabled', True)]
+    enabled_files = {page['file'] for page in pages}
     for page in data['pages']:
+        if not page.get('enabled', True):
+            target = (DIST / page['file']).resolve()
+            if not target.is_relative_to(DIST.resolve()):
+                raise ValueError('Disabled page path must stay inside dist.')
+            target.unlink(missing_ok=True)
+    contact_config = json.loads((SRC / 'content/contact.json').read_text(encoding='utf-8'))
+    allowed_config = {key: contact_config.get(key, '') for key in ('serviceId', 'templateId', 'publicKey')}
+    if any(not isinstance(value, str) for value in allowed_config.values()):
+        raise ValueError('EmailJS public configuration must contain strings.')
+    contact_scripts = '<script type="application/json" id="contact-config">' + json.dumps(allowed_config).replace('<', '\\u003c') + '</script><script src="assets/contact.js" defer></script>'
+    for page in pages:
         nav = []
         for group, file, label in [('home','index.html','Home'),('tax','steuerberatung.html','Steuerberatung'),('digital','prozessoptimierung.html','Prozessoptimierung'),('about','ueber-mich.html','Über mich')]:
+            if file not in enabled_files:
+                continue
             attrs = ' aria-current="page"' if page['file'] == file else (' class="active-parent"' if page['group'] == group else '')
             nav.append(f'<a href="{file}"{attrs}>{label}</a>')
         crumbs = ''
@@ -37,14 +53,14 @@ def build(base_url='', public=False):
             url_meta = f'<link rel="canonical" href="{escape(canonical, quote=True)}"><meta property="og:url" content="{escape(canonical, quote=True)}">'
             org = {'@context':'https://schema.org','@type':'Organization','name':data['company']['name'],'url':base_url,'taxID':data['company']['uid'],'address':{'@type':'PostalAddress','addressLocality':'Leonding','addressCountry':'AT'}}
             schema = '<script type="application/ld+json">'+json.dumps(org, ensure_ascii=False).replace('<','\\u003c')+'</script>'
-        values = {'TITLE':escape(page['title']), 'DESCRIPTION':escape(page['description'],quote=True), 'ROBOTS':'index, follow' if public and page['type']!='legal' else 'noindex, nofollow', 'TYPE':page['type'], 'NAV':''.join(nav), 'BREADCRUMBS':crumbs, 'CONTENT':(SRC/'pages'/page['file']).read_text(encoding='utf-8'), 'URL_META':url_meta, 'SCHEMA':schema}
+        values = {'TITLE':escape(page['title']), 'DESCRIPTION':escape(page['description'],quote=True), 'ROBOTS':'index, follow' if public and page['type']!='legal' else 'noindex, nofollow', 'TYPE':page['type'], 'NAV':''.join(nav), 'BREADCRUMBS':crumbs, 'CONTENT':(SRC/'pages'/page['file']).read_text(encoding='utf-8'), 'URL_META':url_meta, 'SCHEMA':schema, 'CONTACT_SCRIPTS':contact_scripts if page['file']=='kontakt.html' else ''}
         html = template
         for key,value in values.items():
             html = html.replace('__'+key+'__', value)
         (DIST/page['file']).write_text(html,encoding='utf-8',newline='\n')
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
     if public:
-        for page in data['pages']:
+        for page in pages:
             if page['type'] != 'legal':
                 sitemap += '<url><loc>'+escape(base_url+('' if page['file']=='index.html' else page['file']))+'</loc></url>'
     sitemap += '</urlset>\n'
@@ -52,11 +68,11 @@ def build(base_url='', public=False):
     robots = 'User-agent: *\nAllow: /\nSitemap: '+base_url+'sitemap.xml\n' if public else 'User-agent: *\nDisallow: /\n'
     (DIST/'robots.txt').write_text(robots,encoding='utf-8')
     not_found = template
-    values.update({'TITLE':'Seite nicht gefunden | F-Tax','DESCRIPTION':'Die angeforderte Seite wurde nicht gefunden.','ROBOTS':'noindex, nofollow','TYPE':'legal','BREADCRUMBS':'','CONTENT':'<section class="wrap section legal-content"><p class="eyebrow">404</p><h1>Hier geht es nicht weiter.</h1><p>Diese Adresse gehört zu keiner verfügbaren Seite.</p><a class="button" href="index.html">Zur Startseite <span aria-hidden="true">→</span></a></section>','URL_META':'','SCHEMA':''})
+    values.update({'TITLE':'Seite nicht gefunden | F-Tax','DESCRIPTION':'Die angeforderte Seite wurde nicht gefunden.','ROBOTS':'noindex, nofollow','TYPE':'legal','BREADCRUMBS':'','CONTENT':'<section class="wrap section legal-content"><p class="eyebrow">404</p><h1>Hier geht es nicht weiter.</h1><p>Diese Adresse gehört zu keiner verfügbaren Seite.</p><a class="button" href="index.html">Zur Startseite <span aria-hidden="true">→</span></a></section>','URL_META':'','SCHEMA':'','CONTACT_SCRIPTS':''})
     for key,value in values.items():
         not_found = not_found.replace('__'+key+'__',value)
     (DIST/'404.html').write_text(not_found,encoding='utf-8',newline='\n')
-    print(f'Built {len(data["pages"])} pages + 404; mode={"public" if public else "private preview"}.')
+    print(f'Built {len(pages)} pages + 404; mode={"public" if public else "private preview"}.')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

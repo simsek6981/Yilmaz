@@ -1,6 +1,6 @@
-# Yilmaz · F-Tax Website V3
+# Yilmaz · F-Tax Website V4
 
-Zehn individuell aufgebaute Seiten für F-Tax Steuerberatung GmbH in Leonding. V3 bringt eine neue Gestaltung mit Weiß, tiefem Blau, warmem Orange, moderner serifenloser Typografie und neuen Seitenkompositionen. Statisches HTML ohne Framework oder Paketabhängigkeiten.
+Neun aktive Seiten für F-Tax Steuerberatung GmbH in Leonding. Die Website konzentriert sich vorerst auf Steuerberatung, Buchhaltung, Lohnverrechnung und Bilanzierung. Ein Leistungsfinder führt zum passenden Angebot und übernimmt das Thema in das neue Kontaktformular. Die Prozessoptimierungsseite ist bis zur späteren Freigabe deaktiviert.
 
 ## Entwickeln und prüfen
 
@@ -10,6 +10,8 @@ Voraussetzungen: Python 3.10+; Node.js für die JavaScript-Syntaxprüfung.
 python build.py
 python verify.py
 node --check src/assets/script.js
+node --check src/assets/contact.js
+node --test tests/contact.test.js
 python -m http.server 4173 --directory dist --bind 127.0.0.1
 ```
 
@@ -22,12 +24,16 @@ Vorschau: http://127.0.0.1:4173 . Alternativ HTML-Dateien direkt öffnen.
 | src/pages/ | Individuelle Inhalte und Seitenlayouts |
 | src/templates/layout.html | Gemeinsame Navigation, Footer und Metadaten |
 | src/content/site.json | Firmendaten und Seitenmetadaten |
+| src/content/contact.json | Öffentliche EmailJS-Konfiguration, aktuell noch leer |
 | src/assets/ | Styles, JavaScript und Favicon |
 | build.py | Statische Ausgabe, Canonicals, Sitemap und robots.txt |
 | verify.py | Alle Seitenlinks, Assets, Sprungziele und Metadaten prüfen |
 | dist/ | Generierte Website; Änderungen aus src/ übernehmen |
 | .github/workflows/validate.yml | Qualitätsprüfung bei Push und Pull Request |
 | .github/workflows/pages.yml | Manuell gestartete öffentliche Freigabe |
+| EMAILJS-SETUP.md | Einrichtung des Kontaktversands im kostenlosen Tarif |
+| templates/contact-email.txt | Inhalt für die feste EmailJS-Vorlage |
+| tests/contact.test.js | Acht Tests für Validierung, Versand und Fehlerfälle |
 
 ## Zugriff und Veröffentlichung
 
@@ -48,6 +54,10 @@ Unter Settings → Pages „GitHub Actions“ als Quelle wählen. Im Workflow di
 
 F-Tax Steuerberatung GmbH; Leonding; ATU82256979; FN 655274p; Landesgericht Linz. Die angebotenen Leistungen stammen aus den gelieferten Angaben. Abläufe sind als mögliche Zusammenarbeit oder schematische Beispiele bezeichnet.
 
-Noch offen: Logo/Bilder, Porträt, Name und Werdegang, vollständige Geschäftsadresse, Geschäftstelefon, E-Mail und vollständige rechtliche Angaben. Keine erfundenen Bewertungen, keine vorgetäuschte Nachrichtenübermittlung und kein Dokumenten-Upload.
+Noch offen: Logo/Bilder, Porträt, Name und Werdegang, vollständige Geschäftsadresse, Geschäftstelefon, direkte E-Mail-Adresse und vollständige rechtliche Angaben. Das neue Formular verwendet EmailJS per REST-API, bleibt aber bis zur Eintragung von Service-ID, Template-ID und Public Key deaktiviert. Das Empfängerpostfach wird in der EmailJS-Vorlage festgelegt. Keine erfundenen Bewertungen und kein Dokumenten-Upload.
+
+## Prozessoptimierung später freigeben
+
+Die Seite bleibt unter src/pages/ erhalten. Ihre Metadaten sind in src/content/site.json mit enabled=false markiert. Der Build entfernt die alte Ausgabe aus dist/, lässt sie aus Navigation und Sitemap weg und prüft, dass aktive Seiten keine Verweise darauf enthalten. Eine spätere Freigabe erfordert zusätzlich passende Navigations- und Inhaltsverweise.
 
 Build, alle lokalen Seitenverweise und JavaScript-Syntax werden geprüft. Visuelle Browserprüfung, interaktive Menütests und Core-Web-Vitals-Messung sind wegen der nicht startenden Browserumgebung noch offen. Private Veröffentlichung ist weiterhin durch die lokale Hostingverbindung blockiert.

@@ -32,3 +32,21 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
     item.classList.add('reveal-ready'); observer.observe(item);
   });
 }
+
+const finder = document.querySelector('.service-finder');
+if (finder) {
+  const topics = {
+    Buchhaltung:{file:'buchhaltung.html',text:'Laufende Finanzbuchhaltung und Einnahmen-Ausgaben-Rechnung: Geschäftsvorfälle und Unterlagen übersichtlich zusammenführen.'},
+    Lohnverrechnung:{file:'lohnverrechnung.html',text:'Lohn- und Gehaltsabrechnung inklusive aller Meldungen – auch bei grenzüberschreitender Beschäftigung.'},
+    Bilanzierung:{file:'bilanzierung.html',text:'Jahresabschlüsse und Bilanzen: Vorhandene Zahlen und Unterlagen für den Abschluss Ihres Geschäftsjahres zusammenführen.'},
+    Steuerberatung:{file:'steuerberatung.html',text:'Steuererklärungen, Vertretung gegenüber dem Finanzamt sowie Beratung zu Rechtsformwahl und Umgründungen.'}
+  };
+  finder.querySelectorAll('[data-service-topic]').forEach(button=>button.addEventListener('click',()=>{
+    const topic=button.dataset.serviceTopic,item=topics[topic];if(!item)return;
+    finder.querySelectorAll('[data-service-topic]').forEach(other=>other.setAttribute('aria-pressed',String(other===button)));
+    finder.querySelector('[data-finder-title]').textContent=topic;
+    finder.querySelector('[data-finder-description]').textContent=item.text;
+    finder.querySelector('[data-finder-link]').setAttribute('href',item.file);
+    finder.querySelector('[data-finder-contact]').setAttribute('href','kontakt.html?thema='+encodeURIComponent(topic));
+  }));
+}

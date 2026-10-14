@@ -19,3 +19,5 @@ jobs:
       - run: python build.py
       - run: python verify.py
       - run: node --check src/assets/script.js
+      - run: node --check src/assets/contact.js
+      - run: node --test tests/contact.test.js

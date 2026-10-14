@@ -14,9 +14,15 @@ Flache .html-URLs und relative Pfade funktionieren ohne Client-Routing und unter
 
 Der Standard-Build deaktiviert Indexierung; private Online-Zugriffe benötigen Hostingzugriffsschutz. Öffentliche Builds erfordern --public und eine HTTPS-Basisadresse. Der Pages-Workflow ist manuell mit expliziter öffentlicher Freigabe. Pushes starten Prüfungen, keine Veröffentlichung.
 
+## Kontaktversand und deaktivierte Seiten
+
+EmailJS wird direkt über die dokumentierte REST-Schnittstelle aufgerufen. Der Browser erhält nur Service-ID, Template-ID und Public Key. Der Empfänger ist in der dienstseitigen Vorlage festgelegt; es gibt keinen frei wählbaren Browser-Empfänger. Ohne Konfiguration ist Versand gesperrt. Die Offline-Vorschau deaktiviert Versand ausdrücklich. Acht Tests prüfen die Verbindung mit simulierten Antworten.
+
+Seiten mit enabled=false bleiben als Quelle erhalten, werden aber aus Ausgabe, Navigation und Sitemap entfernt. verify.py prüft auch Verweise auf deaktivierte Seiten.
+
 ## Inhaltsgrenzen
 
-Personen-, Kontakt- und Rechtsangaben werden nicht erfunden. Fehlende Angaben sind markiert. Formulare und Uploads werden erst mit einem tatsächlich eingerichteten Empfänger ergänzt.
+Personen-, Kontakt- und Rechtsangaben werden nicht erfunden. Fehlende Angaben sind markiert. Das Kontaktformular ist vorbereitet; seine Versandfunktion wird erst nach Eintragung der öffentlichen EmailJS-Konfiguration aktiviert. Uploads sind nicht vorgesehen.
 
 ## Verifikation
 

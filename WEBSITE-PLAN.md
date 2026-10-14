@@ -1,54 +1,41 @@
-# Yilmaz – F-Tax Website V3
+# Yilmaz – F-Tax Website V4
 
-Stand: 14.10.2026. Projekt: Yilmaz. Unternehmen: F-Tax Steuerberatung GmbH, Leonding. Repository: https://github.com/simsek6981/Yilmaz
+Stand: 14.10.2026. Repository: https://github.com/simsek6981/Yilmaz
 
-## Ausgangslage und Ergebnis
+## Aktueller Umfang
 
-V3 bietet zehn eigenständige Seiten mit vertieften Inhalten und einer vollständig neuen visuellen Gestaltung. Die Startseite, Navigation, Wortmarke, Farbwelt, Typografie, Leistungsbereiche, Seiteneinstiege und der Footer sind überarbeitet. Der bereits geprüfte statische Build und die Seitenstruktur bleiben die technische Grundlage.
+Neun aktive Seiten: Home, Steuerberatung, Buchhaltung, Lohnverrechnung, Bilanzierung, Über mich, Kontakt, Impressum und Datenschutz. Die Unterseite zur Prozessoptimierung ist vorerst geschlossen. Ihr Quelltext bleibt für später erhalten, wird aber nicht nach dist/ gebaut, nicht verlinkt und nicht in die Sitemap aufgenommen.
 
-## Seiten und individuelle Gestaltung
+## Inhalt und Nutzbarkeit
 
-| Seite | Inhalt | Aufbau |
-| --- | --- | --- |
-| Home | Zwei Sparten, vier steuerliche Themen, Zusammenarbeit vorbereiten | Große serifenlose Überschrift, kontrastreiche Kartenillustration, Leistungsband, neue Schwerpunktflächen |
-| Steuerberatung | Steuerarten, Erklärungen, Finanzamt, Rechtsformwahl und Umgründungen | Steuerarten-Übersicht, vier Themenfelder, Vorbereitung, FAQ |
-| Buchhaltung | Finanzbuchhaltung, Einnahmen-Ausgaben-Rechnung | Belegübersicht, zwei Leistungsblöcke, Übergabeablauf, digitales Belegwesen |
-| Lohnverrechnung | Löhne/Gehälter, Meldungen, grenzüberschreitende Beschäftigung | Monatlicher Zyklus, Leistungsschwerpunkte, vertikaler Ablauf, FAQ |
-| Bilanzierung | Jahresabschlüsse und Bilanzen | Zentrierter Einstieg, redaktioneller Aufbau, dunkle Leistungsfläche |
-| Prozessoptimierung | Abläufe, Schnittstellen, Automatisierung, digitales Belegwesen | Dunkler Einstieg, Systemübersicht, vier Ansatzpunkte, Belegbeispiel |
-| Über mich | Bestätigte Firmendaten, persönliche Vorstellung offen | Porträtplatzhalter, Zusammenhang beider Sparten, Unternehmensdaten |
-| Kontakt | Anliegen vorbereiten, Kontaktdaten offen | Standortfläche ohne externen Kartendienst, Vorbereitung, Leistungswege |
-| Impressum | Bekannte Firmenangaben, fehlende Angaben | Eigene Informationsseite, ausdrücklich unvollständiger Entwurf |
-| Datenschutz | Aktueller Funktionsumfang und Hostingfragen | Eigene Informationsseite, vollständige Erklärung noch erforderlich |
+Die Startseite konzentriert sich auf die vier steuerlichen Leistungsbereiche. Ein interaktiver Leistungsfinder ordnet das Anliegen ein, zeigt einen passenden Einstieg und führt mit vorausgewähltem Thema zum Kontaktformular. Ohne JavaScript bleiben die normalen Leistungslinks verfügbar.
 
-## Gestaltung und Inhalte
+Die Buchhaltungsseite erklärt konkreter, wie vorhandene Unterlagen den Einstieg erleichtern. Leistungen, Vorbereitung und FAQ bleiben auf den jeweiligen Unterseiten nachvollziehbar. Über mich und die Metadaten konzentrieren sich auf die aktuell sichtbaren Leistungen. Unbestätigte Personen-, Kontakt- und Rechtsangaben werden nicht erfunden.
 
-Weiß, tiefes Blau und warme orangefarbene Akzente. Moderne serifenlose Schrift, prägnante Überschriften, abgerundete Flächen und klare Kontraste. Individuelle Grafiken für die Leistungsthemen. Die Startseite führt zuerst zu den beiden Sparten und anschließend zu den einzelnen Leistungen. Wortmarke und grafische Motive sind Entwürfe und stellen keine vorhandene Software oder reale Kundendaten dar.
+## Kontaktformular
 
-Die bereitgestellten Bilder konnten trotz erneuter Übernahmeprüfung nicht lokal übertragen werden. Es wurden keine Personenbilder erfunden.
+Felder: Name, E-Mail-Adresse, Unternehmen und Telefon optional, Anliegen und Nachricht. Das Thema wird aus einem gültigen Leistungslink übernommen. Versand erfolgt nach Einrichtung über EmailJS mit einer festen Vorlage und einem im Dashboard eingetragenen Zielpostfach.
 
-Alle Leistungen stammen aus den gelieferten Angaben. Keine erfundenen Qualifikationen, Mitarbeiter, Bewertungen oder Zertifizierungen. Arbeitsabläufe sind als mögliche Struktur oder schematische Beispiele gekennzeichnet. Die Nennung von BMD, Microsoft Dynamics, ABAS, Excel und Microsoft 365 bezeichnet keine Herstellerpartnerschaft.
+Der kostenlose Tarif bietet nach Prüfung der offiziellen Preisübersicht 200 Anfragen pro Monat und zwei Vorlagen. Die Umsetzung verwendet eine Vorlage und eine API-Anfrage pro Versand. Keine automatische zusätzliche Antwort und keine Anhänge.
 
-## Technik und Qualitätskontrolle
+Aktuell fehlen Service-ID, Template-ID, Public Key und das festgelegte Empfängerpostfach. Der echte Versand ist deshalb noch gesperrt. Die Offline-Vorschau verhindert Versand unabhängig von der späteren Konfiguration.
 
-Quellen, individuelle Seiten, gemeinsames Layout und Assets liegen getrennt unter src/. build.py erzeugt statisches HTML in dist/. Keine externen Pakete, Datenbanken oder Frameworks erforderlich. Die alten doppelten Style-/Script-Ausgaben sind entfernt.
+Umgesetzt sind Eingabevalidierung, Honeypot, Sperre während des Versands, kurze Begrenzung unmittelbar wiederholter angenommener Anfragen sowie verständliche Erfolgs- und Fehlermeldungen. Eingaben bleiben bei Fehlern erhalten. Erfolg wird erst nach einer erfolgreichen EmailJS-Antwort angezeigt; der tatsächliche Postfacheingang muss nach Einrichtung separat geprüft werden.
 
-Umgesetzt: individuelle Titel und Beschreibungen, semantisches HTML, eine H1 pro Seite, relative Pfade, Breadcrumbs, eigene 404-Seite, Sitemap-/robots-Erzeugung, Canonicals und Organisationsdaten bei konfigurierter endgültiger Basisadresse, Tastatur-Fokuszustände, ohne JavaScript sichtbare Navigation, native FAQs und reduzierte Bewegung.
+## Gestaltung und Technik
 
-Geprüft werden Build, lokale Links und Sprungziele aller elf HTML-Dateien einschließlich 404, Metadaten, Assets, Sitemap und JavaScript-Syntax. Automatische Prüfungen laufen bei Push und Pull Request. Die Browserumgebung konnte nicht starten; visuelle Desktop-/Mobilkontrolle, interaktive Menütests und Core-Web-Vitals-Messungen sind noch offen.
+Weiß, tiefes Blau und warme orangefarbene Akzente. Responsive Formulare und Leistungsauswahl ergänzen die bestehende Gestaltung. Gemeinsames HTML-Layout, individuelle Quellseiten und ein statischer Python-Build ohne Paketabhängigkeiten bleiben erhalten.
 
-## Zugriff und Veröffentlichung
+Kontaktcode: src/assets/contact.js. Öffentliche Konfiguration: src/content/contact.json. Einrichtung und Vorlageninhalt: EMAILJS-SETUP.md und templates/contact-email.txt. Private Schlüssel und Passwörter gehören nicht ins Repository.
 
-Die private Vorschau bleibt die Vorgabe. Standard-Builds deaktivieren Indexierung; noindex und robots.txt ersetzen keinen Zugriffsschutz. Ein öffentliches Pages-Deployment wird bei dieser Überarbeitung nicht gestartet.
+## Prüfungen und offene Punkte
 
-Der öffentliche Pages-Workflow ist manuell und zusätzlich durch public_release abgesichert. Nach einer später ausdrücklich gewünschten öffentlichen Freigabe erzeugt der Build mit bestätigter Basisadresse Canonicals, strukturierte Daten und Sitemap. Die Seiten funktionieren unter /Yilmaz/ und unterstützen eine spätere eigene Domain.
+Build, lokale Verweise, Metadaten und deaktivierte Seiten werden geprüft. Acht automatisierte Kontaktformular-Tests bestehen mit simulierten Netzwerkantworten; keine echten E-Mails wurden versendet. Die Vorschau zeigt alle neun aktiven Seiten und enthält Desktop-/Mobilumschaltung.
 
-Das bestehende private Sites-Projekt bleibt erhalten. Seine Bereitstellung ist wegen der verweigerten lokalen Hostingverbindung noch blockiert. Es gibt keinen bestätigten privaten Online-Link.
+Eine visuelle Browserkontrolle und eine private Online-Veröffentlichung sind in der aktuellen Umgebung weiterhin nicht möglich. Die vorhandene private Veröffentlichungsvorgabe bleibt bestehen; es wird kein öffentliches Pages-Deployment gestartet.
 
-## Nächste Ergänzungen
+Noch erforderlich: EmailJS-Konto konfigurieren, Daten eintragen, echten Versand und Postfacheingang prüfen, bestätigte Firmenkontakte und persönliche Angaben ergänzen sowie rechtliche Hinweise für den tatsächlichen Betrieb vervollständigen.
 
-1. Tatsächliches Logo, Bilder und Porträt prüfen und einbauen.
-2. Bestätigten Ansprechpartner, Werdegang, Qualifikationen und Geschäftskontakte ergänzen.
-3. Impressum und Datenschutz anhand des endgültigen Betriebs vervollständigen.
-4. Desktop, Tablet und Smartphone im Browser prüfen; Menü und FAQ mit Tastatur bedienen.
-5. Private Bereitstellung bei funktionierender Hostingverbindung abschließen. Öffentliche Freigabe erst nach ausdrücklicher Änderung der Vorgabe.
+Quellen:
+- https://www.emailjs.com/pricing/
+- https://www.emailjs.com/docs/rest-api/send/
