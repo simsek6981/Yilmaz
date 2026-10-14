@@ -1,0 +1,64 @@
+<!-- EmailJS: template_tk14gwp | Subject: F-Tax Kontaktanfrage: {{topic}}
+     From Name: F-Tax Website | Reply To: {{reply_to}}
+     To Email: feste Empfaengeradresse im EmailJS-Dashboard eintragen.
+     Diesen gesamten HTML-Code in den Code-Editor des Templates kopieren. -->
+<div lang="de" style="margin:0;padding:0;background-color:#eef2f6;color:#142b45;font-family:Arial,Helvetica,sans-serif;-webkit-text-size-adjust:100%;">
+  <div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">Neue Anfrage von {{from_name}} zum Thema {{topic}}.</div>
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#eef2f6;">
+    <tr><td align="center" style="padding:32px 12px;">
+      <!--[if mso]><table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0"><tr><td><![endif]-->
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px;">
+        <tr><td style="padding:0 4px 16px;font-size:11px;line-height:18px;font-weight:bold;letter-spacing:2px;color:#64748b;">F-TAX &nbsp;/&nbsp; WEBSITE-KONTAKT</td></tr>
+        <tr><td style="height:6px;background-color:#fc784c;border-radius:16px 16px 0 0;font-size:0;line-height:6px;">&nbsp;</td></tr>
+        <tr><td bgcolor="#142b45" style="padding:30px 28px 32px;background-color:#142b45;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tr><td style="font-size:32px;line-height:38px;font-weight:bold;letter-spacing:-1px;color:#ffffff;">F-Tax<span style="color:#fc784c;">.</span></td></tr>
+            <tr><td style="padding-top:4px;font-size:12px;line-height:20px;color:#ced8e3;">STEUERBERATUNG GMBH &nbsp;&middot;&nbsp; LEONDING</td></tr>
+            <tr><td style="padding-top:32px;font-size:11px;line-height:18px;font-weight:bold;letter-spacing:2px;color:#ffad90;">NEUE KONTAKTANFRAGE</td></tr>
+            <tr><td><h1 style="margin:10px 0 0;font-size:30px;line-height:38px;font-weight:bold;letter-spacing:-0.7px;color:#ffffff;">Ein neuer Kontakt.<br>Ein neues Anliegen.</h1></td></tr>
+            <tr><td style="padding-top:14px;font-size:15px;line-height:24px;color:#d7e0e9;">&Uuml;ber das Kontaktformular ist eine Nachricht f&uuml;r F-Tax eingegangen. Alle Angaben finden Sie hier auf einen Blick.</td></tr>
+          </table>
+        </td></tr>
+        <tr><td bgcolor="#ffffff" style="padding:28px;background-color:#ffffff;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="table-layout:fixed;">
+            <tr><td style="padding:16px 18px;background-color:#fff0e9;border-left:3px solid #fc784c;border-radius:0 8px 8px 0;">
+              <p style="margin:0 0 5px;font-size:10px;line-height:16px;letter-spacing:1.6px;font-weight:bold;color:#8a3c22;">ANLIEGEN</p>
+              <p style="margin:0;font-size:19px;line-height:26px;font-weight:bold;color:#142b45;overflow-wrap:anywhere;word-wrap:break-word;">{{topic}}</p>
+            </td></tr>
+            <tr><td style="padding-top:30px;"><h2 style="margin:0;font-size:19px;line-height:26px;color:#142b45;">Ihre Kontaktperson</h2></td></tr>
+            <tr><td style="padding:17px 0 13px;border-bottom:1px solid #e8edf2;">
+              <p style="margin:0 0 5px;font-size:11px;line-height:17px;color:#64748b;">NAME</p>
+              <p style="margin:0;font-size:17px;line-height:25px;font-weight:bold;color:#142b45;overflow-wrap:anywhere;word-wrap:break-word;">{{from_name}}</p>
+            </td></tr>
+            <tr><td style="padding:13px 0;border-bottom:1px solid #e8edf2;">
+              <p style="margin:0 0 5px;font-size:11px;line-height:17px;color:#64748b;">E-MAIL</p>
+              <p style="margin:0;font-size:15px;line-height:23px;color:#142b45;overflow-wrap:anywhere;word-wrap:break-word;">{{from_email}}</p>
+            </td></tr>
+            <tr><td style="padding:13px 0;border-bottom:1px solid #e8edf2;">
+              <p style="margin:0 0 5px;font-size:11px;line-height:17px;color:#64748b;">UNTERNEHMEN</p>
+              <p style="margin:0;font-size:15px;line-height:23px;color:#142b45;overflow-wrap:anywhere;word-wrap:break-word;">{{company}}{{^company}}Nicht angegeben{{/company}}</p>
+            </td></tr>
+            <tr><td style="padding:13px 0;border-bottom:1px solid #e8edf2;">
+              <p style="margin:0 0 5px;font-size:11px;line-height:17px;color:#64748b;">TELEFON</p>
+              <p style="margin:0;font-size:15px;line-height:23px;color:#142b45;overflow-wrap:anywhere;word-wrap:break-word;">{{phone}}{{^phone}}Nicht angegeben{{/phone}}</p>
+            </td></tr>
+            <tr><td style="padding:28px 0 12px;"><h2 style="margin:0;font-size:19px;line-height:26px;color:#142b45;">Die Nachricht</h2></td></tr>
+            <tr><td style="padding:20px;background-color:#f4f6f9;border:1px solid #e8edf2;border-radius:10px;">
+              <div style="margin:0;font-size:15px;line-height:26px;color:#263d55;white-space:pre-wrap;overflow-wrap:anywhere;word-wrap:break-word;">{{message}}</div>
+            </td></tr>
+            <tr><td style="padding:26px 0 0;">
+              <p style="margin:0 0 6px;font-size:15px;line-height:23px;font-weight:bold;color:#142b45;">Das Gespr&auml;ch fortsetzen</p>
+              <p style="margin:0;font-size:13px;line-height:21px;color:#596b7d;">Nutzen Sie &bdquo;Antworten&ldquo; in Ihrem E-Mail-Programm. Die Antwortadresse ist <span style="color:#142b45;overflow-wrap:anywhere;word-wrap:break-word;">{{reply_to}}</span>.</p>
+            </td></tr>
+          </table>
+        </td></tr>
+        <tr><td style="padding:20px 28px;background-color:#f8fafc;border-top:1px solid #e8edf2;border-radius:0 0 16px 16px;">
+          <p style="margin:0;font-size:12px;line-height:20px;font-weight:bold;color:#142b45;">F-Tax Steuerberatung GmbH</p>
+          <p style="margin:3px 0 0;font-size:11px;line-height:19px;color:#64748b;">Leonding &middot; FN 655274p &middot; Landesgericht Linz<br>UID ATU82256979</p>
+        </td></tr>
+        <tr><td align="center" style="padding:18px 20px 0;font-size:11px;line-height:18px;color:#64748b;">Automatisch &uuml;bermittelter Inhalt des Kontaktformulars.<br>Die Angaben stammen von der anfragenden Person.</td></tr>
+      </table>
+      <!--[if mso]></td></tr></table><![endif]-->
+    </td></tr>
+  </table>
+</div>

@@ -1,8 +1,25 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const api = require('../src/assets/contact.js');
+const fs = require('node:fs');
+const path = require('node:path');
 const config = { serviceId:'service_test', templateId:'template_test', publicKey:'public_test' };
 const data = { from_name:'  Muster Person ', from_email:' person@example.com ', company:'Beispiel GmbH', phone:'', topic:'Buchhaltung', message:'Bitte informieren Sie mich über die laufende Buchhaltung.', website:'' };
+
+test('HTML template variables match the actual API payload and stay HTML-escaped', async () => {
+  const html = fs.readFileSync(path.join(__dirname, '../templates/contact-email.html'), 'utf8');
+  let params;
+  await api.sendMessage(data, config, async (_, options) => {
+    params = JSON.parse(options.body).template_params;
+    return {ok:true,status:200};
+  });
+  const variables = [...new Set([...html.matchAll(/\{\{[#^/]?([a-z_]+)\}\}/g)].map(match => match[1]))].sort();
+  assert.deepEqual(variables, Object.keys(params).sort());
+  assert.equal(html.includes('{{{'), false);
+  assert.equal(/<script\b/i.test(html), false);
+  assert.equal(html.includes('white-space:pre-wrap'), true);
+  for (const field of ['company', 'phone']) assert.ok(html.includes('{{^'+field+'}}Nicht angegeben{{/'+field+'}}'));
+});
 
 test('Missing keys and placeholder keys cannot enable sending', () => {
   assert.equal(api.isConfigured({}), false);

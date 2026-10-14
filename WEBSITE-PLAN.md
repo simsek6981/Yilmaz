@@ -18,7 +18,7 @@ Felder: Name, E-Mail-Adresse, Unternehmen und Telefon optional, Anliegen und Nac
 
 Der kostenlose Tarif bietet nach Prüfung der offiziellen Preisübersicht 200 Anfragen pro Monat und zwei Vorlagen. Die Umsetzung verwendet eine Vorlage und eine API-Anfrage pro Versand. Keine automatische zusätzliche Antwort und keine Anhänge.
 
-Aktuell fehlen Service-ID, Template-ID, Public Key und das festgelegte Empfängerpostfach. Der echte Versand ist deshalb noch gesperrt. Die Offline-Vorschau verhindert Versand unabhängig von der späteren Konfiguration.
+Service-ID, Template-ID und Public Key sind eingetragen. Die gestaltete HTML-Vorlage für template_tk14gwp liegt unter templates/contact-email.html bereit. Vorlage, festes Empfängerpostfach und tatsächlicher Postfacheingang müssen im EmailJS-Konto noch geprüft werden. Die Offline-Vorschau verhindert Versand unabhängig von der Konfiguration.
 
 Umgesetzt sind Eingabevalidierung, Honeypot, Sperre während des Versands, kurze Begrenzung unmittelbar wiederholter angenommener Anfragen sowie verständliche Erfolgs- und Fehlermeldungen. Eingaben bleiben bei Fehlern erhalten. Erfolg wird erst nach einer erfolgreichen EmailJS-Antwort angezeigt; der tatsächliche Postfacheingang muss nach Einrichtung separat geprüft werden.
 
@@ -26,15 +26,15 @@ Umgesetzt sind Eingabevalidierung, Honeypot, Sperre während des Versands, kurze
 
 Weiß, tiefes Blau und warme orangefarbene Akzente. Responsive Formulare und Leistungsauswahl ergänzen die bestehende Gestaltung. Gemeinsames HTML-Layout, individuelle Quellseiten und ein statischer Python-Build ohne Paketabhängigkeiten bleiben erhalten.
 
-Kontaktcode: src/assets/contact.js. Öffentliche Konfiguration: src/content/contact.json. Einrichtung und Vorlageninhalt: EMAILJS-SETUP.md und templates/contact-email.txt. Private Schlüssel und Passwörter gehören nicht ins Repository.
+Kontaktcode: src/assets/contact.js. Öffentliche Konfiguration: src/content/contact.json. Einrichtung und Vorlageninhalt: EMAILJS-SETUP.md und templates/contact-email.html. Private Schlüssel und Passwörter gehören nicht ins Repository.
 
 ## Prüfungen und offene Punkte
 
-Build, lokale Verweise, Metadaten und deaktivierte Seiten werden geprüft. Acht automatisierte Kontaktformular-Tests bestehen mit simulierten Netzwerkantworten; keine echten E-Mails wurden versendet. Die Vorschau zeigt alle neun aktiven Seiten und enthält Desktop-/Mobilumschaltung.
+Build, lokale Verweise, Metadaten und deaktivierte Seiten werden geprüft. Neun automatisierte Kontaktformular-Tests bestehen mit simulierten Netzwerkantworten; keine echten E-Mails wurden versendet. Die Vorschau zeigt alle neun aktiven Seiten und enthält Desktop-/Mobilumschaltung.
 
 Eine visuelle Browserkontrolle und eine private Online-Veröffentlichung sind in der aktuellen Umgebung weiterhin nicht möglich. Die vorhandene private Veröffentlichungsvorgabe bleibt bestehen; es wird kein öffentliches Pages-Deployment gestartet.
 
-Noch erforderlich: EmailJS-Konto konfigurieren, Daten eintragen, echten Versand und Postfacheingang prüfen, bestätigte Firmenkontakte und persönliche Angaben ergänzen sowie rechtliche Hinweise für den tatsächlichen Betrieb vervollständigen.
+Noch erforderlich: HTML-Vorlage und Empfänger im EmailJS-Dashboard speichern bzw. prüfen, echten Versand und Postfacheingang prüfen, bestätigte Firmenkontakte und persönliche Angaben ergänzen sowie rechtliche Hinweise für den tatsächlichen Betrieb vervollständigen.
 
 Quellen:
 - https://www.emailjs.com/pricing/

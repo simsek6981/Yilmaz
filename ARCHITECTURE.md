@@ -16,7 +16,7 @@ Der Standard-Build deaktiviert Indexierung; private Online-Zugriffe benötigen H
 
 ## Kontaktversand und deaktivierte Seiten
 
-EmailJS wird direkt über die dokumentierte REST-Schnittstelle aufgerufen. Der Browser erhält nur Service-ID, Template-ID und Public Key. Der Empfänger ist in der dienstseitigen Vorlage festgelegt; es gibt keinen frei wählbaren Browser-Empfänger. Ohne Konfiguration ist Versand gesperrt. Die Offline-Vorschau deaktiviert Versand ausdrücklich. Acht Tests prüfen die Verbindung mit simulierten Antworten.
+EmailJS wird direkt über die dokumentierte REST-Schnittstelle aufgerufen. Der Browser erhält nur Service-ID, Template-ID und Public Key. Der Empfänger ist in der dienstseitigen Vorlage festgelegt; es gibt keinen frei wählbaren Browser-Empfänger. Ohne Konfiguration ist Versand gesperrt. Die Offline-Vorschau deaktiviert Versand ausdrücklich. Neun Tests prüfen die Verbindung mit simulierten Antworten.
 
 Seiten mit enabled=false bleiben als Quelle erhalten, werden aber aus Ausgabe, Navigation und Sitemap entfernt. verify.py prüft auch Verweise auf deaktivierte Seiten.
 

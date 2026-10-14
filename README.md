@@ -24,7 +24,7 @@ Vorschau: http://127.0.0.1:4173 . Alternativ HTML-Dateien direkt öffnen.
 | src/pages/ | Individuelle Inhalte und Seitenlayouts |
 | src/templates/layout.html | Gemeinsame Navigation, Footer und Metadaten |
 | src/content/site.json | Firmendaten und Seitenmetadaten |
-| src/content/contact.json | Öffentliche EmailJS-Konfiguration, aktuell noch leer |
+| src/content/contact.json | Vom Nutzer bereitgestellte öffentliche EmailJS-Konfiguration |
 | src/assets/ | Styles, JavaScript und Favicon |
 | build.py | Statische Ausgabe, Canonicals, Sitemap und robots.txt |
 | verify.py | Alle Seitenlinks, Assets, Sprungziele und Metadaten prüfen |
@@ -32,7 +32,9 @@ Vorschau: http://127.0.0.1:4173 . Alternativ HTML-Dateien direkt öffnen.
 | .github/workflows/validate.yml | Qualitätsprüfung bei Push und Pull Request |
 | .github/workflows/pages.yml | Manuell gestartete öffentliche Freigabe |
 | EMAILJS-SETUP.md | Einrichtung des Kontaktversands im kostenlosen Tarif |
-| templates/contact-email.txt | Inhalt für die feste EmailJS-Vorlage |
+| templates/contact-email.html | Gestaltete HTML-Vorlage für den EmailJS-Code-Editor |
+| templates/contact-email-preview.html | Designvorschau mit fiktiven Beispieldaten |
+| templates/contact-email.txt | Einfache Textalternative |
 | tests/contact.test.js | Acht Tests für Validierung, Versand und Fehlerfälle |
 
 ## Zugriff und Veröffentlichung
@@ -54,7 +56,7 @@ Unter Settings → Pages „GitHub Actions“ als Quelle wählen. Im Workflow di
 
 F-Tax Steuerberatung GmbH; Leonding; ATU82256979; FN 655274p; Landesgericht Linz. Die angebotenen Leistungen stammen aus den gelieferten Angaben. Abläufe sind als mögliche Zusammenarbeit oder schematische Beispiele bezeichnet.
 
-Noch offen: Logo/Bilder, Porträt, Name und Werdegang, vollständige Geschäftsadresse, Geschäftstelefon, direkte E-Mail-Adresse und vollständige rechtliche Angaben. Das neue Formular verwendet EmailJS per REST-API, bleibt aber bis zur Eintragung von Service-ID, Template-ID und Public Key deaktiviert. Das Empfängerpostfach wird in der EmailJS-Vorlage festgelegt. Keine erfundenen Bewertungen und kein Dokumenten-Upload.
+Noch offen: Logo/Bilder, Porträt, Name und Werdegang, vollständige Geschäftsadresse, Geschäftstelefon, direkte E-Mail-Adresse und vollständige rechtliche Angaben. Die öffentlichen EmailJS-Zugangsdaten sind eingetragen. HTML-Vorlage und festes Empfängerpostfach müssen im EmailJS-Dashboard noch gespeichert bzw. geprüft werden. Ein echter Versandtest steht aus. Keine erfundenen Bewertungen und kein Dokumenten-Upload.
 
 ## Prozessoptimierung später freigeben
 
