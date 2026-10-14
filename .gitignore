@@ -1,0 +1,7 @@
+.env
+.env.*
+node_modules/
+.sites-local/
+*.tar.gz
+*.zip
+__pycache__/
