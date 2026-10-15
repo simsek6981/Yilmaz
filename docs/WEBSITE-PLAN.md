@@ -23,3 +23,11 @@ Automatische Prüfungen von Root-Seiten, Verweisen, Metadaten, Schema und Formul
 HTML-Mail im Dashboard speichern, Empfänger und Dienst prüfen, echten Eingang testen. Laut Preisübersicht keine Domain-Allowlist in Free. Keine Live-Mails versendet oder Tarife geändert.
 
 GitHub Pages ist für main / (root) vorbereitet, aber nicht öffentlich aktiviert. Bestätigte Firmenkontakte, Geschäftsanschrift, persönliche Vorstellung und vollständige rechtliche Texte fehlen weiterhin.
+
+# Fortschreibung V2 · 15.10.2026
+
+Die obigen Abschnitte dokumentieren den bisherigen Projektstand. V2 erweitert die Gestaltung um lokale SVG-Bildwelt, Kupferakzent, Leistungskarten, Unternehmensabschnitt und Beratungsablauf. Die vier Leistungen behalten ihre Inhalte und erhalten Themen-Navigation, Belegkarte, Monatszyklus bzw. Abschlussgrafik; zusätzliche FAQ bei Buchhaltung und Bilanzierung.
+
+Gemeinsame Elemente liegen jetzt in components/ und werden in die weiterhin direkt nutzbaren Root-HTML-Dateien synchronisiert. Der optionale Build tools/package.py erstellt ein ignoriertes dist ausschließlich mit Website-Dateien. Der Pages-Workflow nutzt dieses Paket; PAGES_ENABLED steuert die spätere Aktivierung. Keine zusätzlichen Frameworks oder Abhängigkeiten.
+
+Die Browserprüfung funktioniert nun. Ergebnis und Grenzen: docs/QUALITY.md. Bestandsanalyse: docs/ANALYSIS-V2.md. Noch fehlende Unternehmensangaben bleiben sichtbar markiert; Indexierung bleibt im Vorschaumodus. README und ARCHITECTURE beschreiben den aktuellen Workflow.

@@ -107,7 +107,7 @@ def verify(root=ROOT,allow_legacy=False):
     if fields!={'from_name','from_email','phone','company','topic','message','website'}: errors.append('Form field contract changed')
     if c.script_paths.count('assets/js/contact.js')!=1: errors.append('Contact script missing or duplicated')
     if not (root/'.nojekyll').exists(): errors.append('.nojekyll missing')
-    if not allow_legacy and any((root/f).exists() for f in ('dist','src','templates','build.py')): errors.append('Legacy build files remain')
+    if not allow_legacy and any((root/f).exists() for f in ('src','templates','build.py')): errors.append('Legacy build files remain')
     if (root/'prozessoptimierung.html').exists(): errors.append('Disabled page is present')
     if errors: raise SystemExit('\n'.join(errors))
     print(f'PASS: {len(docs)} root pages; links, anchors, metadata, schema, form contract, sitemap and indexing ({settings["indexing"]}).')
