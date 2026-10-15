@@ -1,0 +1,86 @@
+{
+  "base_url": "https://simsek6981.github.io/Yilmaz/",
+  "indexing": "preview",
+  "pages": [
+    {
+      "file": "index.html",
+      "label": "Home",
+      "title": "Steuerberatung in Leonding | F-Tax Steuerberatung GmbH",
+      "description": "F-Tax in Leonding: Buchhaltung, Lohnverrechnung, Jahresabschlüsse und Steuerberatung. Entdecken Sie unsere Leistungen und schildern Sie uns Ihr Anliegen.",
+      "type": "home",
+      "group": "home"
+    },
+    {
+      "file": "steuerberatung.html",
+      "label": "Steuerberatung",
+      "title": "Steuerberatung in Leonding | F-Tax",
+      "description": "Einkommen-, Körperschaft- und Umsatzsteuer, Steuererklärungen, Vertretung vor dem Finanzamt sowie Beratung zu Rechtsformwahl und Umgründungen.",
+      "type": "tax",
+      "group": "tax"
+    },
+    {
+      "file": "buchhaltung.html",
+      "label": "Buchhaltung",
+      "title": "Buchhaltung & Einnahmen-Ausgaben-Rechnung | F-Tax Leonding",
+      "description": "Laufende Finanzbuchhaltung und Einnahmen-Ausgaben-Rechnung: F-Tax unterstützt Sie dabei, Ihre Geschäftsvorfälle übersichtlich zu erfassen.",
+      "type": "books",
+      "group": "tax"
+    },
+    {
+      "file": "lohnverrechnung.html",
+      "label": "Lohnverrechnung",
+      "title": "Lohn- & Gehaltsverrechnung | F-Tax Leonding",
+      "description": "Lohn- und Gehaltsabrechnung inklusive aller Meldungen, auch bei grenzüberschreitender Beschäftigung. Lohnverrechnung mit F-Tax.",
+      "type": "payroll",
+      "group": "tax"
+    },
+    {
+      "file": "bilanzierung.html",
+      "label": "Bilanzierung",
+      "title": "Bilanzierung & Jahresabschlüsse | F-Tax Leonding",
+      "description": "Jahresabschlüsse und Bilanzen mit F-Tax Steuerberatung GmbH in Leonding. Erfahren Sie mehr über die Vorbereitung und Abstimmung Ihrer Unterlagen.",
+      "type": "balance",
+      "group": "tax"
+    },
+    {
+      "file": "ueber-mich.html",
+      "label": "Über F-Tax",
+      "title": "Über F-Tax Steuerberatung GmbH | Leonding",
+      "description": "Lernen Sie F-Tax Steuerberatung GmbH in Leonding kennen: Buchhaltung, Lohnverrechnung, Bilanzierung und Beratung zu steuerlichen Fragen.",
+      "type": "about",
+      "group": "about"
+    },
+    {
+      "file": "kontakt.html",
+      "label": "Kontakt",
+      "title": "Kontakt | F-Tax Steuerberatung GmbH Leonding",
+      "description": "Stellen Sie F-Tax eine Anfrage zu Buchhaltung, Lohnverrechnung, Bilanzierung oder Steuerberatung. Kontaktformular für Ihr Anliegen.",
+      "type": "contact",
+      "group": "contact"
+    },
+    {
+      "file": "impressum.html",
+      "label": "Impressum",
+      "title": "Impressum – Entwurf | F-Tax",
+      "description": "Bekannte Unternehmensangaben der F-Tax Steuerberatung GmbH. Der Impressumsentwurf wird vor der öffentlichen Freigabe vervollständigt.",
+      "type": "legal",
+      "group": "legal"
+    },
+    {
+      "file": "datenschutz.html",
+      "label": "Datenschutz",
+      "title": "Datenschutz – Entwurf | F-Tax",
+      "description": "Informationen zum aktuellen Website-Entwurf und den noch zu ergänzenden Datenschutzhinweisen.",
+      "type": "legal",
+      "group": "legal"
+    },
+    {
+      "label": "Seite nicht gefunden",
+      "title": "Seite nicht gefunden | F-Tax",
+      "description": "Die gesuchte Seite ist nicht verfügbar. Finden Sie die Leistungen und den Kontakt von F-Tax auf der Startseite.",
+      "type": "legal",
+      "group": "legal",
+      "file": "404.html"
+    }
+  ]
+}

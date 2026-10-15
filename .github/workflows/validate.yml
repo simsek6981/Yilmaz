@@ -16,8 +16,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: python build.py
-      - run: python verify.py
-      - run: node --check src/assets/script.js
-      - run: node --check src/assets/contact.js
+      - run: python tools/verify.py
+      - run: python tests/release_test.py
+      - run: python tools/email-preview.py
+      - run: node --check assets/js/main.js
+      - run: node --check assets/js/contact.js
       - run: node --test tests/contact.test.js
+      - name: Ensure dist is not tracked
+        run: test -z "$(git ls-files dist)"

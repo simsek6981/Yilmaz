@@ -1,65 +1,88 @@
-# Yilmaz · F-Tax Website V4
+# F-Tax · Yilmaz
 
-Neun aktive Seiten für F-Tax Steuerberatung GmbH in Leonding. Die Website konzentriert sich vorerst auf Steuerberatung, Buchhaltung, Lohnverrechnung und Bilanzierung. Ein Leistungsfinder führt zum passenden Angebot und übernimmt das Thema in das neue Kontaktformular. Die Prozessoptimierungsseite ist bis zur späteren Freigabe deaktiviert.
+Neu gestaltete Website für **F-Tax Steuerberatung GmbH in Leonding**: warmes Weiß, Dunkelgrün, Salbeitöne, Serifenschrift und individuelle Seitenlayouts. Die fertigen HTML-Seiten liegen direkt im Root. Kein Framework, keine Paketinstallation, kein Build und kein `dist`-Ordner.
 
-## Entwickeln und prüfen
+## Vorschau
 
-Voraussetzungen: Python 3.10+; Node.js für die JavaScript-Syntaxprüfung.
+`index.html` direkt öffnen oder `python -m http.server 8000` im Repository ausführen und `http://localhost:8000/` aufrufen. Die im Chat bereitgestellte Einzeldatei-Vorschau sperrt den E-Mail-Versand ausdrücklich. Die echten Root-Seiten enthalten die bereitgestellte EmailJS-Konfiguration.
 
-```sh
-python build.py
-python verify.py
-node --check src/assets/script.js
-node --check src/assets/contact.js
-node --test tests/contact.test.js
-python -m http.server 4173 --directory dist --bind 127.0.0.1
-```
-
-Vorschau: http://127.0.0.1:4173 . Alternativ HTML-Dateien direkt öffnen.
-
-## Projektstruktur
+## Struktur
 
 | Pfad | Zweck |
 | --- | --- |
-| src/pages/ | Individuelle Inhalte und Seitenlayouts |
-| src/templates/layout.html | Gemeinsame Navigation, Footer und Metadaten |
-| src/content/site.json | Firmendaten und Seitenmetadaten |
-| src/content/contact.json | Vom Nutzer bereitgestellte öffentliche EmailJS-Konfiguration |
-| src/assets/ | Styles, JavaScript und Favicon |
-| build.py | Statische Ausgabe, Canonicals, Sitemap und robots.txt |
-| verify.py | Alle Seitenlinks, Assets, Sprungziele und Metadaten prüfen |
-| dist/ | Generierte Website; Änderungen aus src/ übernehmen |
-| .github/workflows/validate.yml | Qualitätsprüfung bei Push und Pull Request |
-| .github/workflows/pages.yml | Manuell gestartete öffentliche Freigabe |
-| EMAILJS-SETUP.md | Einrichtung des Kontaktversands im kostenlosen Tarif |
-| templates/contact-email.html | Gestaltete HTML-Vorlage für den EmailJS-Code-Editor |
-| templates/contact-email-preview.html | Designvorschau mit fiktiven Beispieldaten |
-| templates/contact-email.txt | Einfache Textalternative |
-| tests/contact.test.js | Acht Tests für Validierung, Versand und Fehlerfälle |
+| `index.html` | Startseite mit Leistungsfinder |
+| `steuerberatung.html` | Steuerarten, Vertretung, Rechtsformwahl, Umgründungen |
+| `buchhaltung.html` | Finanzbuchhaltung und Einnahmen-Ausgaben-Rechnung |
+| `lohnverrechnung.html` | Lohn- und Gehaltsabrechnung inklusive Meldungen |
+| `bilanzierung.html` | Jahresabschluss und Bilanz |
+| `ueber-mich.html` | Über F-Tax; bestehende URL erhalten |
+| `kontakt.html` | Formular und öffentliche EmailJS-Konfiguration |
+| `impressum.html`, `datenschutz.html`, `404.html` | Rechtliche Entwürfe und Fehlerseite |
+| `assets/css/style.css` | Gestaltung und responsive Layouts |
+| `assets/js/main.js`, `assets/js/contact.js` | Navigation, Leistungsfinder und Kontaktversand |
+| `assets/icons/favicon.svg` | Lokales Favicon |
+| `assets/email-templates/contact-notification.html` | HTML-Code für EmailJS |
+| `docs/` | Planung, Einrichtung, Architektur, Metadaten und E-Mail-Designvorschau |
+| `tools/`, `tests/` | Optionale Prüfungen und Hilfswerkzeuge |
+| `.github/workflows/validate.yml` | Automatische Prüfung ohne Veröffentlichung |
 
-## Zugriff und Veröffentlichung
+`dist/`, `src/` und `templates/` wurden nach Prüfung der neuen Root-Seiten entfernt. `dist/` ist künftig ausgeschlossen. Prozessoptimierung ist nicht vorhanden, verlinkt oder in der Sitemap. Der Entwurf bleibt in der Git-Historie erhalten.
 
-Die gewünschte private Vorschau bleibt bestehen. Standard-Builds haben `noindex, nofollow`, eine sperrende robots.txt und eine leere gültige Sitemap. Das ist kein Zugriffsschutz: Eine private Online-Vorschau braucht zusätzlich Hostingzugriffsschutz.
+## EmailJS: neues Template einsetzen
 
-Der Pages-Workflow startet nur manuell und nur mit aktiviertem `public_release`. Er wird bei dieser Überarbeitung nicht gestartet. Das GitHub-Repository ist öffentlich: https://github.com/simsek6981/Yilmaz .
+Die Werte sind bereits in `kontakt.html` eingetragen: Service `service_ja02fgi`, Template `template_tk14gwp`, Public Key `VaQ_PnlLN756oJY4H`.
 
-Für eine später ausdrücklich genehmigte öffentliche Freigabe:
+1. **Email Templates → template_tk14gwp** im EmailJS-Dashboard öffnen.
+2. Auf **Code Editor / HTML (<> Symbol)** umstellen.
+3. Den gesamten Code aus [`assets/email-templates/contact-notification.html`](assets/email-templates/contact-notification.html) einsetzen.
+4. Die folgenden Felder einstellen und **Save** wählen:
+
+| Feld | Wert |
+| --- | --- |
+| Subject | `F-Tax Kontaktanfrage: {{topic}}` |
+| From Name | `F-Tax Website` |
+| From Email | Standardadresse des verbundenen Dienstes |
+| To Email | Gewünschte Empfängeradresse fest eintragen |
+| Reply To | `{{reply_to}}` |
+
+Die Variablen heißen `from_name`, `from_email`, `reply_to`, `company`, `phone`, `topic` und `message`. Das Formular sendet **topic**, keine Variable namens `subject`. Leere optionale Felder zeigen „Nicht angegeben“. Doppelte Klammern escapen Nutzereingaben. Die Nachricht steht in einem Textblock mit Zeilenumbrüchen.
+
+**Das Live-Template wurde nicht im Dashboard geändert.** Empfänger, verbundener Dienst und tatsächlicher Postfacheingang sind nicht geprüft. Nach dem Speichern eine echte Testanfrage über die verwendete HTTPS-Seite senden und Eingang sowie Antwortadresse kontrollieren. Details: [`docs/EMAILJS-SETUP.md`](docs/EMAILJS-SETUP.md).
+
+## GitHub Pages aus dem Root
+
+Vorbereitet für **Settings → Pages → Deploy from a branch → main → / (root)**. `.nojekyll` ermöglicht die direkte statische Auslieferung. Der bisherige Deployment-Workflow für dist wurde entfernt.
+
+Die bisher gewünschte private Vorschau wurde **nicht öffentlich freigeschaltet**; GitHub Pages wurde nicht aktiviert. Branch-Hosting dieses öffentlichen Repositorys bietet keinen Zugriffsschutz. Auch `noindex` ist kein Passwortschutz.
+
+Die Canonical-Basis ist auf `https://simsek6981.github.io/Yilmaz/` vorbereitet. Das ist keine Bestätigung einer Live-Veröffentlichung. Vor der späteren öffentlichen Freigabe kann dieses optionale Werkzeug die Metadaten umstellen:
 
 ```sh
-python build.py --public --base-url https://simsek6981.github.io/Yilmaz/
-python verify.py
+python tools/prepare-release.py --public --base-url https://simsek6981.github.io/Yilmaz/
+python tools/verify.py
 ```
 
-Unter Settings → Pages „GitHub Actions“ als Quelle wählen. Im Workflow die endgültige HTTPS-Basisadresse angeben. Bei einer eigenen Domain entsprechend ändern. Canonicals und Sitemap werden aus dieser Adresse erzeugt. Relative Assets und Seitenlinks funktionieren unter /Yilmaz/.
+Bei eigener Domain die Basisadresse ersetzen. Das Werkzeug ändert Canonicals, Schema-URLs, 404-Basis, Sitemap und robots.txt. Es erstellt keine zusätzlichen Seiten, setzt keinen CNAME und verändert kein DNS. Die Website selbst braucht weiterhin keinen Build.
 
-## Bestätigte Fakten und offene Angaben
+## SEO und Performance
 
-F-Tax Steuerberatung GmbH; Leonding; ATU82256979; FN 655274p; Landesgericht Linz. Die angebotenen Leistungen stammen aus den gelieferten Angaben. Abläufe sind als mögliche Zusammenarbeit oder schematische Beispiele bezeichnet.
+Individuelle Titel und Beschreibungen, genau eine H1, `de-AT`, Canonical-, Open-Graph- und Twitter-Metadaten sowie Organization-, WebSite-, WebPage-, Service- und Breadcrumb-Daten sind vorhanden. Keine erfundenen Bewertungen, Kontaktdaten oder Standorte.
 
-Noch offen: Logo/Bilder, Porträt, Name und Werdegang, vollständige Geschäftsadresse, Geschäftstelefon, direkte E-Mail-Adresse und vollständige rechtliche Angaben. Die öffentlichen EmailJS-Zugangsdaten sind eingetragen. HTML-Vorlage und festes Empfängerpostfach müssen im EmailJS-Dashboard noch gespeichert bzw. geprüft werden. Ein echter Versandtest steht aus. Keine erfundenen Bewertungen und kein Dokumenten-Upload.
+Bis zur Freigabe bleiben alle Seiten auf `noindex, nofollow` und die Sitemap leer. Crawling ist erlaubt, damit Suchmaschinen das noindex lesen können. Der öffentliche Modus nimmt die sieben Inhaltsseiten in die Sitemap auf; rechtliche Entwürfe und 404 bleiben ausgeschlossen. Bei der Projekt-URL `/Yilmaz/` ist die dortige robots.txt keine robots.txt für den gesamten Host. Auf eigener Domain gehört sie an deren Root; Meta-Robots gelten seitenweise unabhängig davon.
 
-## Prozessoptimierung später freigeben
+Keine externen Schriften, Bilddownloads, Tracking-Skripte oder Animationen. Der Unternehmensname ersetzt ein noch unbestätigtes Logo. Mobile Navigation, Tastaturfokus und reduzierte Bewegung sind berücksichtigt. Core Web Vitals wurden nicht gemessen.
 
-Die Seite bleibt unter src/pages/ erhalten. Ihre Metadaten sind in src/content/site.json mit enabled=false markiert. Der Build entfernt die alte Ausgabe aus dist/, lässt sie aus Navigation und Sitemap weg und prüft, dass aktive Seiten keine Verweise darauf enthalten. Eine spätere Freigabe erfordert zusätzlich passende Navigations- und Inhaltsverweise.
+## Prüfungen
 
-Build, alle lokalen Seitenverweise und JavaScript-Syntax werden geprüft. Visuelle Browserprüfung, interaktive Menütests und Core-Web-Vitals-Messung sind wegen der nicht startenden Browserumgebung noch offen. Private Veröffentlichung ist weiterhin durch die lokale Hostingverbindung blockiert.
+```sh
+python tools/verify.py
+python tests/release_test.py
+python tools/email-preview.py
+node --check assets/js/main.js
+node --check assets/js/contact.js
+node --test tests/contact.test.js
+```
+
+Geprüft werden Root-Struktur, Links und Anker, Metadaten, Schema-JSON, deaktivierte Seiten, Formularvertrag, Template-Variablen, Validierung, Fehlerfälle und Mehrfachsendungen. Öffentlicher Modus und Domainwechsel werden auf einer temporären Kopie getestet. Alle neun Formulartests verwenden simulierte Netzwerkantworten; keine echten E-Mails werden versendet.
+
+Die Browserumgebung konnte nicht starten. Desktop-/Smartphone-Screenshots, echte Gmail-/Outlook-/Apple-Mail-Prüfungen und Postfacheingang bleiben offen. Für den Betrieb fehlen bestätigte Anschrift, direkte Firmenkontakte, persönliche Vorstellung und vollständige rechtliche Texte. Die EmailJS-Domainliste ist ohne Dashboard-Zugriff nicht prüfbar und laut Preisübersicht nicht im Free-Tarif enthalten. Kein Tarif wurde geändert.
