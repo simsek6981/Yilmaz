@@ -17,10 +17,12 @@ jobs:
         with:
           node-version: '22'
       - run: python tools/verify.py
+      - run: python tools/components.py --check
       - run: python tests/release_test.py
       - run: python tools/email-preview.py
       - run: node --check assets/js/main.js
       - run: node --check assets/js/contact.js
       - run: node --test tests/contact.test.js
+      - run: python tools/package.py
       - name: Ensure dist is not tracked
         run: test -z "$(git ls-files dist)"

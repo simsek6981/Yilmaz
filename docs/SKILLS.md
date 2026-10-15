@@ -23,3 +23,7 @@ $skill-installer install https://github.com/openai/skills/tree/main/skills/.cura
 Alternativ die aktuelle Plugin-Variante aus OpenAIs Plugin-Katalog wählen. Bereits verfügbare Skills nicht doppelt installieren. Anschließend in einer neuen Codex-Sitzung die Darstellung bei 1440 px, 768 px und 390 px sowie Navigation, Smartphone-Menü, Tastaturbedienung und Dialoge prüfen.
 
 Für dieses statische Grundgerüst werden keine Datenbank-, Dokument-, Spiele- oder Trading-Skills benötigt.
+
+## V2-Prüfung am 15.10.2026
+
+Der bereits verfügbare Sites-Skill wurde für Gestaltung und lokale Vorschau genutzt. Die Browserprüfung war diesmal über den verfügbaren Browserzugang möglich; kein zusätzliches Playwright-Paket oder Skill installiert. Aktuelle Ergebnisse stehen in QUALITY.md. GitHub CLI ist lokal nicht angemeldet; der verbundene GitHub-Connector ist verfügbar.

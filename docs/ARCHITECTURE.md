@@ -1,13 +1,17 @@
-# Architektur
+# Architektur V2
 
-Die Root-HTML-Dateien sind die maßgeblichen, direkt auslieferbaren Seiten. Keine Quell-/Build-Duplikate, Frameworks oder Paketinstallation. Gemeinsame Änderungen an Header, Footer und Metadaten in den betroffenen HTML-Dateien konsistent vornehmen und mit `tools/verify.py` prüfen.
+Zehn Root-HTML-Dateien bleiben direkt auslieferbar. Kein Router, Framework oder Datenbank. Direkte Unterseitenaufrufe funktionieren auf GitHub Pages ohne SPA-Fallback. Die aktive Marke ist F-Tax; Yilmaz bezeichnet das Repository.
 
-CSS, JavaScript und Favicon liegen unter `assets/`. Dienstleistungsseiten verwenden individuelle Sektionen und responsive CSS-Regeln. Native Fragen-Akkordeons, mobile Navigation und sichtbarer Tastaturfokus benötigen keine Animationen. Leistungslinks bleiben ohne Leistungsfinder-Skript erreichbar.
+`components/header.html` und `components/footer.html` sind die maßgeblichen gemeinsamen Elemente. `tools/components.py` synchronisiert sie und setzt aria-current. CI prüft die Synchronität; der Browser benötigt keine dynamische Einfügung.
 
-Die öffentliche Formularkonfiguration steht als application/json in `kontakt.html`. `assets/js/contact.js` behält REST-Integration, Validierung, Honeypot, Timeout, Fehlermeldungen und Sperre gegen Mehrfachsendungen. Nur die Kontaktseite lädt diesen Code. Die Mailvorlage nutzt die tatsächlichen Parameter einschließlich `topic` und `reply_to`.
+`style.css` enthält Basiselemente und Formularzustände; `editorial.css` die V2-Kompositionen. Die lokale dekorative SVG stellt keine Kanzleiräume dar. Die Abschlussgrafik zeigt keine Unternehmenskennzahlen; alle relevanten Informationen stehen als Text im HTML.
 
-`tools/prepare-release.py` ist ein optionaler Metadaten-Schalter, kein Build. Er verändert gespeicherte Seiten; `docs/site.json` hält Seitenliste und Modus für Prüfungen fest. Standard ist weiterhin die nicht indexierbare Vorschau. Das ist kein Zugriffsschutz.
+Native details-Elemente tragen Leistungsmenü und FAQ. JavaScript ergänzt mobiles Menü, Escape-/Außenklick-Verhalten, Themenfinder und kurze Einblendungen. Inhalte bleiben sichtbar, wenn Skripte oder IntersectionObserver fehlen. Reduced Motion deaktiviert Bewegung.
 
-Aktive Seitennamen bleiben erhalten, daher sind keine Weiterleitungen für aktive Seiten nötig. Prozessoptimierung existiert nicht mehr. Der ursprüngliche Entwurf ist im Git-Commit `973e489c3fe57e1292302dcf8c2987cdd25601f3` erhalten. Die 404-Basis passt zum vorgesehenen Hosting-Unterpfad und wird bei Domainwechsel angepasst.
+`contact.js` bewahrt den EmailJS-Vertrag. Die JSON-Konfiguration enthält nur öffentliche IDs. Der Empfänger wird im Dashboard festgelegt. Kein Speichern von Nachrichten im Browser. Datenschutzhinweise bleiben als Entwurf gekennzeichnet.
 
-GitHub Pages ist für `main / (root)` vorbereitet. Der Workflow validiert, deployt aber nicht. Das Root kann auf beliebigem statischem Hosting ausgeliefert werden. Die frühere private Sites-Veröffentlichung blieb durch die lokale Netzwerkverbindung blockiert; keine erfolgreiche Live-Veröffentlichung wird behauptet.
+`tools/package.py` prüft Komponenten und Website und erstellt ein sauberes dist aus einer Allowlist. Komponenten werden dabei absichtlich nicht automatisch korrigiert: Inkonsistenzen sollen in CI auffallen. Dokumentation, Mailvorlagen und Tests gelangen nicht ins Deployment.
+
+`validate.yml` prüft Pull Requests. `pages.yml` deployt main nur bei PAGES_ENABLED=true. `prepare-release.py` verwaltet Canonicals, Schema-URLs, Indexierung, Sitemap, robots.txt und 404-Basis. DNS und Domain-Einstellungen bleiben separate Schritte.
+
+`tools/serve.py` bildet den Projekt-Unterpfad und eine echte HTTP-404 mit eigener Fehlerseite ab. Python ist ausschließlich Entwicklungswerkzeug.

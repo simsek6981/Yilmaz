@@ -9,3 +9,9 @@ qa/
 dist/
 public/
 .openai/
+
+.venv/
+.pytest_cache/
+*.log
+.DS_Store
+Thumbs.db
