@@ -1,6 +1,6 @@
 # EmailJS für F-Tax
 
-Öffentliche Konfiguration in `kontakt.html`: Service `service_ja02fgi`, Template `template_tk14gwp`, Public Key `VaQ_PnlLN756oJY4H`. `assets/js/contact.js` nutzt die REST-API. Der Empfänger wird nicht aus dem Browser übergeben.
+Öffentliche Konfiguration in `index.html`: Service `service_ja02fgi`, Template `template_tk14gwp`, Public Key `VaQ_PnlLN756oJY4H`. `assets/js/contact.js` nutzt die REST-API. Der Empfänger wird nicht aus dem Browser übergeben.
 
 Das neue Template liegt unter `assets/email-templates/contact-notification.html`. Es wurde **nicht** ins Live-Dashboard eingesetzt. Es wurden keine echten E-Mails versendet; das endgültige Zielpostfach ist noch nicht bestätigt.
 
@@ -8,11 +8,15 @@ Das neue Template liegt unter `assets/email-templates/contact-notification.html`
 
 1. **Email Templates → template_tk14gwp** öffnen.
 2. Den Code-Editor öffnen und den gesamten HTML-Code der Datei einsetzen.
-3. Subject: `F-Tax Kontaktanfrage: {{topic}}`.
+3. Subject: `F-Tax Terminanfrage: {{topic}}`.
 4. From Name: `F-Tax Website`. From Email: Standardadresse des verbundenen Dienstes; nicht die Besucheradresse als fremden Absender verwenden.
 5. To Email: die tatsächliche Empfängeradresse fest eintragen.
 6. Reply To: `{{reply_to}}`.
 7. Speichern. Über die tatsächliche HTTPS-Seite eine Anfrage mit freigegebenen Testdaten senden, Postfacheingang und Antwortadresse prüfen.
+
+## Formular
+
+Nur Name und E-Mail sind erforderlich. Ein Erstgespräch kann ohne weitere Angaben angefragt werden. Der Termin ist erst nach persönlicher Rückmeldung bestätigt. Das in der Referenz genannte office@f-tax.at muss als tatsächlicher Empfänger im Konto bestätigt und fest eingetragen werden; der Browser wählt kein Zielpostfach.
 
 ## Variablen und Gestaltung
 
@@ -24,7 +28,8 @@ Das neue Template liegt unter `assets/email-templates/contact-notification.html`
 | `{{company}}` | Unternehmen, optional |
 | `{{phone}}` | Telefon, optional |
 | `{{topic}}` | Gewählte Leistung bzw. Anliegen |
-| `{{message}}` | Vollständige Nachricht, 20 bis 4.000 Zeichen |
+| `{{appointment}}` | Optionaler Terminwunsch, maximal 160 Zeichen |
+| `{{message}}` | Optionale Nachricht, maximal 4.000 Zeichen |
 
 EmailJS escaped doppelte Klammern standardmäßig. Inverse Abschnitte zeigen bei leeren optionalen Angaben „Nicht angegeben“. Die Nachricht steht in einem `pre`-Block mit Sans-Serif-Schrift, `white-space:pre-wrap` und Zeilenumbruch. Tabellen, Inline-CSS und ein Outlook-Breiten-Fallback tragen das Layout. Eine kleine Media-Query reduziert mobile Abstände. Keine Skripte, externen Bilder oder Fonts. Die konkrete Darstellung in E-Mail-Programmen bleibt ungeprüft.
 
@@ -49,3 +54,4 @@ Die Datenschutzhinweise beschreiben den implementierten Ablauf, bleiben jedoch e
 - https://www.emailjs.com/docs/faq/can-i-add-my-domain-to-allowlist/
 - https://www.emailjs.com/pricing/
 - https://www.emailjs.com/legal/privacy-policy/
+

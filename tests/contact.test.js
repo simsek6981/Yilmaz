@@ -4,7 +4,7 @@ const api = require('../assets/js/contact.js');
 const fs = require('node:fs');
 const path = require('node:path');
 const config = { serviceId:'service_test', templateId:'template_test', publicKey:'public_test' };
-const data = { from_name:'  Muster Person ', from_email:' person@example.com ', company:'Beispiel GmbH', phone:'', topic:'Buchhaltung', message:'Bitte informieren Sie mich über die laufende Buchhaltung.', website:'' };
+const data = { from_name:'  Muster Person ', from_email:' person@example.com ', company:'Beispiel GmbH', phone:'', appointment:'', topic:'Buchhaltung', message:'Bitte informieren Sie mich über die laufende Buchhaltung.', website:'' };
 
 test('HTML template variables match the actual API payload and stay HTML-escaped', async () => {
   const html = fs.readFileSync(path.join(__dirname, '../assets/email-templates/contact-notification.html'), 'utf8');
@@ -26,10 +26,21 @@ test('Missing keys and placeholder keys cannot enable sending', () => {
   assert.equal(api.isConfigured({...config,publicKey:'YOUR_PUBLIC_KEY'}), false);
   assert.equal(api.isConfigured(config), true);
 });
-test('Validation normalizes valid values and rejects unknown topics, invalid email and empty messages', () => {
+
+test('A minimal appointment request needs only name and email and supplies safe defaults', async () => {
+  let payload;
+  await api.sendMessage({from_name:'Alex Beispiel',from_email:'alex@example.com'},config,async(_,options)=>{
+    payload=JSON.parse(options.body).template_params;return {ok:true,status:200};
+  });
+  assert.equal(payload.topic,'Erstgespräch');
+  for(const name of ['company','phone','appointment','message'])assert.equal(payload[name],'');
+  assert.equal(payload.reply_to,'alex@example.com');
+  for(const appointment of ['x'.repeat(161),'Dienstag\r\nInjected'])assert.throws(()=>api.normalizeAndValidate({...data,appointment}),e=>e.code==='validation');
+});
+test('Validation normalizes valid values and rejects unknown topics, invalid email and oversized messages', () => {
   assert.equal(api.normalizeAndValidate(data).from_name,'Muster Person');
   assert.equal(api.normalizeAndValidate(data).from_email,'person@example.com');
-  for (const input of [{...data,topic:'Digitalisierung'}, {...data,from_email:'invalid'}, {...data,message:'  '}, {...data,from_name:'Name\nInjected'}, {...data,message:'x'.repeat(4001)}]) assert.throws(()=>api.normalizeAndValidate(input),error=>error.code==='validation');
+  for (const input of [{...data,topic:'Digitalisierung'}, {...data,from_email:'invalid'}, {...data,from_name:'Name\nInjected'}, {...data,message:'x'.repeat(4001)}]) assert.throws(()=>api.normalizeAndValidate(input),error=>error.code==='validation');
 });
 test('EmailJS receives the expected payload and no client-selected recipient or private key', async () => {
   let call;
@@ -77,3 +88,4 @@ test('Missing configuration and offline previews cannot send even with configure
   const previous=global.fetch;let calls=0;global.fetch=async()=>{calls++;return {ok:true,status:200};};
   try{const h=harness({});assert.equal(h.button.disabled,true);await h.form.submit({preventDefault(){}});global.FTAX_PREVIEW_ONLY=true;const p=harness();assert.equal(p.button.disabled,true);await p.form.submit({preventDefault(){}});assert.equal(calls,0);}finally{global.fetch=previous;delete global.FTAX_PREVIEW_ONLY;}
 });
+

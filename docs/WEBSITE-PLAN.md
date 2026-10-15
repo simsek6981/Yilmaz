@@ -1,33 +1,11 @@
-# F-Tax · Website-Neugestaltung
+# F-Tax · aktueller Umsetzungsstand
 
-## Design und Inhalt
+Referenzgestützte Premium-Neugestaltung mit genau drei Hauptseiten: Startseite, Steuerberatung, Über mich. Impressum und Datenschutz im Footer. Persönliche Angaben zu Ferhat Yilmaz und neue Firmenkontakte stammen vorrangig aus den bereitgestellten HTML-Referenzen. Nachweise und fachliche Freigabe sind vor Veröffentlichung vom Unternehmen einzuholen.
 
-Warmweiß (#f8f7f2), Dunkelgrün (#203c34), Salbeitöne und Georgia-Überschriften. Lokale Systemschriften, Weißraum, feine Linien und individuelle Dienstleistungsaufbauten. Keine externen Bilder, Fonts oder Animationen.
+Eigenständige Elfenbein-/Aubergine-/Kupfergestaltung, Serifentypografie und lokales Original-Logo. Keine kopierten Bildhero-/Kartenfolgen, externen Bilder oder erfundenen Porträts. Steuerberatung bündelt die früheren Fachunterseiten. Lohnverrechnung wird ausdrücklich als Partnerleistung beschrieben. Prozessoptimierung bleibt geschlossen; digitale Abläufe werden nur im Kontext der steuerlichen Zusammenarbeit aufgegriffen.
 
-Startseite mit vier Leistungen und Leistungsfinder. Steuerberatung ordnet Steuerarten, Vertretung, Rechtsformwahl und Umgründungen ein. Buchhaltung erklärt Arbeitsgrundlagen und Vorbereitung. Lohnverrechnung behandelt Abrechnung, Meldungen und grenzüberschreitende Beschäftigung. Bilanzierung erläutert die Vorbereitung des Abschlusses. Über F-Tax verwendet nur vorhandene Unternehmensdaten. Kontakt ist neu gestaltet; Validierung und EmailJS bleiben erhalten.
+Terminanfrage auf der Startseite mit nur zwei Pflichtfeldern: Name und E-Mail. Weitere Angaben freiwillig hinter einem aufklappbaren Bereich. Header und Hero führen unmittelbar zum Formular. EmailJS-Werte bleiben erhalten, appointment ergänzt das passende E-Mail-Template. Keine Kalenderbuchung und keine automatische Terminbestätigung.
 
-## Struktur und SEO
+Die Root-Struktur, Canonical-Basis und der bisherige Vorschau-/Indexierungsstatus bleiben erhalten. Frühere URLs werden auf passende Abschnitte weitergeleitet; nur drei Inhaltsseiten gelangen bei späterer Freigabe in die Sitemap. Keine öffentliche Freigabe oder Veränderung von PAGES_ENABLED.
 
-Neun aktive Seiten und eine 404-Datei liegen im Root. Assets unter css, js, icons und email-templates; Unterlagen unter docs, Werkzeuge unter tools, Tests unter tests. dist, src und alte Templates entfallen. Prozessoptimierung ist aus Seiten, Navigation und Sitemap entfernt; der Entwurf bleibt in der Git-Historie.
-
-Individuelle Titel, Beschreibungen, H1, de-AT, Canonical, Open Graph, Twitter, Organization/WebSite/WebPage sowie Service- und Breadcrumb-Daten. Die vorgesehene Basis ist die GitHub-Pages-Projektadresse. Bis zur öffentlichen Freigabe bleibt noindex aktiv und die Sitemap leer. Ein geprüftes Metadatenwerkzeug unterstützt den Wechsel auf öffentliche Indexierung und eigene Domain.
-
-## E-Mail
-
-Die bereitgestellten EmailJS-Werte sind in kontakt.html eingetragen. Das neue Template liegt unter assets/email-templates/contact-notification.html. Es verwendet die Website-Farben und zeigt alle Formularangaben; Reply-To wird im Dashboard mit reply_to eingerichtet. Anleitung in README.md und docs/EMAILJS-SETUP.md.
-
-## Prüfstand und offene Punkte
-
-Automatische Prüfungen von Root-Seiten, Verweisen, Metadaten, Schema und Formularvertrag; neun simulierte Kontakt-/Template-Tests sowie öffentliche, private und Domainwechsel-Metadatenprüfungen. Die Browserumgebung startet weiterhin nicht. Keine durchgeführte visuelle Browser-/E-Mail-Client-Prüfung oder gemessene Core Web Vitals.
-
-HTML-Mail im Dashboard speichern, Empfänger und Dienst prüfen, echten Eingang testen. Laut Preisübersicht keine Domain-Allowlist in Free. Keine Live-Mails versendet oder Tarife geändert.
-
-GitHub Pages ist für main / (root) vorbereitet, aber nicht öffentlich aktiviert. Bestätigte Firmenkontakte, Geschäftsanschrift, persönliche Vorstellung und vollständige rechtliche Texte fehlen weiterhin.
-
-# Fortschreibung V2 · 15.10.2026
-
-Die obigen Abschnitte dokumentieren den bisherigen Projektstand. V2 erweitert die Gestaltung um lokale SVG-Bildwelt, Kupferakzent, Leistungskarten, Unternehmensabschnitt und Beratungsablauf. Die vier Leistungen behalten ihre Inhalte und erhalten Themen-Navigation, Belegkarte, Monatszyklus bzw. Abschlussgrafik; zusätzliche FAQ bei Buchhaltung und Bilanzierung.
-
-Gemeinsame Elemente liegen jetzt in components/ und werden in die weiterhin direkt nutzbaren Root-HTML-Dateien synchronisiert. Der optionale Build tools/package.py erstellt ein ignoriertes dist ausschließlich mit Website-Dateien. Der Pages-Workflow nutzt dieses Paket; PAGES_ENABLED steuert die spätere Aktivierung. Keine zusätzlichen Frameworks oder Abhängigkeiten.
-
-Die Browserprüfung funktioniert nun. Ergebnis und Grenzen: docs/QUALITY.md. Bestandsanalyse: docs/ANALYSIS-V2.md. Noch fehlende Unternehmensangaben bleiben sichtbar markiert; Indexierung bleibt im Vorschaumodus. README und ARCHITECTURE beschreiben den aktuellen Workflow.
+Automatische Prüfungen und zehn simulierte Kontakt-/Template-Tests bestehen. Browserstart und alternative Browsersteuerung sind blockiert; echte Screenshots, Smartphone-Sichtkontrolle und E-Mail-Client-Prüfung bleiben offen. Live-EmailJS-Template noch im Dashboard einsetzen, Empfänger/Reply-To prüfen und eine genehmigte Testanfrage bis zum Eingang verfolgen.
