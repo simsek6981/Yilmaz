@@ -1,6 +1,6 @@
 # F-Tax · persönliche Steuerberatung
 
-Statische Website für F-Tax Steuerberatung GmbH und Ferhat Yilmaz. Drei Hauptseiten, eine integrierte Terminanfrage und ein eigenständiges Design in Elfenbein, Aubergine und Kupfertönen. Die bereitgestellten Referenzen sind die vorrangige Inhaltsquelle; deren dunkle Blaugestaltung und Abschnittsfolgen wurden nicht kopiert.
+Statische Website für F-Tax Steuerberatung GmbH und Ferhat Yilmaz. Drei Hauptseiten, eine integrierte Terminanfrage und ein modernisierte Referenzidentität in Schiefergrau, Weiß, Hellgrau und Stahlblau. Die bereitgestellten Referenzen sind die vorrangige Inhaltsquelle; ihre Farbpalette und geometrische Markenwirkung werden in der modernen Gestaltung beibehalten.
 
 ## Struktur
 
@@ -76,6 +76,7 @@ node --check assets/js/main.js
 node --check assets/js/contact.js
 node --check assets/js/redirect.js
 node --test tests/contact.test.js
+node --test tests/motion.test.js
 python tools/package.py
 ```
 
@@ -84,3 +85,13 @@ Zehn Formular-/Mailtests verwenden simulierte Antworten. Geprüft sind minimale 
 Visuelle Browser-/Smartphone-Prüfung und Screenshots der neuen Version konnten wegen blockierter Browserumgebung nicht erstellt werden; bestehende V2-Screenshots gelten nicht als V3-Nachweis. Keine gemessenen Core Web Vitals oder behauptete E-Mail-Client-Zertifizierung. Siehe [docs/QUALITY.md](docs/QUALITY.md).
 
 Vor öffentlicher Freigabe sind die bereitgestellten Firmen-/Kontaktdaten, Biografie, Leistungsdetails, Logo-Rechte und Rechtstexte zu bestätigen. Lohnverrechnung über Kooperationspartner ist gegenüber dem älteren Stand ausdrücklich korrigiert. Quellen und Abweichungen: [docs/ANALYSIS-V3.md](docs/ANALYSIS-V3.md).
+
+## Moderne Interaktion
+
+Der Sticky Header verändert beim Scrollen nur seine Oberfläche, nicht seine Höhe. Navigation und Buttons reagieren mit kurzen Farb-/Unterstreichungseffekten. Der Hero blendet ohne vollständiges Verbergen ein; Inhalte bleiben sofort lesbar. Sichtbar werdende Inhaltsgruppen werden einmal mit 540 ms und maximal 160 ms Staffelung animiert, auf Smartphones mit 430 ms und kleinerem Bewegungsweg ohne Staffelung.
+
+IntersectionObserver und die native Web Animations API genügen; keine Animationsbibliothek und keine Parallax-Schleife. Die Ausgangsdarstellung versteckt keine Inhalte. Bei fehlender Unterstützung funktioniert die statische Seite. `prefers-reduced-motion` wird beim Laden und bei späterer Änderung berücksichtigt; laufende Effekte werden abgebrochen. Fokussierte Inhalte bewegen sich nicht. Rechtstexte erhalten keine Inhaltsanimationen.
+
+Die bestehende SEO-Konfiguration wurde vor/nach der Änderung exakt verglichen; nur die Browser-Theme-Farbe passt sich der Referenzidentität an. Ein neuer kompakter Zielgruppenabschnitt nutzt vorhandene Referenzinformationen. Das EmailJS-Template verwendet dieselbe Palette und enthält weiterhin weder JavaScript noch Animationen.
+
+Sieben zusätzliche Verhaltenstests prüfen Einmaleffekte, Reduced Motion, mobile Varianten, Fokus, Fallbacks, Scroll-Drosselung und Menübedienung. Diese Tests sind keine visuelle Browserprüfung. Die Browserumgebung bleibt blockiert; echte Screenshots und gemessene LCP-/CLS-/INP-Werte werden nicht behauptet.

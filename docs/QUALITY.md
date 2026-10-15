@@ -22,3 +22,9 @@ Deshalb keine tatsächlich erstellten Screenshots oder behaupteten Sichtprüfung
 Keine echte E-Mail gesendet. Dashboard-Template, festes Empfängerpostfach, Reply-To-Verhalten im echten Mailprogramm und Eingang müssen noch geprüft werden. Keine E-Mail-Client-Screenshots oder garantierte Darstellung in allen Outlook-Versionen.
 
 Keine öffentliche Freigabe oder Hostingumschaltung ausgelöst. Firmen-/Biografie-/Rechtsangaben stammen vorrangig aus den bereitgestellten Referenzen und bleiben zur Unternehmensbestätigung offen. Indexierungsstatus und vorgesehene Basisadresse aus main wurden erhalten.
+
+## Modernisierungsprüfung
+
+Zusätzlich bestehen sieben Node-Verhaltenstests für einmalige Einblendung, reduzierte Bewegung beim Laden und Umschalten, kleinere Smartphone-Effekte, Fokus-Schutz, fehlende/fehlerhafte Observer, passive gebündelte Header-Aktualisierung und Menübedienung. Zehn bestehende EmailJS-/Template-Tests bleiben erhalten. Die Bewegungslogik wurde mit simuliertem DOM/Observer geprüft, nicht als echte Browserdarstellung.
+
+Alle vorherigen SEO-Titel, Beschreibungen, Canonicals, Social-Metadaten und JSON-LD-Daten wurden vor/nach der Modernisierung identisch verglichen. Keine Indexierungs- oder Hostingumschaltung. Das neue Maildesign enthält keine Animation oder JavaScript. Keine tatsächlichen Core-Web-Vitals-Messwerte; die bereits dokumentierte Browser-Blockierung bleibt offen.
