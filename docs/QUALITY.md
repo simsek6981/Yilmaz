@@ -28,3 +28,7 @@ Keine öffentliche Freigabe oder Hostingumschaltung ausgelöst. Firmen-/Biografi
 Zusätzlich bestehen sieben Node-Verhaltenstests für einmalige Einblendung, reduzierte Bewegung beim Laden und Umschalten, kleinere Smartphone-Effekte, Fokus-Schutz, fehlende/fehlerhafte Observer, passive gebündelte Header-Aktualisierung und Menübedienung. Zehn bestehende EmailJS-/Template-Tests bleiben erhalten. Die Bewegungslogik wurde mit simuliertem DOM/Observer geprüft, nicht als echte Browserdarstellung.
 
 Alle vorherigen SEO-Titel, Beschreibungen, Canonicals, Social-Metadaten und JSON-LD-Daten wurden vor/nach der Modernisierung identisch verglichen. Keine Indexierungs- oder Hostingumschaltung. Das neue Maildesign enthält keine Animation oder JavaScript. Keine tatsächlichen Core-Web-Vitals-Messwerte; die bereits dokumentierte Browser-Blockierung bleibt offen.
+
+## Vollständiger Neuaufbau / Perspective
+
+Alle drei Hauptseiten, Header/Footer, Rechtsseiten-Gestaltung und E-Mail-Design sind neu gestaltet. Gleichbleibender Faktenbestand und identische fachliche/biografische Detailtexte wurden beim Umbau kontrolliert. SEO-Vergleich schließt Titel, Beschreibungen, Canonicals, OG/Twitter, Sprache, Indexierung und JSON-LD ein; nur theme-color ändert sich. Logo und Kontaktlogik bleiben bytegleich. Automatische Tests ersetzen weiterhin keine Sichtkontrolle. Erneute Browsersteuerung am 15.10.2026 scheitert vor Initialisierung mit HRESULT 0x80070003. Keine Screenshots und keine gemessenen mobilen Overflow- oder Leistungswerte verfügbar.

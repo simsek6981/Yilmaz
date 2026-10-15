@@ -43,15 +43,7 @@
 
   // Every element stays visible in the base CSS. Animate only on intersection;
   // no hidden classes, layout writes or dependency on a successful observer.
-  const selectors=[
-    '.page-home .home-introduction>div','.page-home .overview-layout>div:first-child',
-    '.page-home .service-preview','.page-home .audience-list>article',
-    '.page-home .personal-label','.page-home .personal-copy','.page-home .journey>li',
-    '.page-tax .chapter-label','.page-tax .chapter-content','.page-tax .decision-layout>div',
-    '.page-about .about-story>div','.page-about .profile-facts>div',
-    '.page-about .working-style>div','.page-about .two-col>div',
-    '.closing-section>div'
-  ].join(',');
+  const selectors='[data-reveal],.principle-list>article';
   const pending=new Set(document.querySelectorAll(selectors));
   const running=new Set();
   let observer=null;
@@ -75,7 +67,7 @@
           pending.delete(el);observer?.unobserve(el);
           if(typeof el.animate!=='function'||el.contains(document.activeElement))return;
           const distance=small.matches?6:12;
-          const side=el.matches('.personal-label,.chapter-label');
+          const side=false;
           const transform=side?'translateX(-'+distance+'px)':'translateY('+distance+'px)';
           try{
             const animation=el.animate([

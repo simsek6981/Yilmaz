@@ -1,6 +1,6 @@
 # F-Tax · persönliche Steuerberatung
 
-Statische Website für F-Tax Steuerberatung GmbH und Ferhat Yilmaz. Drei Hauptseiten, eine integrierte Terminanfrage und ein modernisierte Referenzidentität in Schiefergrau, Weiß, Hellgrau und Stahlblau. Die bereitgestellten Referenzen sind die vorrangige Inhaltsquelle; ihre Farbpalette und geometrische Markenwirkung werden in der modernen Gestaltung beibehalten.
+Statische Website für F-Tax Steuerberatung GmbH und Ferhat Yilmaz. Das Frontend ist vollständig als eigenständiger redaktioneller Markenauftritt neu aufgebaut: Elfenbein, Aubergine und ein zurückhaltender Limettenakzent. Große Georgia-Überschriften und klare Systemschrift benötigen keine externen Fontdienste. Inhaltliche Grundlage bleiben die bereitgestellten Referenzen.
 
 ## Struktur
 
@@ -82,7 +82,7 @@ python tools/package.py
 
 Zehn Formular-/Mailtests verwenden simulierte Antworten. Geprüft sind minimale Anfrage, Parametervertrag, Validierung, Escaping, Fehler, Timeout und Mehrfachsendesperre. Seiten-, Link-, Schema-, Redirect- und Indexierungsprüfungen sowie Tests für Domainwechsel und Release-Modi sind enthalten.
 
-Visuelle Browser-/Smartphone-Prüfung und Screenshots der neuen Version konnten wegen blockierter Browserumgebung nicht erstellt werden; bestehende V2-Screenshots gelten nicht als V3-Nachweis. Keine gemessenen Core Web Vitals oder behauptete E-Mail-Client-Zertifizierung. Siehe [docs/QUALITY.md](docs/QUALITY.md).
+Visuelle Browser-/Smartphone-Prüfung und Screenshots der neuen Version konnten wegen blockierter Browserumgebung nicht erstellt werden; bestehende Screenshots früherer Versionen gelten nicht als Nachweis für diese Gestaltung. Keine gemessenen Core Web Vitals oder behauptete E-Mail-Client-Zertifizierung. Siehe [docs/QUALITY.md](docs/QUALITY.md).
 
 Vor öffentlicher Freigabe sind die bereitgestellten Firmen-/Kontaktdaten, Biografie, Leistungsdetails, Logo-Rechte und Rechtstexte zu bestätigen. Lohnverrechnung über Kooperationspartner ist gegenüber dem älteren Stand ausdrücklich korrigiert. Quellen und Abweichungen: [docs/ANALYSIS-V3.md](docs/ANALYSIS-V3.md).
 
@@ -92,6 +92,14 @@ Der Sticky Header verändert beim Scrollen nur seine Oberfläche, nicht seine H�
 
 IntersectionObserver und die native Web Animations API genügen; keine Animationsbibliothek und keine Parallax-Schleife. Die Ausgangsdarstellung versteckt keine Inhalte. Bei fehlender Unterstützung funktioniert die statische Seite. `prefers-reduced-motion` wird beim Laden und bei späterer Änderung berücksichtigt; laufende Effekte werden abgebrochen. Fokussierte Inhalte bewegen sich nicht. Rechtstexte erhalten keine Inhaltsanimationen.
 
-Die bestehende SEO-Konfiguration wurde vor/nach der Änderung exakt verglichen; nur die Browser-Theme-Farbe passt sich der Referenzidentität an. Ein neuer kompakter Zielgruppenabschnitt nutzt vorhandene Referenzinformationen. Das EmailJS-Template verwendet dieselbe Palette und enthält weiterhin weder JavaScript noch Animationen.
+Die bestehende SEO-Konfiguration wurde vor/nach der Änderung exakt verglichen; nur die Browser-Theme-Farbe passt sich der neuen Identität an. Ein neuer kompakter Zielgruppenabschnitt nutzt vorhandene Referenzinformationen. Das EmailJS-Template verwendet dieselbe Palette und enthält weiterhin weder JavaScript noch Animationen.
 
 Sieben zusätzliche Verhaltenstests prüfen Einmaleffekte, Reduced Motion, mobile Varianten, Fokus, Fallbacks, Scroll-Drosselung und Menübedienung. Diese Tests sind keine visuelle Browserprüfung. Die Browserumgebung bleibt blockiert; echte Screenshots und gemessene LCP-/CLS-/INP-Werte werden nicht behauptet.
+
+## Vollständiger Frontend-Neuaufbau / Perspective
+
+Die Startseite verwendet eine offene typografische Bühne mit einer eigens gezeichneten dekorativen Perspektivgrafik. Leistungszeilen, dunkles Leitbild, typografische Vorstellung und integrierte Anfrage erzeugen unterschiedliche Seitenrhythmen. Die Steuerberatung besitzt eine eigene dunkle Eröffnung, einen Themenindex und fünf durchnummerierte Kapitel. Über mich nutzt ein persönliches Namensmotiv und eine kompakte Erfahrungs-/Qualifikationsübersicht statt eines erfundenen Porträts.
+
+Original-Logo, Firmen-/Kontaktdaten, Qualifikation, Zielgruppen, Partner-Lohnverrechnung und sämtliche fachlichen Detailinformationen sind erhalten. Rechtsseiten und 404 sind an das Gestaltungssystem angepasst. Im E-Mail-Template greift „Neue Kontaktanfrage“ dieselbe Identität auf; Parameter und Reply-To-Vertrag sind unverändert. Das vorbereitete HTML muss weiterhin im Dashboard eingefügt werden.
+
+Responsive Regeln gelten bis zu 320 px, mit einer ausklappbaren Navigation und 16-px-Eingabeschrift auf Smartphones. Ohne JavaScript bleiben Navigation, fachliche Inhalte und direkte Kontaktmöglichkeiten zugänglich; E-Mail-Versand benötigt JavaScript. Keine Seite wird durch Animation verborgen. Der ausführliche Stand einschließlich noch ausstehender Browserkontrolle steht in [docs/REDESIGN.md](docs/REDESIGN.md).
