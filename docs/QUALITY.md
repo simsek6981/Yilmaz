@@ -1,29 +1,24 @@
-# Qualitätsbericht V2 · 15.10.2026
+# Prüfbericht · Premium-Version · 15.10.2026
 
-## Automatisierte Prüfungen
+## Durchgeführt
 
-- Zehn Root-Dokumente: lokale Links, Anker, individuelle Titel/Beschreibungen, de-AT, H1-/Überschriftenhierarchie, Canonicals, JSON-LD, Sitemap und Indexierungsmodus.
-- Synchronität der gemeinsamen Header-/Footer-Komponenten.
-- Neun Kontakt-/Mailtemplate-Tests: Validierung, Payload, Escaping, Honeypot, Netz-/Dienstfehler, Timeout, Mehrfachsendesperre und Erhalt der Eingaben.
-- Metadatenwechsel auf öffentlicher Projekt-URL, eigener Domain und Vorschau-Unterpfad auf temporären Kopien.
-- JavaScript-Syntaxprüfung und statische Paketierung.
+- Alle zehn Root-Dateien: sechs vollständige Dokumente einschließlich rechtlicher Seiten und 404 sowie vier reine Weiterleitungsdateien.
+- Lokale Links/Anker, relative Assets, individuelles SEO der vollständigen Seiten, de-AT, H1-Hierarchie, Canonicals, Open Graph, Twitter und JSON-LD.
+- Drei indexierbare Inhaltsseiten im späteren öffentlichen Modus; keine eigenständigen Fach-/Kontaktseiten in Navigation oder Sitemap.
+- Formular ausschließlich auf der Startseite, nur Name und E-Mail verpflichtend. Alle Parameter einschließlich Terminwunsch stimmen mit dem Mailtemplate überein.
+- Zehn simulierte Formular-/Template-Tests: minimale Anfrage, sichere Vorgaben für optionale Angaben, Validierung, Escaping, korrekter REST-Payload und Reply-To, Honeypot, Dienst-/Netzfehler, Timeout, Eingabeerhalt und Mehrfachsendesperre.
+- Temporäre Release-/Domainwechsel-Tests mit GitHub-Unterpfad, eigener Domain und Rückkehr zur Vorschau.
+- E-Mail-Beispiel mit fiktiven Daten sowie Escaping/Zeilenumbrüchen.
+- Gemeinsame Header-/Footer-Komponenten und JavaScript-Syntax.
 
-Alle oben genannten Prüfungen erfolgreich. Keine echte E-Mail gesendet.
+## Visuelle Grenze
 
-## Browserprüfung
+Für diese neue Version wurde kein erfolgreicher Browser-Render durchgeführt. Der Start des lokalen Browsers wurde von der automatischen Freigabe abgelehnt. Die alternative Browsersteuerung scheiterte ebenfalls mit fehlendem Windows-Plattformverzeichnis (HRESULT 0x80070003). Die Blockierung wurde nicht durch einen anderen Prozessstart umgangen.
 
-Lokale Chromium-Vorschau: alle neun Inhalts-/Rechtsseiten bei 320, 390, 768 und 1440 Pixeln auf Seitenüberlauf geprüft. Ein Überlauf des Monatszyklus bei 320 Pixeln wurde behoben und erneut geprüft. Die zwölf illustrativen Jahresbalken wurden nach Sichtkontrolle auf ein festes Raster umgestellt.
+Deshalb keine tatsächlich erstellten Screenshots oder behaupteten Sichtprüfungen bei 375, 768, 1440 und 1920 px. Responsive Regeln sind für diese Breiten implementiert, müssen aber im Browser noch kontrolliert werden. Der ältere V2-Bericht beschreibt eine andere Gestaltung und ersetzt diese Kontrolle nicht. Keine gemessenen Core Web Vitals, kein Safari-/Firefox-Test, kein vollständiges WCAG-Audit.
 
-Visuell geprüft: Startseite, Buchhaltung, Lohnverrechnung, Bilanzierung und mobiles Kontaktformular. Automatisch im Browser geprüft: Seitentitel/H1, Seitenbreiten und geladene Bilder. Die anderen Seiten wurden zusätzlich strukturell und im Browser-DOM kontrolliert.
+## Versand / Veröffentlichung
 
-Interaktionen: mobiles Menü öffnen, Leistungen ausklappen, Escape zum Schließen beider Ebenen, sichtbarer Fokus beim Tab-Wechsel, Themenfinder auf Bilanzierung umstellen, Link zum korrekt vorausgewählten Formular, FAQ öffnen, Nachrichtenzähler und Pflichtfelder. Keine Browser-Konsolenwarnungen/-fehler im geprüften Kontaktseitenaufruf.
+Keine echte E-Mail gesendet. Dashboard-Template, festes Empfängerpostfach, Reply-To-Verhalten im echten Mailprogramm und Eingang müssen noch geprüft werden. Keine E-Mail-Client-Screenshots oder garantierte Darstellung in allen Outlook-Versionen.
 
-GitHub-Pages-Verhalten lokal unter /Yilmaz/ geprüft: direkte Unterseite, unbekannte tiefe Adresse, 404 mit Stylesheets und funktionierender Rückkehr zur Startseite. Öffentliche Indexierung und Domainwechsel separat durch Release-Tests geprüft.
-
-## Grenzen und offene Angaben
-
-Keine realen Core-Web-Vitals-Messwerte, kein vollständiges WCAG-Audit, keine Prüfung in Safari/Firefox oder auf physischem Mobilgerät. Reduced-Motion-Fallback ist im CSS und JavaScript implementiert, kein gesonderter Betriebssystem-Test.
-
-Für die Veröffentlichung fehlen weiterhin bestätigte Geschäftsanschrift, direkte Kontaktangaben, vertretungsberechtigte Personen und vollständige rechtliche Texte. Persönliche Vorstellung und Kanzleifotos wurden nicht erfunden. EmailJS-Empfänger, Live-Template und Postfacheingang müssen im tatsächlichen Konto geprüft werden.
-
-Der Pages-Workflow ist vorbereitet, aber durch PAGES_ENABLED deaktiviert. noindex und die leere Vorschau-Sitemap bleiben bis zur Freigabe bestehen. Das ist kein Zugriffsschutz. Eine erfolgreiche Live-Veröffentlichung wird nicht behauptet.
+Keine öffentliche Freigabe oder Hostingumschaltung ausgelöst. Firmen-/Biografie-/Rechtsangaben stammen vorrangig aus den bereitgestellten Referenzen und bleiben zur Unternehmensbestätigung offen. Indexierungsstatus und vorgesehene Basisadresse aus main wurden erhalten.

@@ -20,11 +20,12 @@ def configure(base_url,public=False,root=ROOT):
     for page in settings['pages']:
         path=root/page['file']
         text=path.read_text(encoding='utf-8').replace(previous,base)
-        robots='index, follow' if public and page['type']!='legal' else 'noindex, nofollow'
+        robots='index, follow' if public and page['type'] not in ('legal','redirect') else 'noindex, nofollow'
+        if page['type']=='redirect': robots='noindex, follow'
         text=re.sub(r'<meta name="robots" content="[^"]*">',f'<meta name="robots" content="{robots}">',text)
         if page['file']=='404.html': text=re.sub(r'<base href="[^"]*">',f'<base href="{urlsplit(base).path}">',text)
         path.write_text(text,encoding='utf-8',newline='\n')
-    urls=[base+('' if p['file']=='index.html' else p['file']) for p in settings['pages'] if p['type']!='legal'] if public else []
+    urls=[base+('' if p['file']=='index.html' else p['file']) for p in settings['pages'] if p['type'] not in ('legal','redirect')] if public else []
     xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('  <url><loc>'+escape(u)+'</loc></url>\n' for u in urls)+'</urlset>\n'
     (root/'sitemap.xml').write_text(xml,encoding='utf-8')
     robots='User-agent: *\nAllow: /\n'+('Sitemap: '+base+'sitemap.xml\n' if public else '# Preview: all pages carry a noindex meta tag. This is not access control.\n')
@@ -38,3 +39,4 @@ if __name__=='__main__':
     parser.add_argument('--base-url',required=True)
     parser.add_argument('--public',action='store_true',help='Enable indexing for the seven non-legal pages.')
     args=parser.parse_args(); configure(args.base_url,args.public)
+

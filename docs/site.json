@@ -4,83 +4,71 @@
   "pages": [
     {
       "file": "index.html",
-      "label": "Home",
-      "title": "Steuerberatung in Leonding | F-Tax Steuerberatung GmbH",
-      "description": "F-Tax in Leonding: Buchhaltung, Lohnverrechnung, Jahresabschlüsse und Steuerberatung. Entdecken Sie unsere Leistungen und schildern Sie uns Ihr Anliegen.",
+      "label": "Startseite",
+      "title": "Steuerberatung in Leonding & Linz | F-Tax · Ferhat Yilmaz",
+      "description": "F-Tax Steuerberatung GmbH: persönliche Betreuung für Unternehmen und Privatpersonen in Leonding, Linz und Oberösterreich. Erstgespräch einfach anfragen.",
       "type": "home",
       "group": "home"
     },
     {
       "file": "steuerberatung.html",
       "label": "Steuerberatung",
-      "title": "Steuerberatung in Leonding | F-Tax",
-      "description": "Einkommen-, Körperschaft- und Umsatzsteuer, Steuererklärungen, Vertretung vor dem Finanzamt sowie Beratung zu Rechtsformwahl und Umgründungen.",
+      "title": "Steuerberatung für Unternehmen & Privatpersonen | F-Tax Leonding",
+      "description": "Buchhaltung, Jahresabschlüsse, Steuererklärungen und Gründungsberatung mit Ferhat Yilmaz. Lohnverrechnung über Kooperationspartner. Leonding und digital.",
       "type": "tax",
       "group": "tax"
     },
     {
-      "file": "buchhaltung.html",
-      "label": "Buchhaltung",
-      "title": "Buchhaltung & Einnahmen-Ausgaben-Rechnung | F-Tax Leonding",
-      "description": "Laufende Finanzbuchhaltung und Einnahmen-Ausgaben-Rechnung: F-Tax unterstützt Sie dabei, Ihre Geschäftsvorfälle übersichtlich zu erfassen.",
-      "type": "books",
-      "group": "tax"
-    },
-    {
-      "file": "lohnverrechnung.html",
-      "label": "Lohnverrechnung",
-      "title": "Lohn- & Gehaltsverrechnung | F-Tax Leonding",
-      "description": "Lohn- und Gehaltsabrechnung inklusive aller Meldungen, auch bei grenzüberschreitender Beschäftigung. Lohnverrechnung mit F-Tax.",
-      "type": "payroll",
-      "group": "tax"
-    },
-    {
-      "file": "bilanzierung.html",
-      "label": "Bilanzierung",
-      "title": "Bilanzierung & Jahresabschlüsse | F-Tax Leonding",
-      "description": "Jahresabschlüsse und Bilanzen mit F-Tax Steuerberatung GmbH in Leonding. Erfahren Sie mehr über die Vorbereitung und Abstimmung Ihrer Unterlagen.",
-      "type": "balance",
-      "group": "tax"
-    },
-    {
       "file": "ueber-mich.html",
-      "label": "Über F-Tax",
-      "title": "Über F-Tax Steuerberatung GmbH | Leonding",
-      "description": "Lernen Sie F-Tax Steuerberatung GmbH in Leonding kennen: Buchhaltung, Lohnverrechnung, Bilanzierung und Beratung zu steuerlichen Fragen.",
+      "label": "Über mich",
+      "title": "Ferhat Yilmaz · Steuerberater in Leonding | Über mich",
+      "description": "Lernen Sie Ferhat Yilmaz kennen: Geschäftsführer der F-Tax Steuerberatung GmbH, über zehn Jahre Unternehmensbetreuung und Steuerberaterprüfung im Oktober 2024.",
       "type": "about",
       "group": "about"
     },
     {
-      "file": "kontakt.html",
-      "label": "Kontakt",
-      "title": "Kontakt | F-Tax Steuerberatung GmbH Leonding",
-      "description": "Stellen Sie F-Tax eine Anfrage zu Buchhaltung, Lohnverrechnung, Bilanzierung oder Steuerberatung. Kontaktformular für Ihr Anliegen.",
-      "type": "contact",
-      "group": "contact"
-    },
-    {
       "file": "impressum.html",
       "label": "Impressum",
-      "title": "Impressum – Entwurf | F-Tax",
-      "description": "Bekannte Unternehmensangaben der F-Tax Steuerberatung GmbH. Der Impressumsentwurf wird vor der öffentlichen Freigabe vervollständigt.",
+      "title": "Impressum | F-Tax Steuerberatung GmbH",
+      "description": "Unternehmens- und Kontaktangaben der F-Tax Steuerberatung GmbH in Leonding. Entwurf auf Basis der bereitgestellten Unterlagen.",
       "type": "legal",
       "group": "legal"
     },
     {
       "file": "datenschutz.html",
       "label": "Datenschutz",
-      "title": "Datenschutz – Entwurf | F-Tax",
-      "description": "Informationen zum aktuellen Website-Entwurf und den noch zu ergänzenden Datenschutzhinweisen.",
+      "title": "Datenschutzerklärung | F-Tax Steuerberatung GmbH",
+      "description": "Hinweise zur Datenverarbeitung bei F-Tax, zur Terminanfrage mit EmailJS und zum vorgesehenen Hosting. Entwurf für den tatsächlichen Betrieb.",
       "type": "legal",
       "group": "legal"
     },
     {
+      "file": "404.html",
       "label": "Seite nicht gefunden",
       "title": "Seite nicht gefunden | F-Tax",
-      "description": "Die gesuchte Seite ist nicht verfügbar. Finden Sie die Leistungen und den Kontakt von F-Tax auf der Startseite.",
+      "description": "Die gesuchte Seite ist nicht verfügbar. Finden Sie Steuerberatung, Informationen über Ferhat Yilmaz und die Terminanfrage auf der Startseite.",
       "type": "legal",
-      "group": "legal",
-      "file": "404.html"
+      "group": "legal"
+    },
+    {
+      "file": "buchhaltung.html",
+      "type": "redirect",
+      "target": "steuerberatung.html#buchhaltung"
+    },
+    {
+      "file": "bilanzierung.html",
+      "type": "redirect",
+      "target": "steuerberatung.html#bilanzierung"
+    },
+    {
+      "file": "lohnverrechnung.html",
+      "type": "redirect",
+      "target": "steuerberatung.html#lohnverrechnung"
+    },
+    {
+      "file": "kontakt.html",
+      "type": "redirect",
+      "target": "index.html#termin"
     }
   ]
 }

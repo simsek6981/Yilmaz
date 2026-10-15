@@ -56,6 +56,14 @@ def verify(root=ROOT,allow_legacy=False):
     for path in pages:
         text=path.read_text(encoding='utf-8'); d=Document(); d.feed(text); docs[path.name]=d
         p=expected.get(path.name,{})
+        if p.get('type')=='redirect':
+            target=p['target'].split('#')[0]
+            canonical=base+('' if target=='index.html' else target)
+            if d.canonical!=[canonical] or d.meta.get('robots')!='noindex, follow': errors.append(f'{path.name}: legacy redirect metadata')
+            if p['target'] not in text or 'http-equiv="refresh"' not in text: errors.append(f'{path.name}: redirect missing')
+            continue
+        nav=re.search(r'<nav id="navigation"[^>]*>(.*?)</nav>',text,re.S)
+        if not nav or re.findall(r'href="([^"]+)"',nav[1])!=['index.html','steuerberatung.html','ueber-mich.html']: errors.append(f'{path.name}: main navigation must contain exactly three pages')
         if d.h1!=1 or d.mains!=1: errors.append(f'{path.name}: expected one H1 and main')
         if d.lang!='de-AT': errors.append(f'{path.name}: wrong language')
         if len(d.ids)!=len(set(d.ids)): errors.append(f'{path.name}: duplicate IDs')
@@ -92,20 +100,25 @@ def verify(root=ROOT,allow_legacy=False):
         for field in d.fields:
             if field.get('id') not in d.labels: errors.append(f'{name}: field without label')
     for key in ('title','description'):
-        values=[d.title if key=='title' else d.meta.get(key) for d in docs.values()]
+        values=[d.title if key=='title' else d.meta.get(key) for name,d in docs.items() if expected[name]['type']!='redirect']
         if len(values)!=len(set(values)): errors.append(f'Duplicate {key}')
     sitemap=ET.parse(root/'sitemap.xml')
     locs=[e.text for e in sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
-    required=[base+('' if n=='index.html' else n) for n,p in expected.items() if p['type']!='legal'] if public else []
+    required=[base+('' if n=='index.html' else n) for n,p in expected.items() if p['type'] not in ('legal','redirect')] if public else []
     if set(locs)!=set(required): errors.append('Sitemap does not match indexing mode')
     robots=(root/'robots.txt').read_text(encoding='utf-8')
     if 'Disallow: /\n' in robots: errors.append('Crawling blocked; noindex must remain readable')
-    c=docs['kontakt.html']
+    c=docs['index.html']
     config=c.jsons.get('contact-config',{})
     if config!={'serviceId':'service_ja02fgi','templateId':'template_tk14gwp','publicKey':'VaQ_PnlLN756oJY4H'}: errors.append('EmailJS configuration mismatch')
     fields={f.get('name') for f in c.fields}
-    if fields!={'from_name','from_email','phone','company','topic','message','website'}: errors.append('Form field contract changed')
+    if fields!={'from_name','from_email','phone','company','topic','message','website','appointment'}: errors.append('Form field contract changed')
+    if {f.get('name') for f in c.fields if 'required' in f}!={'from_name','from_email'}: errors.append('Only name and email may be required')
     if c.script_paths.count('assets/js/contact.js')!=1: errors.append('Contact script missing or duplicated')
+    for name,d in docs.items():
+        if name!='index.html' and 'assets/js/contact.js' in d.script_paths: errors.append(f'{name}: unexpected form script')
+    for name in ('index.html','steuerberatung.html','ueber-mich.html'):
+        if name!='index.html' and 'index.html#termin' not in docs[name].links: errors.append(f'{name}: missing direct appointment path')
     if not (root/'.nojekyll').exists(): errors.append('.nojekyll missing')
     if not allow_legacy and any((root/f).exists() for f in ('src','templates','build.py')): errors.append('Legacy build files remain')
     if (root/'prozessoptimierung.html').exists(): errors.append('Disabled page is present')
@@ -115,3 +128,4 @@ def verify(root=ROOT,allow_legacy=False):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(); parser.add_argument('--allow-legacy',action='store_true')
     verify(allow_legacy=parser.parse_args().allow_legacy)
+
