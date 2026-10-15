@@ -14,7 +14,7 @@ def render(values):
 if __name__=='__main__':
     values={'from_name':'Alex Beispiel','from_email':'alex@example.com','reply_to':'alex@example.com','company':'Beispielunternehmen','phone':'','appointment':'Dienstagvormittag, gerne online','topic':'Buchhaltung','message':'Guten Tag,\n\nich suche Unterstützung bei der laufenden Buchhaltung meines Unternehmens. Gerne würde ich besprechen, welche Unterlagen für den Einstieg hilfreich sind und wie die Zusammenarbeit ablaufen kann.\n\nVielen Dank und freundliche Grüße\nAlex Beispiel'}
     sample=render(values).replace('<title>Neue Terminanfrage | F-Tax</title>','<title>F-Tax · E-Mail-Designvorschau</title><meta name="robots" content="noindex, nofollow">')
-    sample=re.sub(r'(<body[^>]*>)',r'\1<p style="margin:0;padding:12px 20px;text-align:center;font:12px/1.6 Arial,sans-serif;color:#302735;background:#dfed9c">Designvorschau mit fiktiven Beispieldaten. Nicht als EmailJS-Vorlage verwenden.</p>',sample,count=1)
+    sample=re.sub(r'(<body[^>]*>)',r'\1<p style="margin:0;padding:12px 20px;text-align:center;font:12px/1.6 Arial,sans-serif;color:#102f32;background:#c5edda">Designvorschau mit fiktiven Beispieldaten. Nicht als EmailJS-Vorlage verwenden.</p>',sample,count=1)
     (ROOT/'docs/contact-notification-preview.html').write_text(sample,encoding='utf-8')
     checked=render(dict(values,message='<script>alert("x")</script>\nZweite Zeile & Ende',company=''))
     assert '<script>' not in checked and '&lt;script&gt;' in checked
