@@ -9,3 +9,7 @@ Das bereitgestellte Logo ist als SVG unverändert lokal gespeichert. Personenfot
 EmailJS-Konfiguration ausschließlich in index.html als application/json. contact.js validiert Name und Adresse als Pflichtangaben; weitere Felder sind optional. Topic hat einen sicheren Standardwert Erstgespräch. Terminwunsch wird als appointment übergeben; es wird weder Verfügbarkeit geprüft noch ein fester Termin gebucht. Der data-booking-provider-Marker erlaubt später eine klar abgegrenzte Buchungsintegration. Bestehende Fehler-, Timeout- und Mehrfachsendebehandlung bleibt erhalten.
 
 tools/prepare-release.py aktualisiert Metadaten und Domainbasis. Redirects und rechtliche Entwürfe bleiben aus der Sitemap ausgeschlossen. tools/package.py prüft vor der Paketierung und nimmt nur öffentliche Seiten sowie CSS, JS und Icons auf. dist bleibt ignoriert und wird nicht getrackt. Bestehender Pages-Workflow, PAGES_ENABLED und Veröffentlichungszustand werden nicht verändert.
+
+## Bewegungslogik
+
+main.js hält Menü, Sticky-Oberfläche und optionale Bewegung getrennt. Passive Scroll-Ereignisse bündeln die Header-Aktualisierung mit requestAnimationFrame; es wird keine Layouthöhe verändert. IntersectionObserver beobachtet nur ausgewählte Inhaltsgruppen und entfernt sie nach dem ersten Sichtbarwerden. Die native animate()-Methode verändert transform/opacity; die Ausgangs-CSS bleibt sichtbar. Reduced Motion beendet aktive Animationen. Kein Inhalt hängt von einer erfolgreichen Animationsinitialisierung ab.

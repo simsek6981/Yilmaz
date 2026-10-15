@@ -24,6 +24,7 @@ jobs:
       - run: node --check assets/js/contact.js
       - run: node --check assets/js/redirect.js
       - run: node --test tests/contact.test.js
+      - run: node --test tests/motion.test.js
       - run: python tools/package.py
       - name: Ensure dist is not tracked
         run: test -z "$(git ls-files dist)"
