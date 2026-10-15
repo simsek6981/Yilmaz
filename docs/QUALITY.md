@@ -32,3 +32,7 @@ Alle vorherigen SEO-Titel, Beschreibungen, Canonicals, Social-Metadaten und JSON
 ## Vollständiger Neuaufbau / Perspective
 
 Alle drei Hauptseiten, Header/Footer, Rechtsseiten-Gestaltung und E-Mail-Design sind neu gestaltet. Gleichbleibender Faktenbestand und identische fachliche/biografische Detailtexte wurden beim Umbau kontrolliert. SEO-Vergleich schließt Titel, Beschreibungen, Canonicals, OG/Twitter, Sprache, Indexierung und JSON-LD ein; nur theme-color ändert sich. Logo und Kontaktlogik bleiben bytegleich. Automatische Tests ersetzen weiterhin keine Sichtkontrolle. Erneute Browsersteuerung am 15.10.2026 scheitert vor Initialisierung mit HRESULT 0x80070003. Keine Screenshots und keine gemessenen mobilen Overflow- oder Leistungswerte verfügbar.
+
+## Clarity – erneuter Frontend-Neubau
+
+Aktueller Prüfstand und Grenzen: [CLARITY.md](CLARITY.md). 21 erfolgreiche Verhaltenstests (zehn Kontakt, elf Motion/Menü), unveränderte Fakten-/SEO-Verträge, neu berechnete Textkontraste und korrigierter Formularplatzhalter. Eigene responsive Layouts und Motion-Varianten sind implementiert. Integrierte Browseransicht fehlgeschlagen, HTTP-Lokalabfrage mit Timeout; kein erfolgreicher Render, keine gemessenen Viewport-Overflow-/Core-Web-Vitals-Werte oder Screenshots. Kein Live-E-Mail-Versand und keine Hostingumschaltung.

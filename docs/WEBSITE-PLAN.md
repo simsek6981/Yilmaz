@@ -1,11 +1,11 @@
-# F-Tax – neuer Markenauftritt
+# F-Tax – Clarity
 
-Vollständiger Frontend-Neuaufbau mit drei Hauptseiten: Startseite, Steuerberatung, Über mich. Termin vereinbaren führt in die Startseite; Impressum und Datenschutz bleiben im Footer. Kein öffentlicher Prozessoptimierungsbereich.
+Drei Hauptseiten, jeweils neu komponiert: Startseite, Steuerberatung, Über mich. Terminvereinbarung bleibt als unverbindliche Anfrage auf der Startseite. Rechtsseiten im Footer, vier ältere URLs weiterhin als Redirects. Kein Prozessoptimierungsbereich.
 
-Gestaltung: warme elfenbeinfarbene Flächen, tiefer Aubergineton, dezenter Limettenakzent. Georgia als ausdrucksstarke Serifenschrift, lokale Systemschrift für Texte und Bedienung. Offene Satzspiegel, dünne Linien, bewusst unterschiedliche Seitenkompositionen. Das bereitgestellte Logo bleibt unverändert. Eigene abstrakte SVG-Zeichnung, kein erfundenes Personenfoto.
+Eigenständige Identität in Petrol, hellen mineralischen Flächen und Mint. Große klare Systemtypografie mit gezielten Georgia-Akzenten, neue originale SVG-Markengrafik und unverändertes Unternehmenslogo. Kein erfundenes Porträt, keine externen Schrift-/Fotoanbieter.
 
-Startseite: typografische Bühne → regionaler Bezug → persönliches Beratungsverständnis → Leistungszeilen → Ferhat Yilmaz → Zielgruppen → drei Schritte der Zusammenarbeit → integrierte Terminanfrage. Steuerberatung: eigener dunkler Auftakt → Themenindex → fünf Fachkapitel mit vollständigen Informationen. Über mich: Haltung und Name → Erfahrung/Qualifikation → Hintergrund → Arbeitsweise → digitales Interesse → Gesprächseinladung.
+Native Hero-Choreografie, gestaffelte einmalige Scroll-Reveals, dekorative Linien, animiertes Menü, Hover-/Fokuszustände, dezenter Fortschritt und begrenzte Desktop-Parallaxe. Reduced Motion, mobile Varianten, Datensparmodus und sichtbare Fallbacks. Umfang und technische Grenzen in CLARITY.md.
 
-Nur Name und E-Mail sind Pflichtangaben. Weitere Angaben freiwillig aufklappbar. EmailJS-Konfiguration, optionale Felder, Fehlerbehandlung, Terminwunsch und nicht bindender Charakter bleiben erhalten. E-Mail-Benachrichtigung im gleichen Erscheinungsbild, vorbereitet zum manuellen Einsetzen im Dashboard.
+Die Fachinformationen, Firmen-/Kontaktdaten und persönlichen Angaben bleiben erhalten. Nur Name und E-Mail sind Pflichtfelder; EmailJS-Logik und Parameter unverändert. E-Mail-Template neu im gleichen Design; Dashboard-Synchronisierung gemäß README noch notwendig.
 
-SEO, alte URL-Ziele und bisheriger Vorschau-/Indexierungsmodus bleiben bestehen. Keine Hostingumschaltung. Automatische Funktionstests und Metadatenvergleich; die derzeit fehlerhafte Browserumgebung verhindert echte Screenshots und eine abschließende Sichtprüfung. Einzelheiten in REDESIGN.md und QUALITY.md.
+21 Verhaltenstests, Seiten-/SEO-/Release-/Strukturprüfungen und Farbkontrastberechnung. Tatsächliche Browserprüfung und Screenshots bleiben wegen fehlgeschlagener Preview-Infrastruktur offen. Keine Hostingaktivierung, keine neue Indexierungsfreigabe und keine behauptete Live-EmailJS-Änderung.

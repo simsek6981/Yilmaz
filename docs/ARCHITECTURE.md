@@ -13,3 +13,7 @@ tools/prepare-release.py aktualisiert Metadaten und Domainbasis. Redirects und r
 ## Bewegungslogik
 
 main.js hält Menü, Sticky-Oberfläche und optionale Bewegung getrennt. Passive Scroll-Ereignisse bündeln die Header-Aktualisierung mit requestAnimationFrame; es wird keine Layouthöhe verändert. IntersectionObserver beobachtet nur ausgewählte Inhaltsgruppen und entfernt sie nach dem ersten Sichtbarwerden. Die native animate()-Methode verändert transform/opacity; die Ausgangs-CSS bleibt sichtbar. Reduced Motion beendet aktive Animationen. Kein Inhalt hängt von einer erfolgreichen Animationsinitialisierung ab.
+
+## Clarity / aktuelles Frontend
+
+Neues HTML und CSS-Designsystem; die statische Architektur bleibt erhalten. main.js nutzt data-hero-item/data-delay, data-reveal, data-scroll-progress und data-parallax als kleine progressive Verträge. Native Web Animations API statt Bibliothek; maximale Desktop-Parallaxe 48 px, gemeinsame passive Scroll-Pipeline, Gerätemodi und Reduced Motion. Mobile Links sind nur im JS-geschlossenen Menü inert. SVG-Markengrafik ist inline/dekorativ; Original-Logo unverändert. Das neue E-Mail-Design enthält keine Bewegung. Einzelheiten und tatsächliche Testgrenzen in CLARITY.md.

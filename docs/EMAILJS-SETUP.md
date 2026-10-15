@@ -55,3 +55,7 @@ Die Datenschutzhinweise beschreiben den implementierten Ablauf, bleiben jedoch e
 - https://www.emailjs.com/pricing/
 - https://www.emailjs.com/legal/privacy-policy/
 
+
+## Aktuelle Gestaltung: Clarity
+
+Das Template ist neu als geschäftliche Nachricht in Petrol/Mint gestaltet: Absenderblock, Anliegen, optionale Kontakte und Terminwunsch, vollständige Nachricht und Unternehmensfooter. Es benötigt keine Bilder, Fonts oder Animationen. Der bestehende Parameter-/Reply-To-Vertrag gilt unverändert. Noch nicht im Live-Dashboard eingesetzt; echte Clientdarstellung und Zustellung sind nicht bestätigt.
