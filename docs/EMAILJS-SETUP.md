@@ -1,4 +1,4 @@
-# EmailJS · Cinematic Dark Luxury
+# EmailJS · Premium Redesign 2.0
 
 Die vorhandenen öffentlichen Kennungen bleiben erhalten: Service `service_ja02fgi`, Template `template_tk14gwp`, Public Key `VaQ_PnlLN756oJY4H`. Die Versandlogik in `assets/js/contact.js` nutzt die REST-API und übermittelt kein frei wählbares Empfängerpostfach und keinen privaten Schlüssel.
 

@@ -37,7 +37,7 @@ async function overflow(p){return p.evaluate(()=>({width:innerWidth,scroll:docum
  await check('30 page/viewport combinations have no horizontal overflow',async()=>assert.equal(report.viewports.length,30));
  await p.setViewportSize({width:390,height:844});await p.goto(base);
  await check('Mobile menu: open, Escape focus return, link navigation, desktop transition',async()=>{
-  const menu=p.getByRole('button',{name:'Menü',exact:true});
+  const menu=p.locator('.menu-toggle');
   await menu.click();assert.equal(await menu.getAttribute('aria-expanded'),'true');
   await p.keyboard.press('Escape');assert.equal(await menu.getAttribute('aria-expanded'),'false');assert.ok(await menu.evaluate(e=>e===document.activeElement));
   await menu.click();await p.locator('#navigation').getByRole('link',{name:'Steuerberatung',exact:true}).click();await p.waitForURL('**/steuerberatung.html');
