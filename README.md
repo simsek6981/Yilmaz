@@ -1,69 +1,80 @@
-# F-Tax Steuerberatung GmbH
+# F-Tax · Light Luxury
 
-Statische Website für Ferhat Yilmaz und die F-Tax Steuerberatung GmbH. **Light Premium · 17.10.2026** entwickelt den aktuellen Auftritt weiter: helle Weiß- und Blau-Grautöne, dunkle Schiefer-Typografie und Stahlblau; geometrische Anschnitte aus dem F-Logo, große Manrope-Überschriften und lokal gespeicherte Referenzfotos. Kein Framework oder notwendiger Build-Schritt. Schrift, Bilder und Animationen benötigen keine externen Dienste.
+Vollständig neu gestaltete statische Website für F-Tax Steuerberatung GmbH und Ferhat Yilmaz. Helle Weiß- und Blau-Grautöne, dunkle Manrope-Typografie, kräftige blaue Akzente und eine eigens gezeichnete SVG-Skulptur prägen den Auftritt. Grundlage sind die vom Nutzer erneut bereitgestellten Dateien der Cinematic-Version; deren Layout und Inhalte bleiben erhalten. Die Website benötigt weder Framework noch Build oder externe Design-Dienste.
 
-## Seiten und Dateien
-
-| Datei | Inhalt |
-| --- | --- |
-| `index.html` | Kanzlei, Leistungen, Zielgruppen, Arbeitsweise und Terminanfrage |
-| `steuerberatung.html` | Buchhaltung, Bilanzierung, Steuern, Gründung und Partner-Lohnverrechnung |
-| `ueber-mich.html` | Ferhat Yilmaz, Erfahrung, Prüfung, Arbeitsweise |
-| `impressum.html`, `datenschutz.html` | Vorhandene rechtliche Entwürfe |
-| `buchhaltung.html`, `bilanzierung.html`, `lohnverrechnung.html`, `kontakt.html` | Statische Weiterleitungen |
-| `assets/css/style.css` | Funktions- und Layoutbasis |
-| `assets/js/main.js` | Menü, Header und Scroll-Reveals |
-| `assets/js/contact.js` | EmailJS, Validierung, Lade- und Fehlerzustände |
-| `assets/images/` | Drei Referenzmotive als WebP in zwei Größen |
-| `assets/fonts/` | Lokale variable Manrope-Schrift samt SIL-OFL-Lizenz |
-| `assets/email-templates/contact-notification.html` | HTML-Mail in der Schiefergrau-/Stahlblau-Palette |
-
-Das bereitgestellte Logo bleibt erhalten. Prozessoptimierung ist als ausführlicher Abschnitt der Steuerberatungsseite integriert. Für Ferhat Yilmaz gibt es kein freigegebenes Porträt; die Profilkomposition verwendet daher das echte Markenlogo. Die Fotos illustrieren das Thema und behaupten keine Kanzleiräume oder Mitarbeitenden.
-
-## Lokale Vorschau
+## Vorschau
 
 ```sh
 python tools/serve.py
 ```
 
-Vorschau: `http://127.0.0.1:8000/Yilmaz/`. Die Root-Dateien funktionieren ohne Build auf GitHub Pages. `.nojekyll`, Weiterleitungen, Canonicals, strukturierte Daten und die vorhandene Pages-Konfiguration bleiben erhalten.
+Adresse: `http://127.0.0.1:8000/Yilmaz/`. Alle Inhaltsseiten liegen direkt im Repository-Root und funktionieren auch ohne JavaScript; das Senden des Formulars benötigt JavaScript.
 
-Der gegenwärtige Modus in `docs/site.json` ist `preview`: öffentliche Seiten tragen `noindex`, die Sitemap ist deshalb leer. Das ist der bereits vorhandene Freigabestatus. Für eine öffentliche Freigabe nach Prüfung der Unternehmens- und Rechtstexte:
+| Datei | Zweck |
+| --- | --- |
+| `index.html` | Kanzlei, Leistungen, Philosophie, Person, Zusammenarbeit, Terminanfrage |
+| `steuerberatung.html` | Fünf vollständige Fachkapitel |
+| `ueber-mich.html` | Hintergrund, Erfahrung, Philosophie und digitales Interesse |
+| `impressum.html`, `datenschutz.html` | Erhaltene rechtliche Entwürfe |
+| `buchhaltung.html`, `bilanzierung.html`, `lohnverrechnung.html`, `kontakt.html` | Erhaltene statische Weiterleitungen |
+| `assets/css/main.css` | Design Tokens, Typografie und sämtliche Komponenten |
+| `assets/css/animations.css` | Intro und native Scroll-Timelines mit statischen Fallbacks |
+| `assets/css/responsive.css` | Responsive Kompositionen und mobiles Menü |
+| `assets/js/main.js` | Navigation, Header, einmalige Text-/Zeilen-/Bild-Reveals |
+| `assets/js/contact.js` | Erhaltene EmailJS-Transportlogik und Formularzustände |
+| `assets/images/perspective.svg` | Originale, rein dekorative Markenkomposition |
+| `assets/fonts/` | Lokale Manrope-Latin-Variable als WOFF2 mit OFL-Lizenz |
+| `assets/email-templates/` | Neues HTML-Mailtemplate mit dunklem Markenkopf und hellem Lesebereich |
 
-```sh
-python tools/prepare-release.py --public --base-url https://simsek6981.github.io/Yilmaz/
-```
+Das unveränderte Original-Logo wird auf hellem Grund in seiner Originalfarbe dargestellt. Es liegt kein belegtes Porträt vor; die Namenskomposition ersetzt kein angebliches Personenfoto. Unternehmensdaten, Biografie, Fachinhalte und rechtliche Texte stammen aus dem vorhandenen Repository.
 
-Bei einer bestätigten eigenen Domain stattdessen deren wirkliche HTTPS-Adresse verwenden. Eine Veröffentlichung oder Indexierungsfreigabe erfolgt nicht automatisch durch dieses Redesign.
+## Motion und Zugänglichkeit
 
-## Terminanfrage und EmailJS
+Das Intro enthüllt die Headline zeilenweise, dann Beschreibung, CTA und Skulptur. Es gibt keinen Preloader. Ausgewählte Überschriften, Leistungszeilen und Markenflächen erhalten unterschiedliche einmalige Reveals über IntersectionObserver und Web Animations API. Eine native CSS-Scroll-Timeline zeichnet die Prozesslinie; auf Desktop verschiebt sich die Hero-Grafik beim Scrollen dezent. Browser ohne Scroll-Timeline-Unterstützung sehen die statische Darstellung.
 
-Die Terminanfrage auf der Startseite verlangt nur Name und E-Mail-Adresse. Weitere Angaben sind freiwillig; eine verbindliche Kalenderbuchung findet nicht statt. Der vorhandene EmailJS-Vertrag und die öffentlichen Kennungen bleiben erhalten: Service `service_ja02fgi`, Template `template_tk14gwp`, Public Key `VaQ_PnlLN756oJY4H`. Der Versand sperrt Doppelabsendungen, zeigt Validierungs- und Netzwerkfehler an und bestätigt einen Termin erst nach persönlicher Rückmeldung.
-
-Das lokale HTML-Template ist **noch nicht automatisch mit EmailJS synchronisiert**. Im EmailJS-Dashboard unter **Email Templates → template_tk14gwp → Code Editor / HTML** den Inhalt von `assets/email-templates/contact-notification.html` einfügen und speichern. Subject: `F-Tax Terminanfrage: {{topic}}`; Reply To: `{{reply_to}}`; To Email: festes bestätigtes Kanzleipostfach. Weitere Felder und Variablen stehen in `docs/EMAILJS-SETUP.md`. Der Live-Versand und der Postfacheingang wurden nicht ausgelöst.
-
-## Bewegung und Zugänglichkeit
-
-Die Choreografie des Hero-Bereichs läuft ohne Ladebildschirm. Weitere Inhalte erscheinen beim Scrollen einmalig über IntersectionObserver und die native Web Animations API. Die HTML-Inhalte sind stets vorhanden und ohne JavaScript lesbar. `prefers-reduced-motion` deaktiviert Bewegungen. Navigation, Formular und Fokuszustände sind per Tastatur nutzbar.
+`prefers-reduced-motion: reduce` stoppt CSS- und JavaScript-Bewegungen. Inhalte bleiben ohne JavaScript lesbar. Skip-Link, sichtbare Fokuszustände, korrekte Labels, Tastaturmenü, Fehlerfokus und Statusmeldungen sind vorhanden. Keine Tracking-, Karten- oder externen Font-/Bildaufrufe.
 
 ## Prüfungen
-
-Ausgeführt:
 
 ```sh
 python tools/components.py --check
 python tools/verify.py
 python tests/release_test.py
+python tools/email-preview.py
 node --check assets/js/main.js
 node --check assets/js/contact.js
-node --test tests/contact.test.js tests/motion.test.js
+npm test
 python tools/package.py
+git diff --check
 ```
 
-Zusätzlich wurden Startseite, Steuerberatung, Über mich, Impressum und Datenschutz im Browser bei 360, 390, 768, 1024, 1440 und 1920 px auf horizontales Überlaufen geprüft. Mobilmenü, Tastaturbedienung, Formularvalidierung sowie lokal simulierte Erfolgs- und Fehlerantworten wurden kontrolliert. Screenshots liegen als gesonderte Aufgabenausgabe vor. Dies sind keine gemessenen Core Web Vitals und kein echter EmailJS-Zustelltest. Details zur Referenz, Umsetzung und Freigabe: `docs/PREMIUM-REDESIGN.md`.
+Für wiederholbare Browserprüfungen bei laufender Vorschau:
 
-Vor öffentlicher Freigabe sind Firmen-/Kontaktdaten, Biografie, Leistungsdetails, Logo-Rechte und Rechtstexte durch F-Tax zu bestätigen. Die Lohnverrechnung bleibt ausdrücklich als Leistung eines Kooperationspartners bezeichnet.
+```sh
+npm ci --ignore-scripts
+npx playwright install chromium
+npm run test:browser
+npm run test:a11y
+```
 
-## Helle Überarbeitung · 17.10.2026
+Optional: `FTAX_BROWSER_CHANNEL=msedge` für einen installierten Edge, `FTAX_QA_DIR` für den Bericht-/Screenshot-Ordner und `FTAX_BASE_URL` für eine andere lokale Vorschau. Die Browserprüfung simuliert EmailJS vollständig und verschickt keine E-Mails. Node-Pakete sind reine Entwicklungswerkzeuge und werden nicht ausgeliefert. Der GitHub-Workflow führt statische Prüfungen sowie Browser- und axe-core-Prüfungen aus und speichert Screenshots als Actions-Artefakt.
 
-Hero und Unterseiten-Heros, Leistungsfläche, persönlicher Markenbereich, Kontaktabschluss und Footer verwenden jetzt helle Oberflächen mit dunkler Schrift. Die neuesten Inhalte, Fotos, Funktionen und Animationen bleiben erhalten. Die Farbänderung gilt auch bei dunkler Systemeinstellung. Eine versionierte CSS-Adresse aktualisiert Browser-Caches. Die mobilen Footer-Kontakte haben größere Klickflächen. Details zur Prüfung stehen in `docs/LIGHT-REFRESH.md`.
+Ergebnis und Grenzen der tatsächlich ausgeführten Prüfungen: [docs/QUALITY.md](docs/QUALITY.md).
+
+## EmailJS und Veröffentlichung
+
+Der vorhandene Service `service_ja02fgi`, das Template `template_tk14gwp` und der Public Key `VaQ_PnlLN756oJY4H` bleiben erhalten. Name und E-Mail sind die einzigen Pflichtfelder. Eine erfolgreiche Anfrage bestätigt keinen Termin. Dashboard-Schritte, Variablen und notwendiger Zustelltest stehen in [docs/EMAILJS-SETUP.md](docs/EMAILJS-SETUP.md).
+
+Das neue HTML-Template ist noch nicht in EmailJS eingespielt. Ein echter Versand und Postfacheingang sind nicht geprüft. Rechtstexte und Unternehmensangaben benötigen weiterhin die bereits im Repository vorgesehene Bestätigung.
+
+`docs/site.json` steht unverändert auf `preview`: `noindex` und eine leere Sitemap bleiben bewusst erhalten. Indexierung nach bestätigter Freigabe einschalten:
+
+```sh
+python tools/prepare-release.py --public --base-url https://simsek6981.github.io/Yilmaz/
+```
+
+Bei einer eigenen Domain ist deren bestätigte HTTPS-Adresse zu verwenden. Die bestehende GitHub-Pages-Veröffentlichung nutzt den Hauptzweig. Der zusätzliche optionale Actions-Workflow ist weiterhin an `PAGES_ENABLED=true` gebunden; die Freigabeeinstellungen werden nicht geändert. `tools/package.py` erzeugt das direkt deploybare Artefakt in `dist/`; dieser Ordner bleibt ungetrackt. Der Pages-Workflow lädt ausschließlich öffentliche Dateien hoch, einschließlich der neuen lokalen Bilder und Fonts.
+
+## Helle Fassung der gelieferten Vorlage · 17.10.2026
+
+Diese Version übernimmt den Aufbau mit „Klarheit. Für das, was kommt.“ und der geometrischen Skulptur aus den bereitgestellten Dateien. Sämtliche Seiten wurden aufgehellt, einschließlich Formular, Profil- und Footerbereich. Kontraste und CSS-Cacheversion sind angepasst; `color-scheme:light` verhindert dunkle System-Formularstile. Details: [docs/LIGHT-REFRESH.md](docs/LIGHT-REFRESH.md).

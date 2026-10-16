@@ -1,18 +1,11 @@
-# Helle Überarbeitung · 17. Oktober 2026
+# Light Luxury aus der gelieferten Vorlage · 17.10.2026
 
-Grundlage ist der aktuelle Hauptzweig nach dem Premium Redesign 2.0 (`81d6b8121d0f835f721541b54ce03eb0639cf1d0`). Neuere Inhalte, Prozessoptimierungsbereiche und lokale Fotos bleiben erhalten.
+Die erneut gelieferten Website-Dateien entsprechen dem ursprünglichen Cinematic-Stand `45ea901ed67a4277118e5b12d4d3f6c9bbb47d0c`. Sie sind die maßgebliche Vorlage für diesen Auftrag. Die große „Klarheit“-Typografie, Skulptur, Seitenkompositionen, Texte und Animationen werden übernommen und als helle Fassung auf der bestehenden F-Tax-Website veröffentlicht.
 
-Hero und Unterseiten-Heros haben einen hellen Hintergrund mit zurückhaltendem Blauverlauf und dunkler Schrift. Die bisher dunklen Leistungs-, Profil-, Kontakt- und Footerflächen sind ebenfalls aufgehellt. Stahlblaue Schaltflächen bleiben klar erkennbar; Fotobeschriftungen behalten ihren Kontrast. Die größeren mobilen Kontaktflächen im Footer erfüllen die automatisierte Zielgrößenprüfung. `color-scheme: light` hält die Formulare auch bei dunkler Systemeinstellung hell. Eine neue CSS-Versionskennung verhindert die Wiederverwendung der alten Farbdatei im Browsercache.
+Die Farbwelt verwendet #FAFBFD und #F0F4F9, dunklen Text #182435 sowie blaue Akzente #315F9E und #2F5892. Hero, Kanzleiabschnitt, Beratungsphilosophie, Profil, Fachkapitel, Kontakt und Rechtsseiten bleiben durch dezente Flächenunterschiede gegliedert. Die SVG-Skulptur hat hellere silberblaue Seiten und weichere Schatten. Links, Schaltflächen, Felder und Statusmeldungen sind für helle Hintergründe abgestimmt.
 
-Die Änderung betrifft die Darstellung und die Browser-Themenfarbe. Unternehmens-/Rechtstexte, SEO-Metadaten, Seitenadressen, Bilder, EmailJS-Konfiguration, Formularablauf und Animationen sind erhalten.
+Der Originalordner auf dem Desktop bleibt unverändert. Alle fünf Seitentexte sowie Logo und EmailJS-Code wurden gegen die tatsächlich bereitgestellten Dateien verglichen: unverändert. Die statischen Weiterleitungen, Canonicals, JSON-LD, Meta-Texte, Sitemap und bestehender Indexierungsstatus bleiben erhalten. Die Themenfarbe und versionierte CSS-Adressen sind angepasst. Keine erfundenen Angaben und kein Ersatzfoto einer Person.
 
-Lokal geprüft:
+Die vorhandenen automatisierten Prüfungen wurden ausgeführt: 19 Node-Tests; Komponenten, Links/Anker, Metadaten/Schema, Formularvertrag, Release-URL-Wechsel und Pages-Paket. Browser: fünf Seiten bei sechs Breiten (360, 390, 768, 1024, 1440 und 1920 Pixel), ohne horizontalen Überlauf. Mobilmenü, Tastatur, simulierte Versandzustände, Reduced Motion, Weiterleitungen, 404 und Darstellung ohne JavaScript wurden geprüft. axe-core kontrolliert alle fünf Seiten bei 390 und 1440 Pixeln. Nach Korrektur des mobilen Footer-Textkontrasts sind keine Verstöße der geprüften WCAG-A/AA-Regeln gemeldet. Die native Scroll-Prozesslinie ist aktiv und geprüft.
 
-- 19 Node-Tests bestanden.
-- Komponenten, interne Links/Anker, Metadaten/Schema, Formularvertrag, Release-URL-Wechsel und öffentliches Paket bestanden.
-- Fünf Seiten bei 360, 390, 768, 1024, 1440 und 1920 Pixeln: 30 Kombinationen ohne horizontalen Überlauf.
-- Browserprüfungen für Menü, Tastatur, Validierung, simulierte Versandzustände, Weiterleitungen, 404, reduzierte Bewegung und Nutzung ohne JavaScript bestanden.
-- axe-core: keine gemeldeten Verstöße der geprüften WCAG-A/AA-Regeln auf fünf Seiten bei 390 und 1440 Pixeln. Gefundene zu kleine mobile Footer-Kontakte wurden korrigiert und erneut geprüft.
-- Desktop-/Mobilansichten visuell kontrolliert; native Scroll-Prozesslinie geprüft.
-
-Die Versandtests nutzen simulierte Antworten. Es wurde keine echte E-Mail verschickt. Die bestehenden Angaben zum rechtlichen Entwurfsstatus und zum Betrieb bleiben erhalten. Die Veröffentlichung nutzt die bereits vorhandene GitHub-Pages-Konfiguration; Indexierungs- und Kontoeinstellungen werden nicht geändert.
+Alle Formularversandtests verwenden simulierte Antworten. Es wurde keine echte E-Mail verschickt. Ein vollständiges manuelles WCAG-Audit, Screenreader-, Safari-/Firefox- und E-Mail-Client-Tests sowie Feldmessungen der Core Web Vitals sind nicht eingeschlossen. Die vorhandenen rechtlichen Entwurfsmarkierungen und Betriebsangaben werden übernommen.

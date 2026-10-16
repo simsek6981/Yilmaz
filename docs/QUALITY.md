@@ -1,9 +1,7 @@
-# Qualitätssicherung · Premium Redesign 2.0
+# Prüfbericht · Light Luxury · 17.10.2026
 
-Die vorhandenen Python-Prüfungen validieren Seiten, semantische Struktur, Links/Anker, Komponenten, Metadaten, Schema, Formularvertrag, Indexierungsumschaltung und Paketierung. Die 19 JavaScript-Tests prüfen EmailJS- und Motion-/Navigationsverhalten.
+Geprüft wurde die helle Fassung der erneut gelieferten Cinematic-Dateien. Die unveränderten Desktop-Originale wurden vor der Bearbeitung mit dem ursprünglichen Git-Stand verglichen. Alle fünf Textinhalte sowie Original-Logo und EmailJS-Code stimmen nach der Bearbeitung mit den gelieferten Dateien überein.
 
-Die vorhandene Browser-/WCAG-CI bleibt erhalten. Ihre Mobilmenüsuche verwendet den stabilen Klassen-Selektor, da der zugängliche Name jetzt zwischen „Menü öffnen“ und „Menü schließen“ wechselt. Sie prüft 30 Größenkombinationen, Navigation, simulierte EmailJS-Antworten, reduzierte Bewegung, Alt-URLs, verschachtelte 404 und die Darstellung ohne JavaScript. Axe prüft die fünf Inhaltsseiten bei 390 und 1440 Pixeln; die CSS-Prozesslinie hat einen Scroll-Timeline-Test.
+19 Node-Tests sowie Komponenten-, Link-/Anker-, Metadaten-/Schema-, Formular-, Release- und Paketprüfungen bestanden. Im echten Browser wurden fünf Seiten bei 360, 390, 768, 1024, 1440 und 1920 Pixeln geprüft: kein horizontaler Überlauf. Navigation, Tastatur, Formularvalidierung, simulierte Versandzustände, Weiterleitungen, 404, Reduced Motion und Darstellung ohne JavaScript sind geprüft. Die kontrastkritische Footerzeile wurde nachgeschärft. axe-core meldet auf fünf Seiten bei 390 und 1440 Pixeln keine Verstöße der geprüften WCAG-A/AA-Regeln. Die native CSS-Scroll-Timeline wurde gemessen. Desktop-/Mobile-Screenshots wurden visuell kontrolliert.
 
-In der lokalen Browserprüfung wurden alle fünf Inhaltsseiten bei 360, 390, 768, 1024, 1440 und 1920 Pixeln kontrolliert. Je Test wurde auch geprüft, dass die tatsächliche Viewportbreite der angeforderten Breite entspricht. Keine Kombination hatte horizontales Überlaufen. Mobilmenü/Escape, aktive Links, Formularvalidierung und lokal simulierte Erfolgs-/Fehlerantworten wurden betrachtet. Keine echte E-Mail wurde versandt.
-
-Dies sind keine unter realem Besucherverkehr gemessenen Core Web Vitals und kein Zustellnachweis. Details und Quellen: [Premium-Redesign](PREMIUM-REDESIGN.md).
+Es wurde keine echte Nachricht versandt. Dies ist kein vollständiges manuelles Barrierefreiheits-Audit und keine Messung der Core Web Vitals im realen Betrieb. Tatsächliche EmailJS-Zustellung, E-Mail-Clients und die vorhandenen rechtlichen Entwürfe behalten ihren dokumentierten Prüfstatus. Details: [LIGHT-REFRESH.md](LIGHT-REFRESH.md).
