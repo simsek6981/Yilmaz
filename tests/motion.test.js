@@ -68,3 +68,15 @@ test('Mobile navigation still closes on Escape, link activation and desktop tran
   h.toggle.events.click();h.link.events.click();assert.equal(h.nav.classes.has('is-open'),false);
   h.toggle.events.click();h.queries.get('(min-width: 901px)').events.change();assert.equal(h.toggle.attrs['aria-expanded'],'false');
 });
+
+test('Editorial headings, service rows and identity art have distinct reveal treatments',()=>{
+  const lines=harness();lines.targets[0].attrs['data-reveal']='lines';lines.observers[0].callback([{target:lines.targets[0],isIntersecting:true}]);
+  assert.equal(lines.animations[0].frames[0].clipPath,'inset(0 0 26% 0)');
+  const row=harness();row.targets[0].attrs['data-reveal']='row';row.observers[0].callback([{target:row.targets[0],isIntersecting:true}]);
+  assert.equal(row.animations[0].frames[0].transform,'translateX(-12px)');
+  const image=harness();image.targets[0].attrs['data-reveal']='image';image.observers[0].callback([{target:image.targets[0],isIntersecting:true}]);
+  assert.equal(image.animations[0].options.duration,760);assert.equal(image.animations[0].frames[0].clipPath,'inset(0 8% 0 0)');
+});
+test('Moving keyboard focus out of mobile navigation closes the panel',()=>{
+  const h=harness();h.toggle.events.click();h.docEvents.focusin({target:{}});assert.equal(h.toggle.attrs['aria-expanded'],'false');
+});

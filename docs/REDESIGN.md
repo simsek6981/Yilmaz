@@ -1,23 +1,15 @@
-# Perspective – vollständiger Frontend-Neuaufbau
+# Creative Direction · Cinematic Dark Luxury
 
-## Gestaltungsentscheidung
+Der vollständige Frontend-Neubau verwendet die dunkle Palette des Briefings: #080A0E, #10141B und #171D26, mit zurückhaltendem Silberblau. Große, präzise gesetzte Manrope-Headlines und feine Trennlinien führen durch die Inhalte. Das originale F-Tax-Logo bleibt erhalten.
 
-Das alte Frontend wird durch eine eigenständige redaktionelle Gestaltung ersetzt. Die Startseite verzichtet auf einen klassischen Text-/Bild-Zweispalter im Hero. Große, mittig geführte Serifenüberschriften stehen vor einer zurückhaltenden, selbst gezeichneten Perspektivgrafik. Die folgende Seitenfolge wechselt zwischen dunklem Leitbild, offenen Leistungszeilen, Namensmotiv und hellen Inhaltsabschnitten. Fachseite und persönliche Seite besitzen jeweils eigene Einstiege.
+Der Hero setzt die dreizeilige Aussage „Klarheit. Für das, was kommt.“ gegen eine eigene gefaltete Metallskulptur. Die Grafik besteht aus lokalem SVG mit Lichtkanten, Schatten und Reflexion. Sie ist dekorativ und enthält weder erfundene Geschäftszahlen noch Personen. Mobil wird sie unterhalb der direkt sichtbaren Anfrageaktion neu komponiert.
 
-Palette: Papier #f7f6f2, Aubergine #302735, Limette #dfed9c, Sekundärtext #6c656d, Trennlinien #d9d5d8. Serifentypografie: Georgia/Times New Roman; Lesetext: Segoe UI/Arial. Keine zusätzlichen Schrift- oder Animationsdienste. Das Unternehmenslogo bleibt als Originaldatei erhalten. Grafiken sind dekorativ und enthalten keine erfundenen Finanzdaten oder Personen.
+Der Seitenrhythmus wechselt zwischen redaktionellem Kanzleieinstieg, nummerierten Leistungszeilen, großem Beratungsleitbild, persönlicher Namensfläche, Prozesslinie und Kontaktabschluss. Fachseite und Profil erhalten eigene Hero-Kompositionen. Rechtstexte werden ruhig und ohne Scroll-Reveals gestaltet.
 
-## Inhalt und Funktion
+Intro: 800-ms-Zeilenenthüllung mit 80-ms-Versatz, unterstützende Inhalte 650 ms, Skulptur 1100 ms. Scroll-Reveals: Text und Zeilen 540 ms, Bildmaske 760 ms, mobil 430 ms ohne Stagger. Interaktionen 220 ms. CSS-Timelines zeichnen die Zusammenarbeit-Linie und verschieben die Hero-Grafik auf Desktop sehr dezent. Reduced Motion schaltet alle Bewegungen ab. Es gibt keinen Ladebildschirm, kein Scroll-Hijacking und keine permanente Animationslast.
 
-Die fachlichen Kapiteltexte der Steuerberatung und die biografischen Texte wurden übernommen. Vorhanden bleiben Finanzbuchhaltung, Einnahmen-Ausgaben-Rechnung, UGB-Abschluss, Anhang/Offenlegung, Veranlagung, Vermietung/Ausland, Körperschaft-/Umsatzsteuer, EU-Fälle, FinanzOnline, Vertretung, Gründung/Rechtsform/Umgründung und Partner-Lohnverrechnung einschließlich grenzüberschreitender Beschäftigung. Erfahrung, Prüfung Oktober 2024, Geschäftsführer-/Gesellschafterfunktion und digitale Interessen bleiben enthalten.
+Erhaltene Inhalte: Buchhaltung und Einnahmen-Ausgaben-Rechnung, UVA/ZM, Anlagenverzeichnis, UGB-Abschluss, Anhang/Offenlegung, Einkommen-/Körperschaft-/Umsatzsteuer, Vermietung/Ausland, FinanzOnline, Vertretung, Gründung, Rechtsformwahl und Umgründungen. Lohnverrechnung bleibt ausdrücklich eine Partnerleistung. Erfahrung, Prüfung Oktober 2024, Geschäftsführer-/Gesellschafterfunktion und Interesse an digitalen Abläufen bleiben enthalten. Es wird keine neue separate Prozessoptimierungsseite beworben.
 
-Header: drei Hauptseiten und separate Terminschaltfläche. Footer: vollständiger Standort, Direktkontakte und Rechtsseiten. Die vier alten Adressen leiten weiterhin auf ihre bisherigen Abschnittsziele. Rechtsinhalte und Draft-Hinweise bleiben erhalten.
+Die drei Hauptseiten, Terminanfrage und Rechtsseiten sind vollständig eingebunden. Die vier Altadressen und deren Ankerziele bleiben erhalten. Titel, Beschreibungen, Canonicals, Social-Metadaten, JSON-LD und bestehender Indexierungsstatus werden bewahrt. Rechtliche Aussagen wurden wortgleich gegen den vorherigen Repository-Stand verglichen.
 
-Die EmailJS-Transportlogik wird unverändert verwendet. Nur Name/E-Mail verpflichtend; alle acht Templatevariablen bleiben abgestimmt. Das Maildesign ist vollständig erneuert: tabellarisch, Inline-CSS, Serifentitel, Aubergine-Header, klar gegliederte Kontaktdaten und Nachricht mit erhaltenen Zeilenumbrüchen. Kein Script, externe Schrift oder Bild erforderlich; ausschließlich escaped double-brace-Variablen. Reply-To bleibt eine Dashboard-Einstellung. Live-Template und Zustellung wurden nicht geändert oder getestet.
-
-## Prüfung und Grenzen
-
-Automatisch geprüft: Komponenten, Links/Anker, vollständige Metadaten und Schema, Formularvertrag, Redirects/Indexierung, Domainwechsel, zehn simulierte Kontakt-/Mailtests, sieben Motion-/Menütests, JS-Syntax, Escaping und statisches Paket. Die bisherigen Titel, Beschreibungen, Canonicals, Social-Tags und JSON-LD wurden mit dem vorherigen Stand verglichen; ausschließlich theme-color ist neu.
-
-CSS enthält Layoutwechsel bei 1100, 900 und 680 px sowie feste Fallbacks, sichtbare Inhalte ohne JavaScript, Fokuszustände, mobile Eingabeschrift und Reduced Motion. Ein echter Browser-Render ist derzeit nicht möglich: Die verfügbare Browsersteuerung beendet sich vor dem Start mit fehlendem Windows-Plattformverzeichnis (HRESULT 0x80070003). Frühere direkte Browserstarts waren von der automatischen Freigabe abgelehnt; diese Blockierung wurde nicht umgangen. Deshalb liegen keine belastbaren Vorher-/Nachher-Screenshots, tatsächlichen Overflow-Messungen oder E-Mail-Client-Renderings vor. Responsive Sichtkontrolle bleibt offen.
-
-Die Einzeldatei-Vorschau enthält fünf navigierbare Seiten und Desktop-/Tablet-/Mobilansichten; ihr E-Mail-Versand ist ausdrücklich deaktiviert. Keine öffentliche Veröffentlichung oder Änderung an PAGES_ENABLED/Indexierungsmodus. Firmen- und Rechtsangaben bedürfen weiterhin der Unternehmensbestätigung.
+Das neue E-Mail-Template nutzt eine dunkle Markenfläche, helle Informationsbereiche, Tabellen und Inline-CSS. Doppelt geklammerte Variablen bleiben escaped; optionale Angaben haben einen Fallback. Die Browser-Designvorschau ist von einem Test in Outlook, Gmail oder Apple Mail zu unterscheiden. Dashboard-Synchronisierung und Live-Zustellung bleiben offen.
