@@ -1,6 +1,6 @@
 # F-Tax Steuerberatung GmbH
 
-Statische Website für Ferhat Yilmaz und die F-Tax Steuerberatung GmbH. **Premium Redesign 2.0** entwickelt die bereitgestellte HTML-Referenz weiter: Schiefergrau, Weiß, helles Grau und Stahlblau; geometrische Anschnitte aus dem F-Logo, große Manrope-Überschriften und lokal gespeicherte Referenzfotos. Kein Framework oder notwendiger Build-Schritt. Schrift, Bilder und Animationen benötigen keine externen Dienste.
+Statische Website für Ferhat Yilmaz und die F-Tax Steuerberatung GmbH. **Light Premium · 17.10.2026** entwickelt den aktuellen Auftritt weiter: helle Weiß- und Blau-Grautöne, dunkle Schiefer-Typografie und Stahlblau; geometrische Anschnitte aus dem F-Logo, große Manrope-Überschriften und lokal gespeicherte Referenzfotos. Kein Framework oder notwendiger Build-Schritt. Schrift, Bilder und Animationen benötigen keine externen Dienste.
 
 ## Seiten und Dateien
 
@@ -63,3 +63,7 @@ python tools/package.py
 Zusätzlich wurden Startseite, Steuerberatung, Über mich, Impressum und Datenschutz im Browser bei 360, 390, 768, 1024, 1440 und 1920 px auf horizontales Überlaufen geprüft. Mobilmenü, Tastaturbedienung, Formularvalidierung sowie lokal simulierte Erfolgs- und Fehlerantworten wurden kontrolliert. Screenshots liegen als gesonderte Aufgabenausgabe vor. Dies sind keine gemessenen Core Web Vitals und kein echter EmailJS-Zustelltest. Details zur Referenz, Umsetzung und Freigabe: `docs/PREMIUM-REDESIGN.md`.
 
 Vor öffentlicher Freigabe sind Firmen-/Kontaktdaten, Biografie, Leistungsdetails, Logo-Rechte und Rechtstexte durch F-Tax zu bestätigen. Die Lohnverrechnung bleibt ausdrücklich als Leistung eines Kooperationspartners bezeichnet.
+
+## Helle Überarbeitung · 17.10.2026
+
+Hero und Unterseiten-Heros, Leistungsfläche, persönlicher Markenbereich, Kontaktabschluss und Footer verwenden jetzt helle Oberflächen mit dunkler Schrift. Die neuesten Inhalte, Fotos, Funktionen und Animationen bleiben erhalten. Die Farbänderung gilt auch bei dunkler Systemeinstellung. Eine versionierte CSS-Adresse aktualisiert Browser-Caches. Die mobilen Footer-Kontakte haben größere Klickflächen. Details zur Prüfung stehen in `docs/LIGHT-REFRESH.md`.
