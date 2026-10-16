@@ -17,6 +17,6 @@ for page in ROOT.glob('*.html'): shutil.copy2(page, output / page.name)
 for file in ['.nojekyll', 'sitemap.xml', 'robots.txt']:
     shutil.copy2(ROOT / file, output / file)
 if (ROOT / 'CNAME').exists(): shutil.copy2(ROOT / 'CNAME', output / 'CNAME')
-for folder in ['css', 'js', 'icons']:
+for folder in ['css', 'js', 'icons', 'images', 'fonts']:
     shutil.copytree(ROOT / 'assets' / folder, output / 'assets' / folder)
 print('PASS: static deployment artifact created in dist/.')

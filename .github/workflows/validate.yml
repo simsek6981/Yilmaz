@@ -28,4 +28,35 @@ jobs:
       - run: python tools/package.py
       - name: Ensure dist is not tracked
         run: test -z "$(git ls-files dist)"
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - run: python tools/email-preview.py
+      - name: Start local preview
+        run: |
+          python tools/serve.py > /tmp/ftax-preview.log 2>&1 &
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8000/Yilmaz/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/ftax-preview.log
+          exit 1
+      - run: npm run test:browser
+      - run: npm run test:a11y
+      - name: Save screenshots and browser reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-browser-qa
+          path: qa/
 

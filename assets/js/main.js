@@ -26,6 +26,9 @@
     document.addEventListener('click',event=>{
       if(!nav.contains(event.target)&&!toggle.contains(event.target))closeMenu();
     });
+    document.addEventListener('focusin',event=>{
+      if(!nav.contains(event.target)&&!toggle.contains(event.target))closeMenu();
+    });
     window.matchMedia('(min-width: 901px)').addEventListener('change',()=>closeMenu());
   }
   document.querySelectorAll('[data-year]').forEach(el=>el.textContent=String(new Date().getFullYear()));
@@ -67,12 +70,20 @@
           pending.delete(el);observer?.unobserve(el);
           if(typeof el.animate!=='function'||el.contains(document.activeElement))return;
           const distance=small.matches?6:12;
-          const side=false;
-          const transform=side?'translateX(-'+distance+'px)':'translateY('+distance+'px)';
+          const mode=el.getAttribute('data-reveal');
+          let entrance={opacity:.85,transform:'translateY('+distance+'px)'};
+          let settled={opacity:1,transform:'translate(0,0)'};
+          if(mode==='row'&&!small.matches)entrance={opacity:.85,transform:'translateX(-12px)'};
+          if(mode==='lines'){
+            entrance={opacity:.9,transform:'translateY('+distance+'px)',clipPath:'inset(0 0 26% 0)'};
+            settled={...settled,clipPath:'inset(0 0 0% 0)'};
+          }
+          if(mode==='image'){
+            entrance={opacity:.7,transform:'scale(1.015)',clipPath:'inset(0 8% 0 0)'};
+            settled={opacity:1,transform:'scale(1)',clipPath:'inset(0 0% 0 0)'};
+          }
           try{
-            const animation=el.animate([
-              {opacity:.45,transform},{opacity:1,transform:'translate(0,0)'}
-            ],{duration:small.matches?430:540,delay:small.matches?0:Math.min(stagger++*80,160),easing:'cubic-bezier(.22,1,.36,1)',fill:'none'});
+            const animation=el.animate([entrance,settled],{duration:small.matches?430:mode==='image'?760:540,delay:small.matches?0:Math.min(stagger++*80,160),easing:'cubic-bezier(.22,1,.36,1)',fill:'none'});
             running.add(animation);
             animation.addEventListener('finish',()=>running.delete(animation),{once:true});
             animation.addEventListener('cancel',()=>running.delete(animation),{once:true});
