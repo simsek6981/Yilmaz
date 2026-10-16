@@ -1,34 +1,21 @@
-# Prüfbericht · Premium-Version · 15.10.2026
+# Prüfbericht · Atelier · 15.10.2026
 
-## Durchgeführt
+## Automatisiert
 
-- Alle zehn Root-Dateien: sechs vollständige Dokumente einschließlich rechtlicher Seiten und 404 sowie vier reine Weiterleitungsdateien.
-- Lokale Links/Anker, relative Assets, individuelles SEO der vollständigen Seiten, de-AT, H1-Hierarchie, Canonicals, Open Graph, Twitter und JSON-LD.
-- Drei indexierbare Inhaltsseiten im späteren öffentlichen Modus; keine eigenständigen Fach-/Kontaktseiten in Navigation oder Sitemap.
-- Formular ausschließlich auf der Startseite, nur Name und E-Mail verpflichtend. Alle Parameter einschließlich Terminwunsch stimmen mit dem Mailtemplate überein.
-- Zehn simulierte Formular-/Template-Tests: minimale Anfrage, sichere Vorgaben für optionale Angaben, Validierung, Escaping, korrekter REST-Payload und Reply-To, Honeypot, Dienst-/Netzfehler, Timeout, Eingabeerhalt und Mehrfachsendesperre.
-- Temporäre Release-/Domainwechsel-Tests mit GitHub-Unterpfad, eigener Domain und Rückkehr zur Vorschau.
-- E-Mail-Beispiel mit fiktiven Daten sowie Escaping/Zeilenumbrüchen.
-- Gemeinsame Header-/Footer-Komponenten und JavaScript-Syntax.
+- `python tools/components.py --check`: gemeinsamer Header/Footer konsistent.
+- `python tools/verify.py`: zehn Root-Seiten, interne Links und Anker, Assets, Metadaten, Schema, Formularvertrag, Sitemap und Vorschau-Indexierung bestanden.
+- `python tests/release_test.py`: Wechsel zwischen GitHub-Unterpfad, eigener Domain und Vorschau bestanden; Test arbeitet temporär und hat den Arbeitsstand nicht veröffentlicht.
+- `node --check` für `main.js` und `contact.js` bestanden.
+- `node --test tests/contact.test.js tests/motion.test.js`: 17/17 Tests bestanden, darunter EmailJS-Payload, Validierung, Fehler/Timeout, Doppelabsendesperre, Einmaleffekte, reduzierte Bewegung und Menübedienung.
+- `python tools/package.py`: statisches GitHub-Pages-Paket erzeugt; `dist/` wird nicht getrackt.
+- `git diff --check` bestanden.
 
-## Visuelle Grenze
+## Browserprüfung
 
-Für diese neue Version wurde kein erfolgreicher Browser-Render durchgeführt. Der Start des lokalen Browsers wurde von der automatischen Freigabe abgelehnt. Die alternative Browsersteuerung scheiterte ebenfalls mit fehlendem Windows-Plattformverzeichnis (HRESULT 0x80070003). Die Blockierung wurde nicht durch einen anderen Prozessstart umgangen.
+Die lokale Vorschau wurde unter `http://127.0.0.1:8000/Yilmaz/` im Browser geöffnet. Startseite, Steuerberatung, Über mich, Impressum und Datenschutz wurden bei 360, 390, 768, 1024, 1440 und 1920 px auf horizontales Überlaufen geprüft. Nach Korrekturen am Mobilmenü, einer Kapitelüberschrift und dem Zielgruppenraster wurde kein Überlauf mehr gemessen.
 
-Deshalb keine tatsächlich erstellten Screenshots oder behaupteten Sichtprüfungen bei 375, 768, 1440 und 1920 px. Responsive Regeln sind für diese Breiten implementiert, müssen aber im Browser noch kontrolliert werden. Der ältere V2-Bericht beschreibt eine andere Gestaltung und ersetzt diese Kontrolle nicht. Keine gemessenen Core Web Vitals, kein Safari-/Firefox-Test, kein vollständiges WCAG-Audit.
+Desktop- und Smartphone-Hero, Tablet-Layout, mobile Steuerberatungs- und Profilseite sowie das Anfrageformular wurden visuell geprüft. Das Mobilmenü wurde geöffnet und ein Navigationslink benutzt. Die leere Terminanfrage erzeugte die erwartete Meldung, markierte das Namensfeld und setzte den Fokus dorthin. Die Browserkonsole enthielt bei der lokalen Startseite keine Fehler oder Warnungen. Desktop- und Mobil-Screenshots liegen in der Aufgabenausgabe.
 
-## Versand / Veröffentlichung
+## Offene Grenzen
 
-Keine echte E-Mail gesendet. Dashboard-Template, festes Empfängerpostfach, Reply-To-Verhalten im echten Mailprogramm und Eingang müssen noch geprüft werden. Keine E-Mail-Client-Screenshots oder garantierte Darstellung in allen Outlook-Versionen.
-
-Keine öffentliche Freigabe oder Hostingumschaltung ausgelöst. Firmen-/Biografie-/Rechtsangaben stammen vorrangig aus den bereitgestellten Referenzen und bleiben zur Unternehmensbestätigung offen. Indexierungsstatus und vorgesehene Basisadresse aus main wurden erhalten.
-
-## Modernisierungsprüfung
-
-Zusätzlich bestehen sieben Node-Verhaltenstests für einmalige Einblendung, reduzierte Bewegung beim Laden und Umschalten, kleinere Smartphone-Effekte, Fokus-Schutz, fehlende/fehlerhafte Observer, passive gebündelte Header-Aktualisierung und Menübedienung. Zehn bestehende EmailJS-/Template-Tests bleiben erhalten. Die Bewegungslogik wurde mit simuliertem DOM/Observer geprüft, nicht als echte Browserdarstellung.
-
-Alle vorherigen SEO-Titel, Beschreibungen, Canonicals, Social-Metadaten und JSON-LD-Daten wurden vor/nach der Modernisierung identisch verglichen. Keine Indexierungs- oder Hostingumschaltung. Das neue Maildesign enthält keine Animation oder JavaScript. Keine tatsächlichen Core-Web-Vitals-Messwerte; die bereits dokumentierte Browser-Blockierung bleibt offen.
-
-## Vollständiger Neuaufbau / Perspective
-
-Alle drei Hauptseiten, Header/Footer, Rechtsseiten-Gestaltung und E-Mail-Design sind neu gestaltet. Gleichbleibender Faktenbestand und identische fachliche/biografische Detailtexte wurden beim Umbau kontrolliert. SEO-Vergleich schließt Titel, Beschreibungen, Canonicals, OG/Twitter, Sprache, Indexierung und JSON-LD ein; nur theme-color ändert sich. Logo und Kontaktlogik bleiben bytegleich. Automatische Tests ersetzen weiterhin keine Sichtkontrolle. Erneute Browsersteuerung am 15.10.2026 scheitert vor Initialisierung mit HRESULT 0x80070003. Keine Screenshots und keine gemessenen mobilen Overflow- oder Leistungswerte verfügbar.
+Eine echte EmailJS-Anfrage wurde nicht gesendet. Das HTML-Template muss im EmailJS-Dashboard synchronisiert und der Postfacheingang einschließlich Reply-To dort geprüft werden. Keine gemessenen LCP-, INP- oder CLS-Werte, kein vollständiges WCAG-2.2-AA-Audit und keine Safari-/Firefox-Prüfung. Die bestehenden rechtlichen Entwürfe sowie Unternehmens- und Biografiedaten müssen vor öffentlicher Freigabe durch F-Tax bestätigt werden. Der vorhandene `noindex`-Vorschaumodus bleibt aktiv.
