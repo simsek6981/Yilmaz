@@ -1,5 +1,6 @@
 'use strict';
 (() => {
+  const initialScrollY=window.scrollY;
   const root=document.documentElement;
   root.classList.add('js');
   const toggle=document.querySelector('.menu-toggle');
@@ -36,12 +37,12 @@
   // Sticky appearance changes without changing height or measuring page layout.
   if(header){
     let framePending=false;
-    function syncHeader(){header.classList.toggle('is-scrolled',window.scrollY>16);framePending=false;}
+    function syncHeader(useInitial=false){header.classList.toggle('is-scrolled',(useInitial===true?initialScrollY:window.scrollY)>16);framePending=false;}
     window.addEventListener('scroll',()=>{
       if(framePending)return;
       framePending=true;window.requestAnimationFrame(syncHeader);
     },{passive:true});
-    syncHeader();
+    syncHeader(true);
   }
 
   // Every element stays visible in the base CSS. Animate only on intersection;

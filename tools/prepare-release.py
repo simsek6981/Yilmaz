@@ -20,6 +20,19 @@ def configure(base_url,public=False,root=ROOT):
     for page in settings['pages']:
         path=root/page['file']
         text=path.read_text(encoding='utf-8').replace(previous,base)
+        if page['type']!='redirect':
+            title=page['title']; description=page['description']
+            text=re.sub(r'<title>.*?</title>',lambda _: '<title>'+escape(title)+'</title>',text,flags=re.S)
+            for attr,key,value in [('name','description',description),('property','og:title',title),('property','og:description',description),('name','twitter:title',title),('name','twitter:description',description)]:
+                text=re.sub(r'<meta '+attr+'="'+re.escape(key)+r'" content="[^"]*">',lambda _,a=attr,k=key,v=value:'<meta '+a+'="'+k+'" content="'+escape(v,quote=True)+'">',text)
+            url=base+('' if page['file']=='index.html' else page['file'])
+            graph=[{'@type':'Organization','@id':base+'#organization','name':'F-Tax Steuerberatung GmbH','url':base,'taxID':'ATU82256979','address':{'@type':'PostalAddress','streetAddress':'Bruno-Gallee-Weg 24/12','postalCode':'4060','addressLocality':'Leonding','addressCountry':'AT'}}, {'@type':'WebSite','@id':base+'#website','name':'F-Tax Steuerberatung GmbH','url':base,'inLanguage':'de-AT','publisher':{'@id':base+'#organization'}}, {'@type':'WebPage','@id':url+'#webpage','name':title,'description':description,'url':url,'inLanguage':'de-AT','isPartOf':{'@id':base+'#website'}}]
+            if page['type'] in ('tax','service'):
+                graph.append({'@type':'Service','name':page['label'],'url':url,'provider':{'@id':base+'#organization'},'areaServed':{'@type':'Country','name':'Österreich'}})
+            if page['file']!='index.html':
+                graph.append({'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Startseite','item':base},{'@type':'ListItem','position':2,'name':page['label'],'item':url}]})
+            schema='<script type="application/ld+json">'+json.dumps({'@context':'https://schema.org','@graph':graph},ensure_ascii=False).replace('</','<\\/')+'</script>'
+            text=re.sub(r'<script type="application/ld\+json">.*?</script>',lambda _:schema,text,flags=re.S)
         robots='index, follow' if public and page['type'] not in ('legal','redirect') else 'noindex, nofollow'
         if page['type']=='redirect': robots='noindex, follow'
         text=re.sub(r'<meta name="robots" content="[^"]*">',f'<meta name="robots" content="{robots}">',text)

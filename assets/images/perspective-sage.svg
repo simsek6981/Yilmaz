@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="700" viewBox="0 0 640 700" fill="none">
+  <defs>
+    <linearGradient id="back" x1="190" y1="130" x2="424" y2="478" gradientUnits="userSpaceOnUse"><stop stop-color="#edf2e9"/><stop offset=".27" stop-color="#83a490"/><stop offset=".56" stop-color="#8eb19c"/><stop offset="1" stop-color="#abc7b6"/></linearGradient>
+    <linearGradient id="face" x1="223" y1="246" x2="418" y2="426" gradientUnits="userSpaceOnUse"><stop stop-color="#88a995"/><stop offset=".21" stop-color="#f2f5ef"/><stop offset=".35" stop-color="#b5cbbd"/><stop offset=".57" stop-color="#587664"/><stop offset="1" stop-color="#93b5a0"/></linearGradient>
+    <linearGradient id="side" x1="351" y1="214" x2="471" y2="440" gradientUnits="userSpaceOnUse"><stop stop-color="#9cbba8"/><stop offset=".3" stop-color="#71917d"/><stop offset=".6" stop-color="#84a992"/><stop offset="1" stop-color="#688e77"/></linearGradient>
+    <linearGradient id="edge" x1="249" y1="109" x2="291" y2="472" gradientUnits="userSpaceOnUse"><stop stop-color="#fbfcf9"/><stop offset=".5" stop-color="#bbddc8"/><stop offset="1" stop-color="#658571" stop-opacity=".15"/></linearGradient>
+    <linearGradient id="top" x1="206" y1="171" x2="349" y2="126" gradientUnits="userSpaceOnUse"><stop stop-color="#bcd4c5"/><stop offset=".5" stop-color="#dce5d4"/><stop offset="1" stop-color="#9ac0a9"/></linearGradient>
+    <linearGradient id="rim" x1="174" y1="253" x2="457" y2="363" gradientUnits="userSpaceOnUse"><stop stop-color="#9ccdaf" stop-opacity=".1"/><stop offset=".3" stop-color="#edf2e9"/><stop offset=".65" stop-color="#b1d6bf"/><stop offset="1" stop-color="#b1d6bf" stop-opacity=".05"/></linearGradient>
+    <radialGradient id="floor"><stop stop-color="#8ebda0" stop-opacity=".18"/><stop offset="1" stop-color="#8ebda0" stop-opacity="0"/></radialGradient>
+    <linearGradient id="reflection" x1="320" y1="500" x2="320" y2="645" gradientUnits="userSpaceOnUse"><stop stop-color="#91bca2" stop-opacity=".16"/><stop offset="1" stop-color="#91bca2" stop-opacity="0"/></linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="13"/></filter>
+  </defs>
+  <!-- An original folded-metal study. A perspective, rather than a stock image. -->
+  <ellipse cx="329" cy="517" rx="225" ry="65" fill="url(#floor)"/>
+  <ellipse cx="333" cy="511" rx="119" ry="15" fill="#4e765d" opacity=".18" filter="url(#blur)"/>
+  <path d="M202 163 313 101 387 141 277 207Z" fill="url(#top)"/>
+  <path d="M202 163 277 207 277 486 202 442Z" fill="url(#back)"/>
+  <path d="M277 207 387 141 387 422 277 486Z" fill="url(#side)"/>
+  <path d="M202 163 277 207 387 141" stroke="url(#edge)" stroke-width="1.2"/>
+  <path d="M277 207V486" stroke="#dbe4d2" stroke-opacity=".45"/>
+  <path d="M349 194 459 258 459 473 349 537 349 322 239 386 165 343 349 237Z" fill="url(#face)"/>
+  <path d="M349 194 423 151 533 215 459 258Z" fill="url(#top)"/>
+  <path d="M459 258 533 215 533 430 459 473Z" fill="url(#side)"/>
+  <path d="M349 322 459 258 459 473 349 537Z" fill="url(#side)"/>
+  <path d="M165 343 239 386 239 450 165 407Z" fill="url(#back)"/>
+  <path d="M239 386 349 322 349 386 239 450Z" fill="#89af98"/>
+  <path d="M349 194 459 258 533 215" stroke="url(#edge)" stroke-width="1.4"/>
+  <path d="M165 343 239 386 349 322 349 537" stroke="url(#rim)" stroke-width="1.2"/>
+  <path d="M459 258V473" stroke="#eaefe4" stroke-opacity=".5"/>
+  <path d="M202 164V441M350 195 458 258M351 323V535" stroke="#f8faf6" stroke-opacity=".15"/>
+  <path d="M277 487 349 538 459 474 459 576 349 640 277 590Z" fill="url(#reflection)" opacity=".45"/>
+  <path d="M111 524H543" stroke="#b5dac3" stroke-opacity=".12"/>
+  <path d="M320 558V577M311 568H330" stroke="#b5dac3" stroke-opacity=".35" stroke-width=".7"/>
+</svg>
