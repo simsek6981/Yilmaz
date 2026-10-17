@@ -5,7 +5,7 @@
     {
       "file": "index.html",
       "label": "Startseite",
-      "title": "Steuerberatung in Leonding & Linz | F-Tax · Ferhat Yilmaz",
+      "title": "Steuerberatung in Leonding & Linz | F-Tax",
       "description": "F-Tax Steuerberatung GmbH: persönliche Betreuung für Unternehmen und Privatpersonen in Leonding, Linz und Oberösterreich. Erstgespräch einfach anfragen.",
       "type": "home",
       "group": "home"
@@ -13,7 +13,7 @@
     {
       "file": "steuerberatung.html",
       "label": "Steuerberatung",
-      "title": "Steuerberatung für Unternehmen & Privatpersonen | F-Tax Leonding",
+      "title": "Steuerberatung für Unternehmen & Private | F-Tax",
       "description": "Buchhaltung, Jahresabschlüsse, Steuererklärungen und Gründungsberatung mit Ferhat Yilmaz. Lohnverrechnung über Kooperationspartner. Leonding und digital.",
       "type": "tax",
       "group": "tax"
@@ -52,18 +52,27 @@
     },
     {
       "file": "buchhaltung.html",
-      "type": "redirect",
-      "target": "steuerberatung.html#buchhaltung"
+      "label": "Buchhaltung",
+      "title": "Buchhaltung in Leonding & Linz | F-Tax",
+      "description": "Laufende Buchhaltung und Einnahmen-Ausgaben-Rechnung mit F-Tax. Digitale Belegübermittlung, Auswertungen und persönliche Betreuung in Leonding.",
+      "type": "service",
+      "group": "tax"
     },
     {
       "file": "bilanzierung.html",
-      "type": "redirect",
-      "target": "steuerberatung.html#bilanzierung"
+      "label": "Jahresabschluss",
+      "title": "Jahresabschluss & Bilanzierung in Leonding | F-Tax",
+      "description": "Jahresabschluss, Bilanz und Einnahmen-Ausgaben-Rechnung mit Ferhat Yilmaz. Unterlagen abstimmen, Ergebnisse verstehen und nächste Schritte besprechen.",
+      "type": "service",
+      "group": "tax"
     },
     {
       "file": "lohnverrechnung.html",
-      "type": "redirect",
-      "target": "steuerberatung.html#lohnverrechnung"
+      "label": "Lohnverrechnung",
+      "title": "Lohnverrechnung mit Kooperationspartner | F-Tax",
+      "description": "Lohn- und Gehaltsverrechnung über einen erfahrenen Kooperationspartner. F-Tax stimmt die Zusammenarbeit mit Buchhaltung und Steuern ab.",
+      "type": "service",
+      "group": "tax"
     },
     {
       "file": "kontakt.html",
