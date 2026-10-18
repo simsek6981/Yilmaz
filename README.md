@@ -1,6 +1,8 @@
-# F-Tax · Light Luxury
+# F-Tax · New Perspective
 
-Vollständig neu gestaltete statische Website für F-Tax Steuerberatung GmbH und Ferhat Yilmaz. Helle Weiß- und Blau-Grautöne, dunkle Manrope-Typografie, kräftige blaue Akzente und eine eigens gezeichnete SVG-Skulptur prägen den Auftritt. Grundlage sind die vom Nutzer erneut bereitgestellten Dateien der Cinematic-Version; deren Layout und Inhalte bleiben erhalten. Die Website benötigt weder Framework noch Build oder externe Design-Dienste.
+Vollständig überarbeitete visuelle Gestaltung: Anthrazit, helle Typografie, Lime-Akzent und eine eigens generierte abstrakte Chromskulptur. Die bisherigen CSS-Schichten wurden durch ein zusammenhängendes Designsystem ersetzt. Neue Leistungskarten, eine interaktive Auswahl für Unternehmen/Gründung/Privatpersonen, horizontale Prozessschritte und überarbeitete Fachseiten prägen den Auftritt. Original-Logo, Unternehmensdaten, Formularvertrag und Routen bleiben erhalten.
+
+Aktueller Umsetzungs- und Prüfbericht: [MODERN-REDESIGN.md](MODERN-REDESIGN.md). Designsystem: [brand-spec.md](brand-spec.md). Bildherkunft und vollständiger Prompt: [docs/modern-image-prompt.md](docs/modern-image-prompt.md). Der frühere Bericht [BERICHT.md](BERICHT.md) dokumentiert die vorherige Fassung und die weiterhin relevante Wettbewerbsrecherche.
 
 ## Vorschau
 
@@ -16,13 +18,17 @@ Adresse: `http://127.0.0.1:8000/Yilmaz/`. Alle Inhaltsseiten liegen direkt im Re
 | `steuerberatung.html` | Fünf vollständige Fachkapitel |
 | `ueber-mich.html` | Hintergrund, Erfahrung, Philosophie und digitales Interesse |
 | `impressum.html`, `datenschutz.html` | Erhaltene rechtliche Entwürfe |
-| `buchhaltung.html`, `bilanzierung.html`, `lohnverrechnung.html`, `kontakt.html` | Erhaltene statische Weiterleitungen |
+| `buchhaltung.html`, `bilanzierung.html`, `lohnverrechnung.html` | Vollständige, direkt erreichbare Fachseiten an den bisherigen URLs |
+| `kontakt.html` | Kompatible Weiterleitung zur Terminanfrage |
 | `assets/css/main.css` | Design Tokens, Typografie und sämtliche Komponenten |
 | `assets/css/animations.css` | Intro und native Scroll-Timelines mit statischen Fallbacks |
 | `assets/css/responsive.css` | Responsive Kompositionen und mobiles Menü |
-| `assets/js/main.js` | Navigation, Header, einmalige Text-/Zeilen-/Bild-Reveals |
+| `assets/css/refinement.css` | Nicht mehr eingebundener Kompatibilitätsvermerk; das alte Design ist ersetzt |
+| `assets/js/main.js` | Navigation, Header und einmalige Reveals ohne kontrastschwache Text-Fades |
+| `assets/js/experience.js` | Tastaturbedienbare Auswahl für Unternehmen, Gründung und Privatpersonen |
 | `assets/js/contact.js` | Erhaltene EmailJS-Transportlogik und Formularzustände |
 | `assets/images/perspective.svg` | Originale, rein dekorative Markenkomposition |
+| `assets/images/perspective-chrome.webp`, `perspective-chrome-mobile.webp` | Neue lokal gehostete, optimierte Hero-Bildwelt |
 | `assets/fonts/` | Lokale Manrope-Latin-Variable als WOFF2 mit OFL-Lizenz |
 | `assets/email-templates/` | Neues HTML-Mailtemplate mit dunklem Markenkopf und hellem Lesebereich |
 
@@ -59,7 +65,7 @@ npm run test:a11y
 
 Optional: `FTAX_BROWSER_CHANNEL=msedge` für einen installierten Edge, `FTAX_QA_DIR` für den Bericht-/Screenshot-Ordner und `FTAX_BASE_URL` für eine andere lokale Vorschau. Die Browserprüfung simuliert EmailJS vollständig und verschickt keine E-Mails. Node-Pakete sind reine Entwicklungswerkzeuge und werden nicht ausgeliefert. Der GitHub-Workflow führt statische Prüfungen sowie Browser- und axe-core-Prüfungen aus und speichert Screenshots als Actions-Artefakt.
 
-Ergebnis und Grenzen der tatsächlich ausgeführten Prüfungen: [docs/QUALITY.md](docs/QUALITY.md).
+Aktuelle Ergebnisse und Grenzen der tatsächlich ausgeführten Prüfungen: [MODERN-REDESIGN.md](MODERN-REDESIGN.md). Frühere Fassungen bleiben in `docs/` als historischer Kontext erhalten.
 
 ## EmailJS und Veröffentlichung
 

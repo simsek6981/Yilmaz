@@ -14,9 +14,9 @@ async function overflow(p){return p.evaluate(()=>({width:innerWidth,scroll:docum
  const p=await context.newPage();
  p.on('pageerror',e=>report.errors.push(String(e)));
  p.on('request',r=>report.requests.add(r.url()));
- for(const width of [360,390,768,1024,1440,1920]){
+ for(const width of [320,360,390,768,1024,1280,1440,1920]){
   await p.setViewportSize({width,height:width<700?844:1000});
-  for(const file of ['index.html','steuerberatung.html','ueber-mich.html','impressum.html','datenschutz.html']){
+  for(const file of ['index.html','steuerberatung.html','ueber-mich.html','impressum.html','datenschutz.html','buchhaltung.html','bilanzierung.html','lohnverrechnung.html']){
    const response=await p.goto(base+file);assert.equal(response.status(),200);
    await p.evaluate(()=>document.fonts.ready);
    for(const part of [0,.5,1]){
@@ -34,7 +34,7 @@ async function overflow(p){return p.evaluate(()=>({width:innerWidth,scroll:docum
    }
   }
  }
- await check('30 page/viewport combinations have no horizontal overflow',async()=>assert.equal(report.viewports.length,30));
+ await check('64 page/viewport combinations have no horizontal overflow',async()=>assert.equal(report.viewports.length,64));
  await p.setViewportSize({width:390,height:844});await p.goto(base);
  await check('Mobile menu: open, Escape focus return, link navigation, desktop transition',async()=>{
   const menu=p.getByRole('button',{name:'Menü',exact:true});
@@ -75,9 +75,20 @@ async function overflow(p){return p.evaluate(()=>({width:innerWidth,scroll:docum
   await p.emulateMedia({reducedMotion:'reduce'});await p.goto(base);await p.evaluate(()=>scrollTo(0,1200));await p.waitForTimeout(100);
   assert.equal(await p.evaluate(()=>document.getAnimations().length),0);assert.ok(!await p.locator('html').evaluate(e=>e.classList.contains('motion-enabled')));await p.emulateMedia({reducedMotion:'no-preference'});
  });
- await check('Legacy URLs lead to the correct sections; custom nested 404 retains working assets',async()=>{
-  for(const [legacy,target]of [['buchhaltung.html','steuerberatung.html#buchhaltung'],['bilanzierung.html','steuerberatung.html#bilanzierung'],['lohnverrechnung.html','steuerberatung.html#lohnverrechnung'],['kontakt.html','index.html#termin']]){await p.goto(base+legacy);await p.waitForURL(base+target);}
+ await check('Service URLs are full pages; contact redirect and nested 404 retain working assets',async()=>{
+  for(const service of ['buchhaltung','bilanzierung','lohnverrechnung']){const r=await p.goto(base+service+'.html');assert.equal(r.status(),200);assert.equal(p.url(),base+service+'.html');assert.ok(await p.locator('#'+service).isVisible());assert.ok(await p.locator('h1').isVisible());}
+  await p.goto(base+'kontakt.html');await p.waitForURL(base+'index.html#termin');
   const r=await p.goto(base+'missing/nested/page');assert.equal(r.status(),404);assert.ok(await p.locator('h1').isVisible());assert.ok(await p.locator('.brand img').first().evaluate(e=>e.complete&&e.naturalWidth>0));
+ });
+ await check('FAQ supports keyboard expansion and service links open full detail pages',async()=>{
+  await p.goto(base);const faq=p.locator('.faq-list details').first();await faq.locator('summary').focus();await p.keyboard.press('Space');assert.ok(await faq.getAttribute('open')!==null);await p.keyboard.press('Space');assert.equal(await faq.getAttribute('open'),null);
+  await p.locator('.service-row').first().click();await p.waitForURL('**/buchhaltung.html');
+ });
+ await check('Situation selector: pointer and keyboard switch the correct content and links',async()=>{
+  await p.goto(base);const business=p.locator('#tab-business'),founding=p.locator('#tab-founding'),priv=p.locator('#tab-private');
+  await founding.click();assert.equal(await founding.getAttribute('aria-selected'),'true');assert.ok(await p.locator('#focus-founding').isVisible());assert.ok(await p.locator('#focus-business').isHidden());assert.equal(await p.locator('#focus-founding a').getAttribute('href'),'steuerberatung.html#gruendung');
+  await p.keyboard.press('ArrowRight');assert.ok(await priv.evaluate(e=>e===document.activeElement));assert.ok(await p.locator('#focus-private').isVisible());
+  await p.keyboard.press('Home');assert.ok(await business.evaluate(e=>e===document.activeElement));assert.ok(await p.locator('#focus-business').isVisible());
  });
  const nojs=await b.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const np=await nojs.newPage();
  await check('Without JavaScript: readable content, visible navigation, direct contact fallback',async()=>{

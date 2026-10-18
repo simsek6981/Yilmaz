@@ -8,10 +8,12 @@ __pycache__/
 qa/
 dist/
 public/
-.openai/
+.openai/*
+!.openai/hosting.json
 
 .venv/
 .pytest_cache/
 *.log
 .DS_Store
 Thumbs.db
+qa-*.png

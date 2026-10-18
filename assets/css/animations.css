@@ -1,27 +1,8 @@
-/* All content is visible by default. Motion is an enhancement, never a gate. */
-@keyframes line-enter{from{transform:translateY(100%)}to{transform:translateY(0)}}
-@keyframes soft-enter{from{transform:translateY(12px)}to{transform:translateY(0)}}
-@keyframes sculpture-enter{from{transform:translateY(18px) rotate(-3deg);opacity:.3}to{transform:translateY(0) rotate(0);opacity:1}}
-@keyframes atmosphere-enter{from{opacity:0}to{opacity:1}}
-@keyframes timeline-progress{from{transform:scaleY(0)}to{transform:scaleY(1)}}
-@keyframes perspective-drift{from{transform:translateY(0)}to{transform:translateY(38px)}}
-@media(prefers-reduced-motion:no-preference){
-  .motion-enabled .hero-copy h1 .line>span,.motion-enabled .subhero h1 .line>span{animation:line-enter var(--duration-slow) var(--ease-entrance) both}
-  .motion-enabled h1 .line:nth-child(2)>span{animation-delay:80ms}
-  .motion-enabled h1 .line:nth-child(3)>span{animation-delay:160ms}
-  .motion-enabled .hero-support{animation:soft-enter 650ms var(--ease-entrance) 180ms both}
-  .motion-enabled .hero-actions{animation:soft-enter 650ms var(--ease-entrance) 260ms both}
-  .motion-enabled .sculpture{animation:sculpture-enter 1100ms var(--ease-entrance) 100ms both}
-  .motion-enabled .art-halo{animation:atmosphere-enter 1200ms var(--ease-standard) both}
-  /* Moving or fading a focused link would impair keyboard navigation. */
-  .hero-actions:focus-within{animation:none!important}
-  @supports(animation-timeline:view()){
-    .steps{view-timeline-name:--process;view-timeline-axis:block}
-    .steps::after{animation:timeline-progress linear both;animation-timeline:--process;animation-range:entry 20% cover 65%}
-    .hero-art{animation:perspective-drift linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
-  }
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-}
+/* Content always remains readable; motion never gates a primary action. */
+@keyframes line-enter{from{opacity:1;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes image-enter{from{opacity:.35;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes timeline-progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes timeline-progress-mobile{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@media(prefers-reduced-motion:no-preference){.motion-enabled .hero-copy h1 .line>span{animation:line-enter .8s var(--ease) both;display:inline-block}.motion-enabled .hero-copy h1 .line:nth-child(2)>span{animation-delay:.1s}.motion-enabled .hero-support,.motion-enabled .hero-actions{animation:line-enter .7s .16s var(--ease) both}.motion-enabled .hero-art{animation:image-enter 1s .08s var(--ease) both}.focus-panel.is-entering{animation:line-enter .4s var(--ease) both}.hero-actions:focus-within{animation:none!important}@supports(animation-timeline:view()){.steps{view-timeline-name:--process;view-timeline-axis:block}.steps::after{animation:timeline-progress linear both;animation-timeline:--process;animation-range:entry 20% cover 65%}}}
+@media(max-width:680px) and (prefers-reduced-motion:no-preference){@supports(animation-timeline:view()){.steps::after{animation-name:timeline-progress-mobile}}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.hero-art:hover .hero-visual{transform:none}}
