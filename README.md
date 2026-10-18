@@ -1,5 +1,7 @@
 # F-Tax · New Perspective
 
+Aktuelle mobile Anpassungen und Symbolbereinigung: [docs/MOBILE-POLISH.md](docs/MOBILE-POLISH.md). Geprüft bei 360, 390, 430, 768 und 1440 Pixeln; zusätzliche Regression mit `npm run test:mobile`.
+
 Vollständig überarbeitete visuelle Gestaltung: Anthrazit, helle Typografie, Lime-Akzent und eine eigens generierte abstrakte Chromskulptur. Die bisherigen CSS-Schichten wurden durch ein zusammenhängendes Designsystem ersetzt. Neue Leistungskarten, eine interaktive Auswahl für Unternehmen/Gründung/Privatpersonen, horizontale Prozessschritte und überarbeitete Fachseiten prägen den Auftritt. Original-Logo, Unternehmensdaten, Formularvertrag und Routen bleiben erhalten.
 
 Aktueller Umsetzungs- und Prüfbericht: [MODERN-REDESIGN.md](MODERN-REDESIGN.md). Designsystem: [brand-spec.md](brand-spec.md). Bildherkunft und vollständiger Prompt: [docs/modern-image-prompt.md](docs/modern-image-prompt.md). Der frühere Bericht [BERICHT.md](BERICHT.md) dokumentiert die vorherige Fassung und die weiterhin relevante Wettbewerbsrecherche.

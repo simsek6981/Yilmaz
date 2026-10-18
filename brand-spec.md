@@ -27,4 +27,6 @@ Drei ARIA-Tabs für Unternehmen, Gründung und Privatpersonen. Pfeiltasten, Home
 
 ## Prüfung und Grenzen
 
+Mobile Erhaltungsanpassung vom 18. Oktober 2026: Farben, Manrope, Logo, Bildwelt und Desktopkomposition bleiben bestehen. Größere mobile Typografie und Touchflächen, flexible Bildhöhen, sichere Umbrüche und SVG-Bedienicons. Prüfung und genaue Grenzen: `docs/MOBILE-POLISH.md`.
+
 Aktuelle tatsächliche Resultate: `MODERN-REDESIGN.md`. Echte EmailJS-Zustellung, Domainfreigabe im Dienst und juristische Bestätigung der bestehenden Rechtsentwürfe bleiben als konkrete Betriebsprüfungen offen. Private Sites-Vorschau und GitHub-Pull-Request sind getrennte Veröffentlichungswege.
