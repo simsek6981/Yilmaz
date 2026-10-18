@@ -1,5 +1,7 @@
 # F-Tax · New Perspective
 
+Ergänzung vom 18. Oktober 2026: Mobile Darstellung und Symbolbereinigung sind in [docs/MOBILE-POLISH.md](docs/MOBILE-POLISH.md) dokumentiert. Die Desktopkomposition bleibt erhalten.
+
 18. Oktober 2026. Die vom Nutzer gewünschte deutlich modernere Gestaltung ersetzt die vorherige reduzierte Fassung. Bestehende Unternehmensangaben, Original-Logo, Fachinhalte, Routen und die EmailJS-Anbindung bleiben erhalten. Die Arbeit aktualisiert den bestehenden Pull Request #13.
 
 ## Gestaltung
