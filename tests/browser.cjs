@@ -84,6 +84,12 @@ async function overflow(p){return p.evaluate(()=>({width:innerWidth,scroll:docum
   await p.goto(base);const faq=p.locator('.faq-list details').first();await faq.locator('summary').focus();await p.keyboard.press('Space');assert.ok(await faq.getAttribute('open')!==null);await p.keyboard.press('Space');assert.equal(await faq.getAttribute('open'),null);
   await p.locator('.service-row').first().click();await p.waitForURL('**/buchhaltung.html');
  });
+ await check('Situation selector: pointer and keyboard switch the correct content and links',async()=>{
+  await p.goto(base);const business=p.locator('#tab-business'),founding=p.locator('#tab-founding'),priv=p.locator('#tab-private');
+  await founding.click();assert.equal(await founding.getAttribute('aria-selected'),'true');assert.ok(await p.locator('#focus-founding').isVisible());assert.ok(await p.locator('#focus-business').isHidden());assert.equal(await p.locator('#focus-founding a').getAttribute('href'),'steuerberatung.html#gruendung');
+  await p.keyboard.press('ArrowRight');assert.ok(await priv.evaluate(e=>e===document.activeElement));assert.ok(await p.locator('#focus-private').isVisible());
+  await p.keyboard.press('Home');assert.ok(await business.evaluate(e=>e===document.activeElement));assert.ok(await p.locator('#focus-business').isVisible());
+ });
  const nojs=await b.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const np=await nojs.newPage();
  await check('Without JavaScript: readable content, visible navigation, direct contact fallback',async()=>{
   await np.goto(base);assert.ok(await np.locator('h1').isVisible());assert.ok(await np.locator('#navigation').isVisible());assert.ok(await np.locator('[data-contact-notice]').isVisible());assert.ok(await np.locator('.form-submit').isDisabled());assert.ok((await overflow(np)).scroll<=390);

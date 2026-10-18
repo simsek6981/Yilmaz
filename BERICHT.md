@@ -1,3 +1,5 @@
+> Historischer Prüfbericht der inzwischen ersetzten Forest-&-Paper-Fassung. Der aktuelle Stand und neue Messwerte stehen in [MODERN-REDESIGN.md](MODERN-REDESIGN.md). Die Wettbewerbsrecherche bleibt als Grundlage erhalten.
+
 # F-Tax · Umsetzung und Qualitätsprüfung
 
 Stand: 18. Oktober 2026. Grundlage ist das vom Nutzer benannte Repository [simsek6981/Yilmaz](https://github.com/simsek6981/Yilmaz), Ausgangscommit `6f7fce8cc600d8d0eb8c0661f9a9eee126d28b0e`. Die Arbeit wird in einem eigenen Branch mit Pull Request bereitgestellt. Eine zusätzliche private Sites-Fassung dient der Ansicht.

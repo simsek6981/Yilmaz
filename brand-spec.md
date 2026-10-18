@@ -1,34 +1,30 @@
-# F-Tax · Design und erhaltene Verträge
+# F-Tax · New Perspective
 
-Quelle: https://github.com/simsek6981/Yilmaz, Stand des geklonten main-Zweigs. Unternehmensdaten, Original-Logo, Fachtexte, Biografie und EmailJS-Konfiguration stammen aus diesem vom Nutzer benannten Repository. Firmenname, Geschäftsführer und Adresse sind zusätzlich über https://www.evi.gv.at/f/655274p abgeglichen.
+Stand: 18. Oktober 2026. Ausdrücklich gewünschter neuer visueller Auftritt nach der vorherigen reduzierten Fassung.
 
 ## Design Read
 
-- Website einer persönlichen Steuerberatung für Unternehmen, freie Berufe und Privatpersonen in Leonding und österreichweit.
-- Modus: Redesign · Overhaul. Neue Art Direction, bestehende Inhalte und Transportverträge.
-- Sprache: ruhige, typografisch geprägte Geschäftskommunikation; großzügige Flächen, präzise Linien, eine markeneigene F-Skulptur.
-- Dials: Varianz 6 (wechselnde Kompositionen), Bewegung 3 (kurze Reveals und Zustandswechsel), Dichte 5 (kurze Übersicht, ausführliche Fachseiten), Asset-Abhängigkeit 3 (Original-Logo und vorhandene SVG), Markentreue 7 (Original-Logo, lokale Manrope, Inhalt und Ton bleiben).
+Website einer persönlichen Steuerberatung für Unternehmen, Gründende und Privatpersonen. Modus: Redesign · Overhaul. Dramatischer, räumlicher Auftakt und klare interaktive Orientierung; stabile Navigation, verständliche Fachtexte und echte Daten bilden die Grundlage.
 
-## Positionierung und System
+Varianz 8: neue Hero-Komposition, Kartenraster, interaktiver Auswahlbereich und horizontale Prozesse. Bewegung 5: einmalige Entrées, Auswahlwechsel und zurückhaltende Hoverreaktionen; keine Endlosschleifen. Dichte 5: kurze Einstiegsinformationen mit vollständigen Fachseiten. Asset-Abhängigkeit 7: neue eigens generierte Chromskulptur und das originale Logo. Markentreue 6: Logo, Manrope, Angaben und Ton bleiben, die Farb- und Formensprache wird neu gestaltet.
 
-Der Hero erklärt Angebot und Ansprechpartner auf Telefon und Laptop aus kurzer Lesedistanz. Autoritativ, aber zugänglich; H1, kurzer Leistungsbezug und CTA müssen gemeinsam sichtbar sein. Fachseiten priorisieren Navigation und ruhige Leselänge. Der Abschluss führt unmittelbar zur Anfrage.
+## System
 
-- Farben: Tannengrün #193a32, Elfenbein #f6f5ef, dunkle Schrift #20352d, Salbei #bdcdb2, gedeckter Text #57645c.
-- Typografie: lokal gehostete Manrope (assets/fonts/manrope-latin.woff2), 16–18px Fließtext, 68–112px Desktop-Hero, 46–68px mobile Headline. Keine externe Fontanfrage.
-- Raster: 8px-Basis, 24/32/48/64/96px-Abstände, Inhaltsbreite 1280px, flüssige Außenabstände.
-- Formen: 3px an Buttons, 0–8px an Flächen. Kreise nur bei Richtungspfeilen. Keine Glassmorphism-Flächen.
-- Tiefe: nur sehr dezenter Schatten an der klebenden Navigation. Hierarchie entsteht durch Typografie und Farbe.
-- Motion: 220ms für Zustände, einmalige 430–760ms-Reveals; reduced-motion zeigt alle Inhalte statisch. Keine Endlosschleifen.
-- Logo: assets/icons/logo.svg ist unverändert. assets/images/perspective.svg bleibt als Original erhalten; perspective-sage.svg ist eine neue Farbvariante der bestehenden Codegrafik.
+- Anthrazit `#0b0f14`, Text `#f5f6f7`, Akzent `#d7ff6c`, Sekundärtext `#aab2bc`, helle Flächen `#eef1f4`.
+- Lokale Manrope, große Headlines, sichtbare Wortabstände; Außenabstände flüssig, Inhaltsbreite maximal 1280px, 8px-Grundraster.
+- Runde Aktionsflächen, 16–24px-Radien für Karten, 24–36px für große Abschnittswechsel. Kein allgemeines Glassmorphism-System.
+- Zustände über Farbe, Linien und präzise Bewegung. Text behält auch während Animationen vollen Kontrast. Alle Bewegungen werden bei Reduced Motion abgeschaltet.
+- Original-Logo: `assets/icons/logo.svg`, unverändert. Auf dunklem Grund wird es nur per CSS invertiert.
+- Neue Bildwelt: `assets/images/perspective-chrome.webp` sowie die mobile Variante. Generative abstrakte Illustration, kein tatsächlicher Standort und kein Porträt. Vollständiger Prompt und Toolmodus in `docs/modern-image-prompt.md`.
 
-## Erhalten
+## Erhaltene Verträge
 
-Routen und alte Anker, Kontaktdaten, Original-Logo, tatsächliche Biografie, Hinweis zum Lohnverrechnungspartner, Rechtsentwürfe und deren Freigabehinweise; sämtliche Formularfeldnamen, EmailJS-Service/Template/Public-Key, Validierung, Fehlerrückmeldung, Spamfeld, Sperre während Versand und Wiederholschutz. Bestehende Vorschau bleibt noindex. Keine erfundenen Bewertungen, Teamfotos, Kennzahlen oder Auszeichnungen.
+Firmenname, Geschäftsführer, Adresse, Telefon, E-Mail, UID, Biografie, Leistungen und Partnerhinweis stammen aus dem vom Nutzer benannten Repository. Formularfelder und EmailJS-Kennungen sowie Validierung, Fehlerrückmeldung, Spamfeld, Versandsperre und Wiederholschutz bleiben erhalten. Bestehende Routen und Fachanker, mobile Tastaturnavigation, No-JavaScript-Fallback und Vorschau-noindex bleiben erhalten. Keine erfundenen Kundenstimmen, Kennzahlen, Porträts oder Auszeichnungen.
 
-## Verbessert
+## Neue Interaktion
 
-Kontrast und Schriftgrößen, mobile Komposition, weniger dekorative Metadaten, gut sichtbare Kontaktoptionen, vollständige Buchhaltungs-/Bilanzierungs-/Lohnverrechnungsseiten an bisherigen Weiterleitungsrouten, FAQ zur Zusammenarbeit, klare Fokuszustände und reduzierte Bewegung.
+Drei ARIA-Tabs für Unternehmen, Gründung und Privatpersonen. Pfeiltasten, Home und End; aktive Zustände und passende echte Fachlinks. Ohne JavaScript werden alle Inhalte angezeigt. Es werden keine personenbezogenen Informationen für die Auswahl gespeichert.
 
-## Grenzen
+## Prüfung und Grenzen
 
-EmailJS-Empfang und Domainfreigabe erfordern einen echten Zustelltest im bestehenden Konto; QA fängt alle Versandaufrufe ab und sendet keine Nachrichten. Rechtliche Entwürfe und Unternehmensangaben behalten ihren ursprünglichen Bestätigungsbedarf. Private Sites-Vorschau ist keine Freigabe für öffentliche Suchmaschinenindexierung.
+Aktuelle tatsächliche Resultate: `MODERN-REDESIGN.md`. Echte EmailJS-Zustellung, Domainfreigabe im Dienst und juristische Bestätigung der bestehenden Rechtsentwürfe bleiben als konkrete Betriebsprüfungen offen. Private Sites-Vorschau und GitHub-Pull-Request sind getrennte Veröffentlichungswege.

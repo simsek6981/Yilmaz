@@ -72,15 +72,15 @@
           if(typeof el.animate!=='function'||el.contains(document.activeElement))return;
           const distance=small.matches?6:12;
           const mode=el.getAttribute('data-reveal');
-          let entrance={opacity:.85,transform:'translateY('+distance+'px)'};
+          let entrance={opacity:1,transform:'translateY('+distance+'px)'};
           let settled={opacity:1,transform:'translate(0,0)'};
-          if(mode==='row'&&!small.matches)entrance={opacity:.85,transform:'translateX(-12px)'};
+          if(mode==='row'&&!small.matches)entrance={opacity:1,transform:'translateX(-12px)'};
           if(mode==='lines'){
-            entrance={opacity:.9,transform:'translateY('+distance+'px)',clipPath:'inset(0 0 26% 0)'};
+            entrance={opacity:1,transform:'translateY('+distance+'px)',clipPath:'inset(0 0 26% 0)'};
             settled={...settled,clipPath:'inset(0 0 0% 0)'};
           }
           if(mode==='image'){
-            entrance={opacity:.7,transform:'scale(1.015)',clipPath:'inset(0 8% 0 0)'};
+            entrance={opacity:1,transform:'scale(1.015)',clipPath:'inset(0 8% 0 0)'};
             settled={opacity:1,transform:'scale(1)',clipPath:'inset(0 0% 0 0)'};
           }
           try{
